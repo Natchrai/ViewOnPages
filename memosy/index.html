@@ -325,7 +325,7 @@
             char.style.setProperty("--scatter-x", `${dir * (180 + index * 8)}px`);
             char.style.setProperty("--scatter-y", `${(index % 2 === 0 ? -1 : 1) * 70}px`);
             char.style.setProperty("--scatter-r", `${dir * (12 + index)}deg`);
-            char.style.animationDelay = "0ms";
+            char.style.animationDelay = `${index * 10}ms`;
             char.classList.add("scatter-out");
         });
 
@@ -349,8 +349,13 @@
 
             const char = `
                 <span
-                class="sequence-char"
-                style="--i:${charIndex};"
+                class="sequence-char gather-in"
+                style="
+                    --i:${charIndex};
+                    --from-x:${dir * 260}px;
+                    --from-y:${(index % 2 === 0 ? -1 : 1) * 70}px;
+                    --from-r:${dir * 14}deg;
+                "
                 >${escapeHtml(ch)}</span>
             `;
 
@@ -381,7 +386,7 @@
         const maxFrames = 38;
         let frame = 0;
 
-        function updateCinematicFrame() {
+        scrambleTimer = setInterval(() => {
             const progress = frame / maxFrames;
 
             function makeScrambleText(target) {
@@ -412,12 +417,7 @@
             if (ch === " ") return '<span class="title-space">&nbsp;</span>';
             return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
             }).join("");
-        }
 
-        updateCinematicFrame();
-
-        scrambleTimer = setInterval(() => {
-            updateCinematicFrame();
             frame += 1;
 
             if (frame > maxFrames) {

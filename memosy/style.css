@@ -481,14 +481,13 @@ h1 strong {
 
 .sequence-title {
   margin: 0;
-  width: auto;
-  display: inline-block;
+  width: 100%;
   max-width: none;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-size: clamp(42px, 6.2vw, 92px);
   font-weight: 950;
   line-height: 1.08;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.035em;
   color: #fff;
   text-align: center;
   text-shadow:
@@ -497,15 +496,15 @@ h1 strong {
 }
 
 .sequence-line {
-  display: inline-block;
-  width: auto;
+  display: block;
+  width: 100%;
   text-align: center;
   white-space: nowrap;
 }
 
 .sequence-char {
   display: inline-block;
-  margin-right: -0.12em;
+  margin-right: -0.08em;
 }
 
 .title-space {
@@ -513,20 +512,37 @@ h1 strong {
   width: .18em;
 }
 
-.sequence-title.is-pretendard {
-  width: auto;
-  display: inline-block;
-  letter-spacing: -0.08em;
-}
-
+/* style.css 파일 수정 */
 .sequence-title.is-pretendard .sequence-char {
   font-variation-settings: "wght" 850;
+  animation: dropFromTop .82s cubic-bezier(.16,1,.3,1) both;
+  animation-delay: calc(var(--i) * 22ms);
   will-change: transform, opacity, filter;
+}
+
+@keyframes dropFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px) scale(0.8);
+    filter: blur(10px);
+    letter-spacing: -0.2em; /* 좁게 시작 */
+  }
+  72% {
+    opacity: 1;
+    transform: translateY(8px) scale(1.02);
+    filter: blur(0);
+    letter-spacing: -0.08em; /* 정상 간격으로 확장 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    letter-spacing: -0.08em;
+  }
 }
 
 .scatter-out {
   animation: scatterToSides .68s cubic-bezier(.55,.02,.87,.36) forwards !important;
-  animation-delay: 0ms !important;
 }
 
 @keyframes scatterToSides {
@@ -544,12 +560,12 @@ h1 strong {
 }
 
 .sequence-title.is-cinematic {
-  width: auto;
-  display: inline-block;
-  color: #fff;
-  -webkit-text-fill-color: currentColor;
-  background: none;
-  animation: none;
+  background: linear-gradient(90deg,#ffffff,#72d7ff,#b79cff,#ffffff);
+  background-size: 280% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cinematicGradient 4.8s linear infinite;
   text-shadow: none;
   filter:
     drop-shadow(0 0 16px rgba(96,186,255,.36))
@@ -565,12 +581,11 @@ h1 strong {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: auto;
+  width: 100%;
   font-size: .55em;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.045em;
   line-height: 1.1;
   opacity: .96;
-  color: #dff6ff;
 }
 
 .sequence-title.is-cinematic .cinematic-main-line {
@@ -578,27 +593,17 @@ h1 strong {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: auto;
+  width: 100%;
   margin-top: .08em;
   font-size: 1.08em;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.07em;
   line-height: 1.05;
 }
 
 .cinematic-char {
   display: inline-block;
-  color: #fff;
-  -webkit-text-fill-color: currentColor;
   animation: cinematicAppear .72s cubic-bezier(.16,1,.3,1) both;
   animation-delay: calc(var(--i) * 20ms);
-}
-
-.sequence-title.is-cinematic .cinematic-main-line .cinematic-char {
-  color: #8bdcff;
-}
-
-.sequence-title.is-cinematic .cinematic-sub-line .cinematic-char {
-  color: #ffffff;
 }
 
 @keyframes cinematicAppear {
@@ -819,12 +824,10 @@ body::after {
 
   .sequence-title {
     font-size: clamp(30px, 8.5vw, 48px);
-    letter-spacing: -0.08em;
+    letter-spacing: -0.065em;
   }
 
   .sequence-line {
-    display: inline-block;
-    width: auto;
     white-space: nowrap;
   }
 }
