@@ -263,146 +263,138 @@
   </script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const title = document.getElementById("heroSequenceTitle");
-      if (!title) return;
+  document.addEventListener("DOMContentLoaded", () => {
+    const title = document.getElementById("heroSequenceTitle");
+    if (!title) return;
 
-      const steps = [
-        {
-          type: "soft",
-          lines: [
-            "생각은 금방 흩어집니다.",
-            "떠오른 순간 바로 기록하세요."
-          ]
-        },
-        {
-          type: "soft",
-          lines: [
-            "메모장에 정리하고,",
-            "할 일을 효율적으로 관리하세요."
-          ]
-        },
-        {
-          type: "cinematic",
-          lines: [
-            "빠른 메모",
-            "Memosy"
-          ]
-        }
-      ];
-
-      const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
-      let stepIndex = 0;
-      let timer = null;
-
-      function escapeHtml(text) {
-        return text
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
+    const steps = [
+      {
+        type: "soft",
+        lines: [
+          "생각은 금방 흩어집니다.",
+          "떠오른 순간 바로 기록하세요."
+        ]
+      },
+      {
+        type: "soft",
+        lines: [
+          "메모장에 정리하고,",
+          "할 일을 효율적으로 관리하세요."
+        ]
+      },
+      {
+        type: "cinematic",
+        lines: [
+          "빠른 메모",
+          "Memosy"
+        ]
       }
+    ];
 
-      function renderSoft(lines) {
-        let charIndex = 0;
+    const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
+    let stepIndex = 0;
+    let timer = null;
 
-        title.className = "sequence-title is-pretendard";
-        title.innerHTML = lines.map((line) => {
-          const chars = [...line].map((ch) => {
-            if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
 
-            const html = `<span class="sequence-char" style="--i:${charIndex}">${escapeHtml(ch)}</span>`;
-            charIndex += 1;
-            return html;
-          }).join("");
+    function renderSoft(lines) {
+      let charIndex = 0;
 
-          return `<span class="sequence-line">${chars}</span>`;
+      title.className = "sequence-title is-pretendard";
+      title.innerHTML = lines.map((line) => {
+        const chars = [...line].map((ch) => {
+          if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+
+          const html = `<span class="sequence-char" style="--i:${charIndex}">${escapeHtml(ch)}</span>`;
+          charIndex += 1;
+          return html;
         }).join("");
+
+        return `<span class="sequence-line">${chars}</span>`;
       }).join("");
+    }
 
-          return `<span class="sequence-line">${chars}</span>`;
-        }).join("");
-      }
+    function randomChar() {
+      return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+    }
 
-      function randomChar() {
-        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
-      }
+    function renderCinematic(lines) {
+      title.className = "sequence-title is-cinematic";
+      title.innerHTML = '<span class="sequence-line"></span><span class="sequence-line"></span>';
 
-      function renderCinematic(lines) {
-        title.className = "sequence-title is-cinematic";
-        title.innerHTML = '<span class="sequence-line"></span><span class="sequence-line"></span>';
+      const targets = lines;
+      const lineEls = title.querySelectorAll(".sequence-line");
+      const maxFrames = 34;
+      let frame = 0;
 
-        const targets = lines;
-        const lineEls = title.querySelectorAll(".sequence-line");
-        const oldValues = ["", ""];
-        const maxFrames = 34;
-        let frame = 0;
+      clearInterval(timer);
 
-        clearInterval(timer);
+      timer = setInterval(() => {
+        const progress = frame / maxFrames;
 
-        timer = setInterval(() => {
-          const progress = frame / maxFrames;
+        lineEls.forEach((lineEl, lineIndex) => {
+          const target = targets[lineIndex] || "";
+          const maxLength = target.length;
+          let output = "";
 
-          lineEls.forEach((lineEl, lineIndex) => {
-            const target = targets[lineIndex] || "";
-            const oldText = oldValues[lineIndex] || "";
-            const maxLength = Math.max(target.length, oldText.length);
-            let output = "";
+          for (let i = 0; i < maxLength; i++) {
+            const targetChar = target[i] || "";
+            const revealPoint = (i / Math.max(maxLength, 1)) * 0.62 + 0.18;
 
-            for (let i = 0; i < maxLength; i++) {
-              const targetChar = target[i] || "";
-              const revealPoint = (i / Math.max(maxLength, 1)) * 0.62 + 0.18;
-
-              if (targetChar === " ") {
-                output += " ";
-              } else if (progress > revealPoint) {
-                output += targetChar;
-              } else if (progress > revealPoint - 0.2) {
-                output += randomChar();
-              } else {
-                output += oldText[i] || randomChar();
-              }
+            if (targetChar === " ") {
+              output += " ";
+            } else if (progress > revealPoint) {
+              output += targetChar;
+            } else {
+              output += randomChar();
             }
-
-            lineEl.textContent = output.trimEnd();
-          });
-
-          frame += 1;
-
-          if (frame > maxFrames) {
-            clearInterval(timer);
-            lineEls[0].textContent = targets[0];
-            lineEls[1].textContent = targets[1];
-          }
-        }, 38);
-      }
-
-      function showStep(index) {
-        title.classList.add("is-changing");
-
-        setTimeout(() => {
-          const step = steps[index];
-
-          if (step.type === "cinematic") {
-            renderCinematic(step.lines);
-          } else {
-            renderSoft(step.lines);
           }
 
-          requestAnimationFrame(() => {
-            title.classList.remove("is-changing");
-          });
-        }, 260);
-      }
+          lineEl.textContent = output.trimEnd();
+        });
 
+        frame += 1;
+
+        if (frame > maxFrames) {
+          clearInterval(timer);
+          lineEls[0].textContent = targets[0];
+          lineEls[1].textContent = targets[1];
+        }
+      }, 38);
+    }
+
+    function showStep(index) {
+      title.classList.add("is-changing");
+
+      setTimeout(() => {
+        const step = steps[index];
+
+        if (step.type === "cinematic") {
+          renderCinematic(step.lines);
+        } else {
+          renderSoft(step.lines);
+        }
+
+        requestAnimationFrame(() => {
+          title.classList.remove("is-changing");
+        });
+      }, 260);
+    }
+
+    showStep(stepIndex);
+
+    setInterval(() => {
+      stepIndex = (stepIndex + 1) % steps.length;
       showStep(stepIndex);
-
-      setInterval(() => {
-        stepIndex = (stepIndex + 1) % steps.length;
-        showStep(stepIndex);
-      }, 4600);
-    });
-  </script>
+    }, 4600);
+  });
+</script>
 </body>
 </html>
