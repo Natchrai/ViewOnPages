@@ -66,8 +66,9 @@
       <p class="hero-chip">빠르게 기록하고, 쉽게 정리하고, 편하게 관리하세요</p>
 
       <div class="hero-title-sequence" aria-live="polite">
-        <h1 id="heroSequenceTitle" class="sequence-title is-pretendard"></h1>
+        <h1 id="heroSequenceTitle" class="sequence-title"></h1>
       </div>
+
       <div class="sequence-glow-line" aria-hidden="true"></div>
 
       <p class="subtitle">
@@ -264,140 +265,199 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const title = document.getElementById("heroSequenceTitle");
-      if (!title) return;
+        const title = document.getElementById("heroSequenceTitle");
+        if (!title) return;
 
-      const steps = [
+        const steps = [
         {
-          type: "pretendard",
-          lines: [
-            "생각은 금방 흩어집니다.",
-            "떠오른 순간 바로 기록하세요."
-          ]
+            type: "pretendard",
+            lines: [
+            "생각은 금방 흩어집니다."
+            ]
         },
         {
-          type: "pretendard",
-          lines: [
-            "메모장에 정리하고,",
-            "할 일을 효율적으로 관리하세요."
-          ]
+            type: "pretendard",
+            lines: [
+            "정리하고 효율적으로 관리하세요."
+            ]
         },
         {
-          type: "cinematic",
-          lines: [
+            type: "cinematic",
+            lines: [
             "빠른 메모",
             "Memosy"
-          ]
+            ]
         }
-      ];
+        ];
 
-      const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
-      let stepIndex = 0;
-      let scrambleTimer = null;
+        const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
+        let stepIndex = 0;
+        let scrambleTimer = null;
 
-      function escapeHtml(text) {
+        function escapeHtml(text) {
         return text
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-      }
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
 
-      function renderPretendard(lines) {
-        let charIndex = 0;
+        function randomChar() {
+        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }
 
+        function sideDirection(index, total) {
+        return index < total / 2 ? -1 : 1;
+        }
+
+        function scatterCurrentTitle(callback) {
+        const chars = title.querySelectorAll(".sequence-char, .cinematic-char");
+
+        if (!chars.length) {
+            callback();
+            return;
+        }
+
+        const total = chars.length;
+
+        chars.forEach((char, index) => {
+            const dir = sideDirection(index, total);
+
+            char.style.setProperty("--scatter-x", `${dir * (180 + index * 8)}px`);
+            char.style.setProperty("--scatter-y", `${(index % 2 === 0 ? -1 : 1) * 70}px`);
+            char.style.setProperty("--scatter-r", `${dir * (12 + index)}deg`);
+            char.style.animationDelay = `${index * 10}ms`;
+            char.classList.add("scatter-out");
+        });
+
+        setTimeout(callback, 720);
+        }
+
+        function renderPretendard(lines) {
         clearInterval(scrambleTimer);
+
+        let charIndex = 0;
         title.className = "sequence-title is-pretendard";
 
         title.innerHTML = lines.map((line) => {
-          const chars = [...line].map((ch) => {
+            const chars = [...line].map((ch, index) => {
             if (ch === " ") {
-              return '<span class="title-space">&nbsp;</span>';
+                return '<span class="title-space">&nbsp;</span>';
             }
 
-            const char = `<span class="sequence-char" style="--i:${charIndex}">${escapeHtml(ch)}</span>`;
+            const total = line.length;
+            const dir = sideDirection(index, total);
+
+            const char = `
+                <span
+                class="sequence-char gather-in"
+                style="
+                    --i:${charIndex};
+                    --from-x:${dir * 260}px;
+                    --from-y:${(index % 2 === 0 ? -1 : 1) * 70}px;
+                    --from-r:${dir * 14}deg;
+                "
+                >${escapeHtml(ch)}</span>
+            `;
+
             charIndex += 1;
             return char;
-          }).join("");
+            }).join("");
 
-          return `<span class="sequence-line">${chars}</span>`;
+            return `<span class="sequence-line">${chars}</span>`;
         }).join("");
-      }
+        }
 
-      function randomChar() {
-        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
-      }
-
-      function renderCinematic(lines) {
+        function renderCinematic(lines) {
         clearInterval(scrambleTimer);
 
         title.className = "sequence-title is-cinematic";
-        title.innerHTML = '<span class="sequence-line"></span><span class="sequence-line"></span>';
 
-        const lineEls = title.querySelectorAll(".sequence-line");
-        const maxFrames = 34;
+        title.innerHTML = `
+            <span class="sequence-line cinematic-empty-line"></span>
+            <span class="sequence-line cinematic-sub-line"></span>
+            <span class="sequence-line cinematic-main-line"></span>
+        `;
+
+        const subLine = title.querySelector(".cinematic-sub-line");
+        const mainLine = title.querySelector(".cinematic-main-line");
+
+        const subTarget = lines[1] || "";
+        const mainTarget = lines[2] || "";
+        const maxFrames = 38;
         let frame = 0;
 
         scrambleTimer = setInterval(() => {
-          const progress = frame / maxFrames;
+            const progress = frame / maxFrames;
 
-          lineEls.forEach((lineEl, lineIndex) => {
-            const target = lines[lineIndex] || "";
-            const maxLength = target.length;
+            function makeScrambleText(target) {
             let output = "";
 
-            for (let i = 0; i < maxLength; i++) {
-              const targetChar = target[i] || "";
-              const revealPoint = (i / Math.max(maxLength, 1)) * 0.62 + 0.18;
+            for (let i = 0; i < target.length; i++) {
+                const targetChar = target[i];
+                const revealPoint = (i / Math.max(target.length, 1)) * 0.62 + 0.18;
 
-              if (targetChar === " ") {
+                if (targetChar === " ") {
                 output += " ";
-              } else if (progress > revealPoint) {
+                } else if (progress > revealPoint) {
                 output += targetChar;
-              } else {
+                } else {
                 output += randomChar();
-              }
+                }
             }
 
-            lineEl.textContent = output.trimEnd();
-          });
+            return output;
+            }
 
-          frame += 1;
+            subLine.innerHTML = [...makeScrambleText(subTarget)].map((ch, index) => {
+            if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+            return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
 
-          if (frame > maxFrames) {
+            mainLine.innerHTML = [...makeScrambleText(mainTarget)].map((ch, index) => {
+            if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+            return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+
+            frame += 1;
+
+            if (frame > maxFrames) {
             clearInterval(scrambleTimer);
-            lineEls[0].textContent = lines[0];
-            lineEls[1].textContent = lines[1];
-          }
+
+            subLine.innerHTML = [...subTarget].map((ch, index) => {
+                if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+                return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+
+            mainLine.innerHTML = [...mainTarget].map((ch, index) => {
+                if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+                return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+            }
         }, 38);
-      }
+        }
 
-      function showStep(index) {
-        title.classList.add("is-changing");
+        function renderStep(index) {
+        const step = steps[index];
 
-        setTimeout(() => {
-          const step = steps[index];
-
-          if (step.type === "cinematic") {
+        if (step.type === "cinematic") {
             renderCinematic(step.lines);
-          } else {
+        } else {
             renderPretendard(step.lines);
-          }
+        }
+        }
 
-          requestAnimationFrame(() => {
-            title.classList.remove("is-changing");
-          });
-        }, 260);
-      }
+        function showNextStep() {
+        scatterCurrentTitle(() => {
+            stepIndex = (stepIndex + 1) % steps.length;
+            renderStep(stepIndex);
+        });
+        }
 
-      showStep(stepIndex);
-
-      setInterval(() => {
-        stepIndex = (stepIndex + 1) % steps.length;
-        showStep(stepIndex);
-      }, 4600);
+        renderStep(stepIndex);
+        setInterval(showNextStep, 4600);
     });
-  </script>
+    </script>
 </body>
 </html>
