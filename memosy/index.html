@@ -278,13 +278,16 @@
         {
             type: "pretendard",
             lines: [
-            "정리하고 효율적으로",
-            "관리하세요."
+            "정리하고 효율적으로 관리하세요."
             ]
         },
         {
             type: "cinematic",
-            lines: ["빠른 메모", "Memosy"]
+            lines: [
+            "",
+            "빠른 메모",
+            "Memosy"
+            ]
         }
         ];
 
@@ -325,7 +328,7 @@
             char.style.setProperty("--scatter-x", `${dir * (180 + index * 8)}px`);
             char.style.setProperty("--scatter-y", `${(index % 2 === 0 ? -1 : 1) * 70}px`);
             char.style.setProperty("--scatter-r", `${dir * (12 + index)}deg`);
-            char.style.animationDelay = "0ms";
+            char.style.animationDelay = `${index * 10}ms`;
             char.classList.add("scatter-out");
         });
 
@@ -349,8 +352,13 @@
 
             const char = `
                 <span
-                class="sequence-char"
-                style="--i:${charIndex};"
+                class="sequence-char gather-in"
+                style="
+                    --i:${charIndex};
+                    --from-x:${dir * 260}px;
+                    --from-y:${(index % 2 === 0 ? -1 : 1) * 70}px;
+                    --from-r:${dir * 14}deg;
+                "
                 >${escapeHtml(ch)}</span>
             `;
 
@@ -364,6 +372,7 @@
 
         function renderCinematic(lines) {
         clearInterval(scrambleTimer);
+
         title.className = "sequence-title is-cinematic";
 
         title.innerHTML = `
@@ -375,9 +384,8 @@
         const subLine = title.querySelector(".cinematic-sub-line");
         const mainLine = title.querySelector(".cinematic-main-line");
 
-        const subTarget = lines[0] || ""; 
-        const mainTarget = lines[1] || ""; 
-        
+        const subTarget = lines[1] || "";
+        const mainTarget = lines[2] || "";
         const maxFrames = 38;
         let frame = 0;
 
