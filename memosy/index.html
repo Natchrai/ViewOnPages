@@ -13,6 +13,19 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 
+<script>
+  window.addEventListener("scroll", function () {
+    const topBar = document.querySelector(".top-bar");
+    const hidePoint = window.innerHeight * 0.45;
+
+    if (window.scrollY > hidePoint) {
+      topBar.classList.add("hide");
+    } else {
+      topBar.classList.remove("hide");
+    }
+  });
+</script>
+
 <body>
   <header class="top-bar">
     <a class="brand" href="./">
