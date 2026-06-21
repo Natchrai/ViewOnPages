@@ -68,6 +68,7 @@
       <div class="hero-title-sequence" aria-live="polite">
         <h1 id="heroSequenceTitle" class="sequence-title is-pretendard"></h1>
       </div>
+
       <div class="sequence-glow-line" aria-hidden="true"></div>
 
       <p class="subtitle">
@@ -271,15 +272,13 @@
         {
           type: "pretendard",
           lines: [
-            "생각은 금방 흩어집니다.",
-            "떠오른 순간 바로 기록하세요."
+            "떠오르는 생각은 금방 흩어집니다."
           ]
         },
         {
           type: "pretendard",
           lines: [
-            "메모장에 정리하고,",
-            "할 일을 효율적으로 관리하세요."
+            "정리하고 효율적으로 관리하세요."
           ]
         },
         {
@@ -333,7 +332,10 @@
         clearInterval(scrambleTimer);
 
         title.className = "sequence-title is-cinematic";
-        title.innerHTML = '<span class="sequence-line"></span><span class="sequence-line"></span>';
+        title.innerHTML = `
+          <span class="sequence-line cinematic-small-line"></span>
+          <span class="sequence-line cinematic-main-line"></span>
+        `;
 
         const lineEls = title.querySelectorAll(".sequence-line");
         const maxFrames = 34;

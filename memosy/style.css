@@ -796,3 +796,19 @@ body::after{
   display:inline-block;
   width:.24em;
 }
+
+.sequence-title.is-cinematic .cinematic-small-line{
+  display:block;
+  font-size:.72em;
+  letter-spacing:-0.045em;
+  opacity:1;
+  line-height:1.15;
+}
+
+.sequence-title.is-cinematic .cinematic-main-line{
+  display:block;
+  margin-top:.08em;
+  font-size:1.08em;
+  letter-spacing:-0.07em;
+  line-height:1.05;
+}
