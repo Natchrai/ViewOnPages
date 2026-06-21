@@ -203,13 +203,17 @@ h1 strong {
   font-weight: 950;
 }
 
-.trust-row {
-  width: min(860px, 100%);
-  margin: 48px auto 70px;
+.trust-row svg {
+  width: 36px;
+  height: 36px;
 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  fill: none;
+  stroke: #53c7ff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter: drop-shadow(0 0 10px rgba(83, 199, 255, 0.8));
 }
 
 .trust-row div {
