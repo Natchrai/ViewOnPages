@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   color: #f7fbff;
   background:
     radial-gradient(circle at 25% 0%, rgba(38, 226, 255, 0.2), transparent 32%),
@@ -614,293 +614,162 @@ h1 strong {
   }
 }
 
-
-body{
-font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+/* Hero Title Sequence */
+.hero-title-sequence{
+  width:min(980px,100%);
+  min-height:clamp(150px,18vw,220px);
+  margin:0 auto;
+  padding:24px 16px 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-.animated-title{
-display:inline-block;
-line-height:1.08;
-letter-spacing:-0.055em;
-font-weight:900;
+.sequence-title{
+  margin:0;
+  width:100%;
+  font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size:clamp(48px,7.2vw,104px);
+  font-weight:950;
+  line-height:1.08;
+  letter-spacing:-0.075em;
+  color:#fff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,.36),
+    0 0 36px rgba(70,196,255,.38);
 }
 
-.animated-title span:not(.title-gap){
-display:inline-block;
-animation:titleWave 2.8s ease-in-out infinite;
-animation-delay:calc(var(--i) * .055s);
-will-change:transform, filter, opacity;
+.sequence-line{
+  display:block;
+  white-space:nowrap;
 }
 
-.animated-title .title-gap{
-display:inline-block;
-width:.18em;
+.sequence-title.is-soft .sequence-char{
+  display:inline-block;
+  animation:pretendardWave 2.65s ease-in-out infinite;
+  animation-delay:calc(var(--i) * .045s);
+  will-change:transform, filter, opacity;
 }
 
-@keyframes titleWave{
-0%,100%{
-transform:translateY(0) rotate(0deg);
-filter:blur(0);
-opacity:1;
-}
-18%{
-transform:translateY(-0.16em) rotate(-1.2deg);
-filter:blur(.15px);
-}
-36%{
-transform:translateY(.07em) rotate(1deg);
-}
-52%{
-transform:translateY(0) rotate(0deg);
-}
+.sequence-title.is-soft .sequence-line:nth-child(2) .sequence-char{
+  animation-delay:calc((var(--i) * .045s) + .18s);
 }
 
-@media (prefers-reduced-motion: reduce){
-.animated-title span:not(.title-gap){
-animation:none;
-}
-}
-
-
-.morph-wrap{
-position:relative;
-text-align:center;
-padding-top:40px;
-z-index:10;
-}
-
-.morph-title{
-font-family:"Pretendard Variable",sans-serif;
-font-weight:900;
-font-size:clamp(42px,6vw,88px);
-letter-spacing:-0.06em;
-margin:0;
-background:linear-gradient(90deg,#6ecbff,#8ea6ff,#b69cff,#6ecbff);
-background-size:300% 100%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:aurora 8s linear infinite;
-filter:drop-shadow(0 0 18px rgba(110,203,255,.35));
-transition:all .5s ease;
+@keyframes pretendardWave{
+  0%,100%{
+    transform:translateY(0) rotate(0deg);
+    filter:blur(0);
+    opacity:1;
+  }
+  22%{
+    transform:translateY(-.13em) rotate(-.8deg);
+    filter:blur(.12px);
+  }
+  45%{
+    transform:translateY(.045em) rotate(.45deg);
+  }
+  62%{
+    transform:translateY(0) rotate(0deg);
+  }
 }
 
-@keyframes aurora{
-0%{background-position:0% 50%}
-100%{background-position:300% 50%}
+.sequence-title.is-changing{
+  opacity:.75;
+  transform:translateY(-4px) scale(.99);
+  filter:blur(4px);
+  transition:opacity .32s ease, transform .32s ease, filter .32s ease;
 }
 
-.morph-out{
-opacity:0;
-transform:translateY(-12px) scale(.96);
-filter:blur(8px);
+.sequence-title.is-cinematic{
+  background:linear-gradient(90deg,#ffffff,#72d7ff,#b79cff,#ffffff);
+  background-size:280% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:cinematicGradient 4.8s linear infinite;
+  text-shadow:none;
+  filter:drop-shadow(0 0 16px rgba(96,186,255,.36))
+         drop-shadow(0 0 46px rgba(123,98,255,.24));
 }
 
-.morph-in{
-opacity:1;
-transform:translateY(0) scale(1);
-filter:blur(0);
+.sequence-title.is-cinematic .sequence-line:first-child{
+  font-size:.55em;
+  letter-spacing:-0.05em;
+  opacity:.92;
 }
 
-body::before{
-content:'';
-position:fixed;
-inset:0;
-pointer-events:none;
-background:
-radial-gradient(circle at 20% 20%,rgba(120,180,255,.15),transparent 35%),
-radial-gradient(circle at 80% 30%,rgba(180,120,255,.12),transparent 35%),
-radial-gradient(circle at 50% 80%,rgba(120,255,220,.10),transparent 35%);
-animation:auroraFloat 12s ease-in-out infinite;
+.sequence-title.is-cinematic .sequence-line:last-child{
+  margin-top:.08em;
+  font-size:1.08em;
+  letter-spacing:-0.07em;
 }
 
-@keyframes auroraFloat{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
+@keyframes cinematicGradient{
+  0%{background-position:0% 50%}
+  100%{background-position:280% 50%}
 }
 
-
-.scramble-wrap{
-position:relative;
-z-index:20;
-text-align:center;
-padding-top:40px;
+.sequence-glow-line{
+  width:min(460px,70vw);
+  height:1px;
+  margin:24px auto 0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.82),transparent);
+  box-shadow:0 0 24px rgba(108,190,255,.45);
+  animation:sequenceLineGlow 3.3s ease-in-out infinite;
 }
 
-.scramble-title{
-font-family:"Pretendard Variable",sans-serif;
-font-size:clamp(42px,6vw,90px);
-font-weight:900;
-letter-spacing:-0.05em;
-margin:0;
-color:#ffffff;
-text-shadow:
-0 0 8px rgba(255,255,255,.35),
-0 0 24px rgba(100,180,255,.35),
-0 0 60px rgba(100,180,255,.2);
-}
-
-body::before{
-content:'';
-position:fixed;
-inset:0;
-pointer-events:none;
-background:
-radial-gradient(circle at 20% 20%,rgba(120,180,255,.12),transparent 35%),
-radial-gradient(circle at 80% 30%,rgba(180,120,255,.10),transparent 35%),
-radial-gradient(circle at 50% 80%,rgba(120,255,220,.08),transparent 35%);
-animation:scrambleAurora 12s ease-in-out infinite;
-}
-
-@keyframes scrambleAurora{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-18px)}
-}
-
-
-/* Cinematic Scramble Title */
-.cinematic-title-wrap{
-position:relative;
-z-index:30;
-text-align:center;
-padding:46px 20px 18px;
-isolation:isolate;
-}
-
-.cinematic-kicker{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:8px 16px;
-margin-bottom:18px;
-border-radius:999px;
-font-size:13px;
-font-weight:800;
-letter-spacing:.18em;
-text-transform:uppercase;
-color:rgba(255,255,255,.84);
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.16);
-backdrop-filter:blur(16px);
-box-shadow:0 12px 40px rgba(0,0,0,.12);
-}
-
-.cinematic-title{
-min-height:1.18em;
-margin:0;
-font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-font-size:clamp(42px,7vw,96px);
-font-weight:900;
-letter-spacing:-0.065em;
-line-height:1.08;
-color:#fff;
-text-shadow:
-0 0 10px rgba(255,255,255,.35),
-0 0 34px rgba(96,186,255,.34),
-0 0 76px rgba(123,98,255,.24);
-transition:opacity .28s ease, transform .28s ease, filter .28s ease;
-}
-
-.cinematic-title.is-changing{
-opacity:.9;
-transform:translateY(-3px) scale(.995);
-filter:blur(.3px);
-}
-
-.cinematic-title.is-settled{
-animation:titleSettle .7s ease both;
-}
-
-@keyframes titleSettle{
-0%{
-transform:translateY(4px) scale(.985);
-filter:blur(3px);
-opacity:.72;
-}
-100%{
-transform:translateY(0) scale(1);
-filter:blur(0);
-opacity:1;
-}
-}
-
-.cinematic-line{
-width:min(460px,70vw);
-height:1px;
-margin:24px auto 0;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent);
-box-shadow:0 0 24px rgba(108,190,255,.45);
-animation:lineGlow 3.3s ease-in-out infinite;
-}
-
-@keyframes lineGlow{
-0%,100%{
-opacity:.36;
-transform:scaleX(.75);
-}
-50%{
-opacity:1;
-transform:scaleX(1);
-}
+@keyframes sequenceLineGlow{
+  0%,100%{
+    opacity:.34;
+    transform:scaleX(.72);
+  }
+  50%{
+    opacity:1;
+    transform:scaleX(1);
+  }
 }
 
 body::after{
-content:"";
-position:fixed;
-inset:-15%;
-z-index:0;
-pointer-events:none;
-background:
-radial-gradient(circle at 20% 25%,rgba(86,183,255,.14),transparent 32%),
-radial-gradient(circle at 80% 20%,rgba(168,109,255,.12),transparent 30%),
-radial-gradient(circle at 52% 88%,rgba(96,255,218,.09),transparent 36%);
-filter:blur(2px);
-animation:cinematicAurora 14s ease-in-out infinite;
+  content:"";
+  position:fixed;
+  inset:-15%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 25%,rgba(86,183,255,.13),transparent 32%),
+    radial-gradient(circle at 80% 20%,rgba(168,109,255,.10),transparent 30%),
+    radial-gradient(circle at 52% 88%,rgba(96,255,218,.08),transparent 36%);
+  filter:blur(2px);
+  animation:heroAuroraMove 14s ease-in-out infinite;
 }
 
-@keyframes cinematicAurora{
-0%,100%{
-transform:translate3d(0,0,0) scale(1);
-}
-50%{
-transform:translate3d(0,-22px,0) scale(1.03);
-}
+@keyframes heroAuroraMove{
+  0%,100%{transform:translate3d(0,0,0) scale(1);}
+  50%{transform:translate3d(0,-20px,0) scale(1.03);}
 }
 
 @media (prefers-reduced-motion: reduce){
-.cinematic-line,
-body::after,
-.cinematic-title.is-settled{
-animation:none;
-}
-}
-
-@media (max-width:640px){
-.cinematic-title-wrap{
-padding-top:34px;
-}
-.cinematic-title{
-font-size:clamp(38px,12vw,64px);
-}
-}
-
-
-/* Fix: place cinematic scramble title inside the hero title area */
-.hero-cinematic-title{
-padding:28px 20px 10px;
-margin:0 auto;
-}
-
-.hero-cinematic-title .cinematic-title{
-margin:0;
-}
-
-.hero-cinematic-title .cinematic-line{
-margin-top:22px;
+  .sequence-title.is-soft .sequence-char,
+  .sequence-title.is-cinematic,
+  .sequence-glow-line,
+  body::after{
+    animation:none;
+  }
 }
 
 @media (max-width:640px){
-.hero-cinematic-title{
-padding:22px 12px 8px;
-}
+  .hero-title-sequence{
+    min-height:178px;
+    padding:18px 0 4px;
+  }
+
+  .sequence-title{
+    font-size:clamp(38px,12vw,64px);
+    letter-spacing:-0.065em;
+  }
+
+  .sequence-line{
+    white-space:normal;
+  }
 }
