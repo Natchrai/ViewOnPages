@@ -487,7 +487,7 @@ h1 strong {
   font-size: clamp(42px, 6.2vw, 92px);
   font-weight: 950;
   line-height: 1.08;
-  letter-spacing: -0.075em;
+  letter-spacing: -0.035em;
   color: #fff;
   text-align: center;
   text-shadow:
@@ -504,6 +504,7 @@ h1 strong {
 
 .sequence-char {
   display: inline-block;
+  margin-right: -0.035em;
 }
 
 .title-space {
