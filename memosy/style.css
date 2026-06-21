@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "SUIT",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color: #f7fbff;
   background:
     radial-gradient(circle at 25% 0%, rgba(38, 226, 255, 0.2), transparent 32%),
@@ -612,4 +612,36 @@ h1 strong {
     margin-right: 22px;
     padding: 44px 22px;
   }
+}
+
+
+.memory-space{
+position:absolute;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+}
+.memory{
+position:absolute;
+padding:12px 20px;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+font-weight:800;
+animation:floaty 8s ease-in-out infinite;
+}
+.m1{left:15%;top:20%;}
+.m2{right:18%;top:28%;animation-delay:1s;}
+.m3{left:20%;top:55%;animation-delay:2s;}
+.m4{right:22%;top:60%;animation-delay:3s;}
+.m5{left:45%;top:15%;animation-delay:4s;}
+
+@keyframes floaty{
+0%,100%{transform:translateY(0px) scale(1);}
+50%{transform:translateY(-25px) scale(1.05);}
+}
+
+.hero h1{
+text-shadow:0 0 40px rgba(90,190,255,.35);
 }
