@@ -488,7 +488,7 @@ h1 strong {
   font-size: clamp(42px, 6.2vw, 92px);
   font-weight: 950;
   line-height: 1.08;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.035em;
   color: #fff;
   text-align: center;
   text-shadow:
@@ -505,18 +505,18 @@ h1 strong {
 
 .sequence-char {
   display: inline-block;
-  margin-right: -0.12em;
+  margin-right: 0;
 }
 
 .title-space {
   display: inline-block;
-  width: .18em;
+  width: .34em;
 }
 
 .sequence-title.is-pretendard {
   width: auto;
   display: inline-block;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.035em;
 }
 
 .sequence-title.is-pretendard .sequence-char {
@@ -808,7 +808,7 @@ body::after {
 
   .sequence-title {
     font-size: clamp(30px, 8.5vw, 48px);
-    letter-spacing: -0.08em;
+    letter-spacing: -0.04em;
   }
 
   .sequence-line {
