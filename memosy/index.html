@@ -263,143 +263,155 @@
     });
   </script>
 
-  <script>
+    <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const title = document.getElementById("heroSequenceTitle");
-      if (!title) return;
+        const title = document.getElementById("heroSequenceTitle");
+        if (!title) return;
 
-      const steps = [
+        const steps = [
         {
-          type: "pretendard",
-          lines: [
+            type: "pretendard",
+            lines: [
             "생각은 금방 사라집니다."
-          ]
+            ]
         },
         {
-          type: "pretendard",
-          lines: [
+            type: "pretendard",
+            lines: [
             "정리하고",
             "효율적으로 관리하세요."
-          ]
+            ]
         },
         {
-          type: "cinematic",
-          lines: [
+            type: "cinematic",
+            lines: [
+            "빠른 메모"
+            ]
+        },
+        {
+            type: "cinematic",
+            lines: [
             "Memosy"
-          ]
+            ]
         }
-      ];
+        ];
 
-      const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
-      let stepIndex = 0;
-      let scrambleTimer = null;
+        const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
+        let stepIndex = 0;
+        let scrambleTimer = null;
 
-      function escapeHtml(text) {
+        function escapeHtml(text) {
         return text
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-      }
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
 
-      function renderPretendard(lines) {
+        function randomChar() {
+        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }
+
+        function renderPretendard(lines) {
         let charIndex = 0;
 
         clearInterval(scrambleTimer);
         title.className = "sequence-title is-pretendard";
 
         title.innerHTML = lines.map((line) => {
-          const chars = [...line].map((ch) => {
+            const chars = [...line].map((ch) => {
             if (ch === " ") {
-              return '<span class="title-space">&nbsp;</span>';
+                return '<span class="title-space">&nbsp;</span>';
             }
 
             const char = `<span class="sequence-char" style="--i:${charIndex}">${escapeHtml(ch)}</span>`;
             charIndex += 1;
             return char;
-          }).join("");
+            }).join("");
 
-          return `<span class="sequence-line">${chars}</span>`;
+            return `<span class="sequence-line">${chars}</span>`;
         }).join("");
-      }
+        }
 
-      function randomChar() {
-        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
-      }
-
-      function renderCinematic(lines) {
+        function renderCinematic(lines) {
         clearInterval(scrambleTimer);
 
         title.className = "sequence-title is-cinematic";
-        title.innerHTML = `
-          <span class="sequence-line cinematic-small-line"></span>
-          <span class="sequence-line cinematic-main-line"></span>
-        `;
+
+        title.innerHTML = lines.map((_, index) => `
+            <span class="sequence-line ${
+            index === lines.length - 1
+                ? "cinematic-main-line"
+                : "cinematic-small-line"
+            }"></span>
+        `).join("");
 
         const lineEls = title.querySelectorAll(".sequence-line");
         const maxFrames = 34;
         let frame = 0;
 
         scrambleTimer = setInterval(() => {
-          const progress = frame / maxFrames;
+            const progress = frame / maxFrames;
 
-          lineEls.forEach((lineEl, lineIndex) => {
+            lineEls.forEach((lineEl, lineIndex) => {
             const target = lines[lineIndex] || "";
             const maxLength = target.length;
             let output = "";
 
             for (let i = 0; i < maxLength; i++) {
-              const targetChar = target[i] || "";
-              const revealPoint = (i / Math.max(maxLength, 1)) * 0.62 + 0.18;
+                const targetChar = target[i] || "";
+                const revealPoint = (i / Math.max(maxLength, 1)) * 0.62 + 0.18;
 
-              if (targetChar === " ") {
+                if (targetChar === " ") {
                 output += " ";
-              } else if (progress > revealPoint) {
+                } else if (progress > revealPoint) {
                 output += targetChar;
-              } else {
+                } else {
                 output += randomChar();
-              }
+                }
             }
 
             lineEl.textContent = output.trimEnd();
-          });
+            });
 
-          frame += 1;
+            frame += 1;
 
-          if (frame > maxFrames) {
+            if (frame > maxFrames) {
             clearInterval(scrambleTimer);
-            lineEls[0].textContent = lines[0];
-            lineEls[1].textContent = lines[1];
-          }
-        }, 38);
-      }
 
-      function showStep(index) {
+            lineEls.forEach((lineEl, index) => {
+                lineEl.textContent = lines[index] || "";
+            });
+            }
+        }, 38);
+        }
+
+        function showStep(index) {
         title.classList.add("is-changing");
 
         setTimeout(() => {
-          const step = steps[index];
+            const step = steps[index];
 
-          if (step.type === "cinematic") {
+            if (step.type === "cinematic") {
             renderCinematic(step.lines);
-          } else {
+            } else {
             renderPretendard(step.lines);
-          }
+            }
 
-          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
             title.classList.remove("is-changing");
-          });
+            });
         }, 260);
-      }
+        }
 
-      showStep(stepIndex);
+        showStep(stepIndex);
 
-      setInterval(() => {
+        setInterval(() => {
         stepIndex = (stepIndex + 1) % steps.length;
         showStep(stepIndex);
-      }, 4600);
+        }, 4600);
     });
-  </script>
+    </script>
 </body>
 </html>
