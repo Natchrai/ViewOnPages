@@ -526,6 +526,7 @@ h1 strong {
 
 .scatter-out {
   animation: scatterToSides .68s cubic-bezier(.55,.02,.87,.36) forwards !important;
+  animation-delay: 0ms !important;
 }
 
 @keyframes scatterToSides {
