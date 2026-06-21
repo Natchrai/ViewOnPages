@@ -525,19 +525,16 @@ h1 strong {
     opacity: 0;
     transform: translateY(-80px) scale(0.8);
     filter: blur(10px);
-    letter-spacing: -0.05em; 
   }
   72% {
     opacity: 1;
     transform: translateY(8px) scale(1.02);
     filter: blur(0);
-    letter-spacing: -0.08em; 
   }
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
-    letter-spacing: -0.08em;
   }
 }
 
