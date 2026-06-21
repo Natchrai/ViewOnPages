@@ -616,57 +616,105 @@ h1 strong {
 
 
 body{
-font-family:'SUIT',sans-serif !important;
-overflow-x:hidden;
+font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
-.starfield{
+.animated-title{
+display:inline-block;
+line-height:1.08;
+letter-spacing:-0.055em;
+font-weight:900;
+}
+
+.animated-title span:not(.title-gap){
+display:inline-block;
+animation:titleWave 2.8s ease-in-out infinite;
+animation-delay:calc(var(--i) * .055s);
+will-change:transform, filter, opacity;
+}
+
+.animated-title .title-gap{
+display:inline-block;
+width:.18em;
+}
+
+@keyframes titleWave{
+0%,100%{
+transform:translateY(0) rotate(0deg);
+filter:blur(0);
+opacity:1;
+}
+18%{
+transform:translateY(-0.16em) rotate(-1.2deg);
+filter:blur(.15px);
+}
+36%{
+transform:translateY(.07em) rotate(1deg);
+}
+52%{
+transform:translateY(0) rotate(0deg);
+}
+}
+
+@media (prefers-reduced-motion: reduce){
+.animated-title span:not(.title-gap){
+animation:none;
+}
+}
+
+
+.morph-wrap{
+position:relative;
+text-align:center;
+padding-top:40px;
+z-index:10;
+}
+
+.morph-title{
+font-family:"Pretendard Variable",sans-serif;
+font-weight:900;
+font-size:clamp(42px,6vw,88px);
+letter-spacing:-0.06em;
+margin:0;
+background:linear-gradient(90deg,#6ecbff,#8ea6ff,#b69cff,#6ecbff);
+background-size:300% 100%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:aurora 8s linear infinite;
+filter:drop-shadow(0 0 18px rgba(110,203,255,.35));
+transition:all .5s ease;
+}
+
+@keyframes aurora{
+0%{background-position:0% 50%}
+100%{background-position:300% 50%}
+}
+
+.morph-out{
+opacity:0;
+transform:translateY(-12px) scale(.96);
+filter:blur(8px);
+}
+
+.morph-in{
+opacity:1;
+transform:translateY(0) scale(1);
+filter:blur(0);
+}
+
+body::before{
+content:'';
 position:fixed;
 inset:0;
 pointer-events:none;
 background:
-radial-gradient(circle at 20% 30%,rgba(255,255,255,.35) 0 2px,transparent 3px),
-radial-gradient(circle at 70% 20%,rgba(255,255,255,.25) 0 2px,transparent 3px),
-radial-gradient(circle at 80% 70%,rgba(255,255,255,.35) 0 2px,transparent 3px),
-radial-gradient(circle at 30% 80%,rgba(255,255,255,.25) 0 2px,transparent 3px);
-animation:starMove 18s ease-in-out infinite;
+radial-gradient(circle at 20% 20%,rgba(120,180,255,.15),transparent 35%),
+radial-gradient(circle at 80% 30%,rgba(180,120,255,.12),transparent 35%),
+radial-gradient(circle at 50% 80%,rgba(120,255,220,.10),transparent 35%);
+animation:auroraFloat 12s ease-in-out infinite;
 }
 
-@keyframes starMove{
+@keyframes auroraFloat{
 0%,100%{transform:translateY(0)}
-50%{transform:translateY(-30px)}
-}
-
-.memory-cloud{
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:2;
-}
-
-.memory-cloud span{
-position:absolute;
-padding:10px 18px;
-border-radius:999px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(14px);
-border:1px solid rgba(255,255,255,.15);
-font-weight:800;
-animation:floatMemory 10s ease-in-out infinite;
-}
-
-.memory-cloud span:nth-child(1){left:10%;top:20%;}
-.memory-cloud span:nth-child(2){left:75%;top:15%;animation-delay:1s;}
-.memory-cloud span:nth-child(3){left:20%;top:70%;animation-delay:2s;}
-.memory-cloud span:nth-child(4){left:80%;top:60%;animation-delay:3s;}
-.memory-cloud span:nth-child(5){left:45%;top:12%;animation-delay:4s;}
-.memory-cloud span:nth-child(6){left:60%;top:75%;animation-delay:5s;}
-
-@keyframes floatMemory{
-0%,100%{transform:translateY(0) scale(1)}
-50%{transform:translateY(-24px) scale(1.08)}
-}
-
-.hero h1,.hero-title,h1{
-text-shadow:0 0 40px rgba(0,180,255,.35);
+50%{transform:translateY(-20px)}
 }
