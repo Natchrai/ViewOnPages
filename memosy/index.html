@@ -265,191 +265,200 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const title = document.getElementById("heroSequenceTitle");
-      if (!title) return;
+        const title = document.getElementById("heroSequenceTitle");
+        if (!title) return;
 
-      const steps = [
+        const steps = [
         {
-          type: "pretendard",
-          lines: [
+            type: "pretendard",
+            lines: [
             "떠오르는 생각은 금방 흩어집니다."
-          ]
+            ]
         },
         {
-          type: "pretendard",
-          lines: [
+            type: "pretendard",
+            lines: [
             "정리하고 효율적으로 관리하세요."
-          ]
+            ]
         },
         {
-          type: "cinematic",
-          lines: [
+            type: "cinematic",
+            lines: [
+            "",
+            "빠른 메모",
             "Memosy"
-          ]
+            ]
         }
-      ];
+        ];
 
-      const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
-      let stepIndex = 0;
-      let scrambleTimer = null;
-      let loopTimer = null;
+        const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
+        let stepIndex = 0;
+        let scrambleTimer = null;
 
-      function escapeHtml(text) {
+        function escapeHtml(text) {
         return text
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-      }
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
 
-      function randomChar() {
+        function randomChar() {
         return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
-      }
+        }
 
-      function randomRange(min, max) {
-        return Math.round(Math.random() * (max - min) + min);
-      }
+        function sideDirection(index, total) {
+        return index < total / 2 ? -1 : 1;
+        }
 
-      function scatterCurrentTitle(callback) {
+        function scatterCurrentTitle(callback) {
         const chars = title.querySelectorAll(".sequence-char, .cinematic-char");
 
         if (!chars.length) {
-          callback();
-          return;
+            callback();
+            return;
         }
 
+        const total = chars.length;
+
         chars.forEach((char, index) => {
-          char.style.setProperty("--scatter-x", `${randomRange(-220, 220)}px`);
-          char.style.setProperty("--scatter-y", `${randomRange(-120, 120)}px`);
-          char.style.setProperty("--scatter-r", `${randomRange(-28, 28)}deg`);
-          char.style.animationDelay = `${index * 12}ms`;
-          char.classList.add("scatter-out");
+            const dir = sideDirection(index, total);
+
+            char.style.setProperty("--scatter-x", `${dir * (180 + index * 8)}px`);
+            char.style.setProperty("--scatter-y", `${(index % 2 === 0 ? -1 : 1) * 70}px`);
+            char.style.setProperty("--scatter-r", `${dir * (12 + index)}deg`);
+            char.style.animationDelay = `${index * 10}ms`;
+            char.classList.add("scatter-out");
         });
 
-        setTimeout(callback, 620);
-      }
+        setTimeout(callback, 720);
+        }
 
-      function renderPretendard(lines) {
+        function renderPretendard(lines) {
         clearInterval(scrambleTimer);
 
         let charIndex = 0;
         title.className = "sequence-title is-pretendard";
 
         title.innerHTML = lines.map((line) => {
-          const chars = [...line].map((ch) => {
+            const chars = [...line].map((ch, index) => {
             if (ch === " ") {
-              return '<span class="title-space">&nbsp;</span>';
+                return '<span class="title-space">&nbsp;</span>';
             }
 
-            const x = randomRange(-260, 260);
-            const y = randomRange(-140, 140);
-            const r = randomRange(-24, 24);
+            const total = line.length;
+            const dir = sideDirection(index, total);
 
             const char = `
-              <span
+                <span
                 class="sequence-char gather-in"
                 style="
-                  --i:${charIndex};
-                  --from-x:${x}px;
-                  --from-y:${y}px;
-                  --from-r:${r}deg;
+                    --i:${charIndex};
+                    --from-x:${dir * 260}px;
+                    --from-y:${(index % 2 === 0 ? -1 : 1) * 70}px;
+                    --from-r:${dir * 14}deg;
                 "
-              >${escapeHtml(ch)}</span>
+                >${escapeHtml(ch)}</span>
             `;
 
             charIndex += 1;
             return char;
-          }).join("");
+            }).join("");
 
-          return `<span class="sequence-line">${chars}</span>`;
+            return `<span class="sequence-line">${chars}</span>`;
         }).join("");
-      }
+        }
 
-      function renderCinematic(lines) {
+        function renderCinematic(lines) {
         clearInterval(scrambleTimer);
 
         title.className = "sequence-title is-cinematic";
-        title.innerHTML = `<span class="sequence-line cinematic-main-line"></span>`;
 
-        const lineEl = title.querySelector(".sequence-line");
-        const target = lines[0] || "";
-        const maxFrames = 36;
+        title.innerHTML = `
+            <span class="sequence-line cinematic-empty-line"></span>
+            <span class="sequence-line cinematic-sub-line"></span>
+            <span class="sequence-line cinematic-main-line"></span>
+        `;
+
+        const subLine = title.querySelector(".cinematic-sub-line");
+        const mainLine = title.querySelector(".cinematic-main-line");
+
+        const subTarget = lines[1] || "";
+        const mainTarget = lines[2] || "";
+        const maxFrames = 38;
         let frame = 0;
 
         scrambleTimer = setInterval(() => {
-          const progress = frame / maxFrames;
-          let output = "";
+            const progress = frame / maxFrames;
 
-          for (let i = 0; i < target.length; i++) {
-            const targetChar = target[i];
-            const revealPoint = (i / Math.max(target.length, 1)) * 0.62 + 0.18;
+            function makeScrambleText(target) {
+            let output = "";
 
-            if (targetChar === " ") {
-              output += " ";
-            } else if (progress > revealPoint) {
-              output += targetChar;
-            } else {
-              output += randomChar();
+            for (let i = 0; i < target.length; i++) {
+                const targetChar = target[i];
+                const revealPoint = (i / Math.max(target.length, 1)) * 0.62 + 0.18;
+
+                if (targetChar === " ") {
+                output += " ";
+                } else if (progress > revealPoint) {
+                output += targetChar;
+                } else {
+                output += randomChar();
+                }
             }
-          }
 
-          lineEl.innerHTML = [...output].map((ch, index) => {
+            return output;
+            }
+
+            subLine.innerHTML = [...makeScrambleText(subTarget)].map((ch, index) => {
             if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+            return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
 
-            return `
-              <span
-                class="cinematic-char gather-in"
-                style="
-                  --i:${index};
-                  --from-x:${randomRange(-240, 240)}px;
-                  --from-y:${randomRange(-120, 120)}px;
-                  --from-r:${randomRange(-22, 22)}deg;
-                "
-              >${escapeHtml(ch)}</span>
-            `;
-          }).join("");
+            mainLine.innerHTML = [...makeScrambleText(mainTarget)].map((ch, index) => {
+            if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+            return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
 
-          frame += 1;
+            frame += 1;
 
-          if (frame > maxFrames) {
+            if (frame > maxFrames) {
             clearInterval(scrambleTimer);
 
-            lineEl.innerHTML = [...target].map((ch, index) => {
-              if (ch === " ") return '<span class="title-space">&nbsp;</span>';
-
-              return `
-                <span
-                  class="cinematic-char"
-                  style="--i:${index}"
-                >${escapeHtml(ch)}</span>
-              `;
+            subLine.innerHTML = [...subTarget].map((ch, index) => {
+                if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+                return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
             }).join("");
-          }
-        }, 38);
-      }
 
-      function renderStep(index) {
+            mainLine.innerHTML = [...mainTarget].map((ch, index) => {
+                if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+                return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+            }
+        }, 38);
+        }
+
+        function renderStep(index) {
         const step = steps[index];
 
         if (step.type === "cinematic") {
-          renderCinematic(step.lines);
+            renderCinematic(step.lines);
         } else {
-          renderPretendard(step.lines);
+            renderPretendard(step.lines);
         }
-      }
+        }
 
-      function showNextStep() {
+        function showNextStep() {
         scatterCurrentTitle(() => {
-          stepIndex = (stepIndex + 1) % steps.length;
-          renderStep(stepIndex);
+            stepIndex = (stepIndex + 1) % steps.length;
+            renderStep(stepIndex);
         });
-      }
+        }
 
-      renderStep(stepIndex);
-
-      loopTimer = setInterval(showNextStep, 4600);
+        renderStep(stepIndex);
+        setInterval(showNextStep, 4600);
     });
-  </script>
+    </script>
 </body>
 </html>
