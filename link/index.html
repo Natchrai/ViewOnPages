@@ -3,9 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ViewOn Link는 두 대의 휴대폰을 QR로 바로 연결해 손이 닿지 않는 곳, 혼자 보기 어려운 곳을 실시간으로 확인하는 앱입니다." />
+  <meta property="og:title" content="ViewOn Link" />
+  <meta property="og:description" content="두 대의 휴대폰을 바로 연결. 보이지 않던 곳까지 눈앞에서 확인하세요." />
+  <meta property="og:image" content="assets/viewon-link-icon.png" />
   <title>ViewOn Link</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>ViewOn Link</h1>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ViewOn Link home">
+      <img src="assets/viewon-link-icon.png" alt="ViewOn Link 아이콘" />
+      <span>ViewOn Link</span>
+    </a>
+    <nav>
+      <a href="#features">기능</a>
+      <a href="#cases">활용</a>
+      <a href="#how">사용 방법</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-glow">
+      <div class="hero-text">
+        <p class="eyebrow">두 대의 휴대폰을 바로 연결</p>
+        <h1>보이지 않던 곳까지<br />눈앞에서 확인하세요.</h1>
+        <p class="lead">
+          ViewOn Link는 한 대는 카메라로, 다른 한 대는 화면으로 사용해
+          좁은 공간, 뒤쪽 모습, 멀리 떨어진 장면을 실시간으로 확인할 수 있는 앱입니다.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#how">사용 방법 보기</a>
+          <a class="button ghost" href="#cases">활용 예시 보기</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/hero-viewon-link.png" alt="두 대의 휴대폰이 연결되는 ViewOn Link 대표 이미지" />
+      </div>
+    </section>
+
+    <section class="trust-card">
+      <div>
+        <strong>QR 코드로 간편 연결</strong>
+        <span>복잡한 가입 없이 바로 시작</span>
+      </div>
+      <div>
+        <strong>같은 Wi‑Fi 안에서 사용</strong>
+        <span>우리끼리만 안전하게 로컬 연결</span>
+      </div>
+      <div>
+        <strong>확대 · 촬영 · 녹화</strong>
+        <span>필요한 장면을 크게 보고 저장</span>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-title">
+        <p class="eyebrow">Main Features</p>
+        <h2>폰 하나로는 어려웠던 장면을 더 쉽게</h2>
+        <p>가까이 두기 어려운 곳, 내 눈으로 직접 보기 힘든 각도, 혼자 확인하기 어려운 자세까지 ViewOn Link로 확인하세요.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="icon">🔗</span>
+          <h3>QR로 바로 연결</h3>
+          <p>카메라용 휴대폰의 QR 코드를 Viewer용 휴대폰으로 스캔하면 두 기기가 바로 연결됩니다.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">🔍</span>
+          <h3>돋보기 모드</h3>
+          <p>작은 글씨, 제품 번호, 전자부품처럼 가까이 봐야 하는 대상을 크게 확대해서 확인할 수 있습니다.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">📷</span>
+          <h3>사진 저장</h3>
+          <p>확인 중인 장면을 사진으로 남겨 정비 기록, 제품 확인, 비교 자료로 보관할 수 있습니다.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">🎥</span>
+          <h3>영상 녹화</h3>
+          <p>실시간 화면을 영상으로 저장해 작업 과정이나 확인 장면을 다시 볼 수 있습니다.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">💡</span>
+          <h3>어두운 곳 확인</h3>
+          <p>가구 뒤, 침대 밑, 차량 하부처럼 빛이 부족한 곳도 더 편하게 확인할 수 있습니다.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">⚙️</span>
+          <h3>상황별 화질 선택</h3>
+          <p>연결 환경에 맞춰 부드럽게 보거나 더 선명하게 보는 방식으로 화질을 선택할 수 있습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wide-showcase">
+      <img src="assets/connect-qr.png" alt="QR 코드로 두 대의 휴대폰을 연결하는 설명 이미지" />
+    </section>
+
+    <section id="cases" class="section cases-section">
+      <div class="section-title">
+        <p class="eyebrow">Use Cases</p>
+        <h2>생활 속 다양한 순간에 사용하세요</h2>
+      </div>
+      <div class="case-grid">
+        <article class="case-card large">
+          <img src="assets/magnifier.png" alt="돋보기 모드로 작은 글씨를 확대하는 이미지" />
+          <div><h3>작아서 안 보일 땐 돋보기 모드</h3><p>미세한 글씨, 제품 번호, 부품 표기를 크게 확대해서 확인하세요.</p></div>
+        </article>
+        <article class="case-card"><img src="assets/car-underbody.png" alt="차량 하부 확인 이미지" /><div><h3>차량 하부 확인</h3><p>허리를 숙이거나 바닥에 눕지 않고 차 밑 깊숙한 곳을 확인할 수 있습니다.</p></div></article>
+        <article class="case-card"><img src="assets/furniture-appliance.png" alt="가구 및 가전 뒤쪽 확인 이미지" /><div><h3>가구 · 가전 뒤쪽 확인</h3><p>침대 밑, 가구 뒤, 세탁기 주변처럼 손과 눈이 닿지 않는 곳을 확인하세요.</p></div></article>
+        <article class="case-card"><img src="assets/workout-back.png" alt="운동 자세 확인 이미지" /><div><h3>운동 자세 확인</h3><p>혼자 홈트할 때도 뒤모습과 전체 균형을 실시간으로 볼 수 있습니다.</p></div></article>
+        <article class="case-card"><img src="assets/outfit-back.png" alt="옷 핏 확인 이미지" /><div><h3>옷 핏 확인</h3><p>혼자서는 보기 어려운 뒷모습과 전체 핏을 한눈에 확인하세요.</p></div></article>
+        <article class="case-card"><img src="assets/grooming-side.png" alt="수염 라인 확인 이미지" /><div><h3>수염 · 옆모습 확인</h3><p>턱선, 구렛나루, 수염 라인까지 더 정확하게 볼 수 있습니다.</p></div></article>
+        <article class="case-card"><img src="assets/blind-spot.png" alt="보이지 않는 신체 부위 확인 이미지" /><div><h3>사각지대 확인</h3><p>혼자 확인하기 어려운 위치도 다른 화면으로 선명하게 확인할 수 있습니다.</p></div></article>
+      </div>
+    </section>
+
+    <section class="secure-section section-glow">
+      <div>
+        <p class="eyebrow">Local Connection</p>
+        <h2>우리끼리만 안전하게,<br />로컬 연결</h2>
+        <p>외부 서버를 거치지 않고 같은 Wi‑Fi 안에서 두 기기를 연결해 사용할 수 있도록 설계했습니다.</p>
+      </div>
+      <img src="assets/local-secure.png" alt="우리끼리만 안전하게 로컬 연결 설명 이미지" />
+    </section>
+
+    <section id="how" class="section how-section">
+      <div class="section-title">
+        <p class="eyebrow">How To Use</p>
+        <h2>사용 방법은 간단합니다</h2>
+      </div>
+      <div class="steps">
+        <article><span>1</span><h3>카메라용 휴대폰 준비</h3><p>촬영할 휴대폰에서 연결용 QR 코드를 생성합니다.</p></article>
+        <article><span>2</span><h3>Viewer용 휴대폰 준비</h3><p>화면을 확인할 휴대폰에서 QR 스캔을 선택합니다.</p></article>
+        <article><span>3</span><h3>QR 코드 스캔</h3><p>카메라용 휴대폰에 표시된 QR 코드를 스캔합니다.</p></article>
+        <article><span>4</span><h3>실시간 확인</h3><p>연결이 완료되면 다른 휴대폰 화면에서 카메라 장면을 확인합니다.</p></article>
+      </div>
+    </section>
+
+    <section class="cta section-glow">
+      <img src="assets/viewon-link-icon.png" alt="ViewOn Link 앱 아이콘" />
+      <h2>ViewOn Link</h2>
+      <p>두 대의 휴대폰으로 더 자유로운 시야를 경험하세요.</p>
+      <a class="button primary" href="#top">맨 위로</a>
+    </section>
+  </main>
+
+  <footer>
+    <strong>ViewOn Link</strong>
+    <span>© ViewOn. All rights reserved.</span>
+  </footer>
 </body>
 </html>
