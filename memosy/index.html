@@ -11,6 +11,54 @@
   />
 
   <link rel="stylesheet" href="./style.css" />
+
+  <style>
+    .sequence-title.is-gather {
+      width: 100%;
+      text-align: center;
+    }
+
+    .sequence-title.is-gather .gather-line {
+      display: inline-block;
+      width: auto;
+      text-align: center;
+      white-space: nowrap;
+      font-size: .72em;
+      line-height: 1.15;
+      letter-spacing: -0.055em;
+      color: #ffffff;
+      -webkit-text-fill-color: #ffffff;
+      transform-origin: center center;
+    }
+
+    .gather-char {
+      display: inline-block;
+      animation: gatherIn .82s cubic-bezier(.16,1,.3,1) both;
+      animation-delay: calc(var(--i) * .018s);
+      will-change: transform, opacity, filter;
+    }
+
+    @keyframes gatherIn {
+      0% {
+        opacity: 0;
+        transform: translate(var(--from-x), var(--from-y)) rotate(var(--from-r)) scale(.88);
+        filter: blur(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gather-char {
+        animation: none;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -263,205 +311,206 @@
   </script>
 
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const title = document.getElementById("heroSequenceTitle");
-    if (!title) return;
+    document.addEventListener("DOMContentLoaded", () => {
+      const title = document.getElementById("heroSequenceTitle");
+      if (!title) return;
 
-    const steps = [
-      {
-        type: "plain",
-        lines: ["생각은 금방 사라집니다."]
-      },
-      {
-        type: "gather",
-        lines: ["빠르게 입력한 후"]
-      },
-      {
-        type: "gather",
-        lines: ["정리하고 실행하세요."]
-      },
-      {
-        type: "cinematic",
-        lines: ["Memosy"]
+      const steps = [
+        {
+          type: "plain",
+          lines: ["생각은 금방 사라집니다."]
+        },
+        {
+          type: "gather",
+          lines: ["정리하고 실행하세요."]
+        },
+        {
+          type: "cinematic",
+          lines: ["Memosy"]
+        }
+      ];
+
+      const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
+      let stepIndex = 0;
+      let scrambleTimer = null;
+
+      function escapeHtml(text) {
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
       }
-    ];
 
-    const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
-    let stepIndex = 0;
-    let scrambleTimer = null;
+      function randomChar() {
+        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+      }
 
-    function escapeHtml(text) {
-      return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
+      function renderPlain(lines) {
+        clearInterval(scrambleTimer);
+        title.className = "sequence-title is-plain";
 
-    function randomChar() {
-      return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
-    }
+        title.innerHTML = lines.map((line) => {
+          const chars = [...line].map((ch, index) => {
+            if (ch === " ") {
+              return '<span class="title-space">&nbsp;</span>';
+            }
 
-    function renderPlain(lines) {
-      clearInterval(scrambleTimer);
-      title.className = "sequence-title is-plain";
+            return `<span class="plain-fly-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+          }).join("");
 
-      title.innerHTML = lines.map((line) => {
-        const chars = [...line].map((ch, index) => {
-          if (ch === " ") {
-            return '<span class="title-space">&nbsp;</span>';
-          }
-
-          return `<span class="plain-fly-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+          return `<span class="sequence-line plain-line">${chars}</span>`;
         }).join("");
+      }
 
-        return `<span class="sequence-line plain-line">${chars}</span>`;
-      }).join("");
-    }
+      function renderGather(lines) {
+        clearInterval(scrambleTimer);
+        title.className = "sequence-title is-plain is-gather";
 
-    function renderGather(lines) {
-      clearInterval(scrambleTimer);
-      title.className = "sequence-title is-cinematic is-gather";
+        title.innerHTML = lines.map((line) => {
+          const letters = [...line];
+          const realChars = letters.filter((ch) => ch !== " ");
+          const center = (realChars.length - 1) / 2;
+          let charIndex = 0;
 
-      title.innerHTML = lines.map((line) => {
-        const letters = [...line];
-        const realChars = letters.filter((ch) => ch !== " ");
-        const center = (realChars.length - 1) / 2;
-        let charIndex = 0;
+          const chars = letters.map((ch, index) => {
+            if (ch === " ") {
+              return '<span class="title-space">&nbsp;</span>';
+            }
 
-        const chars = letters.map((ch, index) => {
-          if (ch === " ") {
-            return '<span class="title-space">&nbsp;</span>';
-          }
+            const dir = charIndex < center ? -1 : 1;
+            const distance = 180 + Math.abs(charIndex - center) * 10;
+            const fromY = (index % 2 === 0 ? -1 : 1) * 46;
+            const fromR = dir * (8 + Math.abs(charIndex - center));
 
-          const dir = charIndex < center ? -1 : 1;
-          const distance = 180 + Math.abs(charIndex - center) * 10;
-          const fromY = (index % 2 === 0 ? -1 : 1) * 46;
-          const fromR = dir * (8 + Math.abs(charIndex - center));
+            const html = `
+              <span
+                class="gather-char"
+                style="
+                  --i:${charIndex};
+                  --from-x:${dir * distance}px;
+                  --from-y:${fromY}px;
+                  --from-r:${fromR}deg;
+                "
+              >${escapeHtml(ch)}</span>
+            `;
 
-          const html = `
-            <span
-              class="gather-in-char"
-              style="
-                --i:${charIndex};
-                --from-x:${dir * distance}px;
-                --from-y:${fromY}px;
-                --from-r:${fromR}deg;
-              "
-            >${escapeHtml(ch)}</span>
-          `;
+            charIndex += 1;
+            return html;
+          }).join("");
 
-          charIndex += 1;
-          return html;
+          return `<span class="sequence-line gather-line">${chars}</span>`;
         }).join("");
+      }
 
-        return `<span class="sequence-line cinematic-gather-line">${chars}</span>`;
-      }).join("");
-    }
+      function renderCinematic(lines) {
+        clearInterval(scrambleTimer);
 
-    function renderCinematic(lines) {
-      clearInterval(scrambleTimer);
+        const target = lines[0] || "";
+        title.className = "sequence-title is-cinematic";
 
-      const target = lines[0] || "";
-      title.className = "sequence-title is-cinematic";
+        const isMemosy = target === "Memosy";
+        const lineClass = isMemosy
+          ? "cinematic-main-line"
+          : "cinematic-small-line";
 
-      title.innerHTML = `<span class="sequence-line cinematic-main-line"></span>`;
+        title.innerHTML = `<span class="sequence-line ${lineClass}"></span>`;
 
-      const lineEl = title.querySelector(".sequence-line");
-      const maxFrames = 34;
-      let frame = 0;
+        const lineEl = title.querySelector(".sequence-line");
+        const maxFrames = 34;
+        let frame = 0;
 
-      scrambleTimer = setInterval(() => {
-        const progress = frame / maxFrames;
-        let output = "";
+        scrambleTimer = setInterval(() => {
+          const progress = frame / maxFrames;
+          let output = "";
 
-        for (let i = 0; i < target.length; i++) {
-          const targetChar = target[i];
-          const revealPoint = (i / Math.max(target.length, 1)) * 0.62 + 0.18;
+          for (let i = 0; i < target.length; i++) {
+            const targetChar = target[i];
+            const revealPoint = (i / Math.max(target.length, 1)) * 0.62 + 0.18;
 
-          if (targetChar === " ") {
-            output += " ";
-          } else if (progress > revealPoint) {
-            output += targetChar;
-          } else {
-            output += randomChar();
+            if (targetChar === " ") {
+              output += " ";
+            } else if (progress > revealPoint) {
+              output += targetChar;
+            } else {
+              output += randomChar();
+            }
           }
+
+          lineEl.textContent = output.trimEnd();
+          frame += 1;
+
+          if (frame > maxFrames) {
+            clearInterval(scrambleTimer);
+            lineEl.textContent = target;
+          }
+        }, 38);
+      }
+
+      function flyOutPlain(callback) {
+        const chars = title.querySelectorAll(".plain-fly-char");
+
+        if (!chars.length) {
+          callback();
+          return;
         }
 
-        lineEl.textContent = output.trimEnd();
-        frame += 1;
+        const total = chars.length;
 
-        if (frame > maxFrames) {
-          clearInterval(scrambleTimer);
-          lineEl.textContent = target;
-        }
-      }, 38);
-    }
+        chars.forEach((char, index) => {
+          const dir = index < total / 2 ? -1 : 1;
 
-    function flyOutPlain(callback) {
-      const chars = title.querySelectorAll(".plain-fly-char");
-
-      if (!chars.length) {
-        callback();
-        return;
-      }
-
-      const total = chars.length;
-
-      chars.forEach((char, index) => {
-        const dir = index < total / 2 ? -1 : 1;
-
-        char.style.setProperty("--fly-x", `${dir * (160 + index * 8)}px`);
-        char.style.setProperty("--fly-y", `${(index % 2 === 0 ? -1 : 1) * 70}px`);
-        char.style.setProperty("--fly-r", `${dir * (12 + index)}deg`);
-        char.classList.add("fly-out-char");
-      });
-
-      setTimeout(callback, 860);
-    }
-
-    function switchStep(index) {
-      const step = steps[index];
-
-      if (step.type === "plain") {
-        renderPlain(step.lines);
-      } else if (step.type === "gather") {
-        renderGather(step.lines);
-      } else {
-        renderCinematic(step.lines);
-      }
-
-      requestAnimationFrame(() => {
-        title.classList.remove("is-changing");
-      });
-    }
-
-    function showStep(index) {
-      const currentIsPlain = title.classList.contains("is-plain");
-      const currentIsGather = title.classList.contains("is-gather");
-
-      if (currentIsPlain && !currentIsGather) {
-        flyOutPlain(() => {
-          switchStep(index);
+          char.style.setProperty("--fly-x", `${dir * (160 + index * 8)}px`);
+          char.style.setProperty("--fly-y", `${(index % 2 === 0 ? -1 : 1) * 70}px`);
+          char.style.setProperty("--fly-r", `${dir * (12 + index)}deg`);
+          char.classList.add("fly-out-char");
         });
-        return;
+
+        setTimeout(callback, 860);
       }
 
-      title.classList.add("is-changing");
+      function switchStep(index) {
+        const step = steps[index];
 
-      setTimeout(() => {
-        switchStep(index);
-      }, 260);
-    }
+        if (step.type === "plain") {
+          renderPlain(step.lines);
+        } else if (step.type === "gather") {
+          renderGather(step.lines);
+        } else {
+          renderCinematic(step.lines);
+        }
 
-    switchStep(stepIndex);
+        requestAnimationFrame(() => {
+          title.classList.remove("is-changing");
+        });
+      }
 
-    setInterval(() => {
-      stepIndex = (stepIndex + 1) % steps.length;
-      showStep(stepIndex);
-    }, 4600);
-  });
-</script>
+      function showStep(index) {
+        const currentIsPlain = title.classList.contains("is-plain");
+        const currentIsGather = title.classList.contains("is-gather");
+
+        if (currentIsPlain && !currentIsGather) {
+          flyOutPlain(() => {
+            switchStep(index);
+          });
+          return;
+        }
+
+        title.classList.add("is-changing");
+
+        setTimeout(() => {
+          switchStep(index);
+        }, 260);
+      }
+
+      switchStep(stepIndex);
+
+      setInterval(() => {
+        stepIndex = (stepIndex + 1) % steps.length;
+        showStep(stepIndex);
+      }, 4600);
+    });
+  </script>
 </body>
 </html>
