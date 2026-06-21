@@ -15,6 +15,33 @@
 </head>
 
 <body>
+
+<div class="morph-wrap">
+  <h1 id="morph-title" class="morph-title">생각은 흩어집니다</h1>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const words=[
+  '생각은 흩어집니다',
+  '기억은 사라지고',
+  '기록은 남습니다',
+  'Memosy'
+ ];
+ let i=0;
+ const el=document.getElementById('morph-title');
+ setInterval(()=>{
+   el.classList.add('morph-out');
+   setTimeout(()=>{
+      i=(i+1)%words.length;
+      el.textContent=words[i];
+      el.classList.remove('morph-out');
+      el.classList.add('morph-in');
+      setTimeout(()=>el.classList.remove('morph-in'),700);
+   },450);
+ },3000);
+});
+</script>
+
   <header class="top-bar">
     <a class="brand" href="./">
       <img src="./assets/icon.png" alt="Memosy icon" />
