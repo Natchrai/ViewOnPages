@@ -770,7 +770,6 @@ body::after{
 
   .sequence-title{
     font-size:clamp(38px,12vw,64px);
-    letter-spacing:-0.065em;
   }
 
   .sequence-line{
@@ -801,7 +800,6 @@ body::after{
 .sequence-title.is-cinematic .cinematic-small-line{
   display:block;
   font-size:.72em;
-  letter-spacing:-0.045em;
   opacity:1;
   line-height:1.15;
 }
@@ -810,6 +808,5 @@ body::after{
   display:block;
   margin-top:.08em;
   font-size:1.08em;
-  letter-spacing:-0.07em;
   line-height:1.05;
 }
