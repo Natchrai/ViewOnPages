@@ -113,7 +113,7 @@ main {
 .hero {
   position: relative;
   min-height: 100vh;
-  padding: 180px 7vw 88px;
+  padding: 154px 7vw 88px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,6 +133,80 @@ main {
 .hero > * {
   position: relative;
   z-index: 2;
+}
+
+.flow-strip {
+  width: min(1080px, 100%);
+  margin: 0 auto 28px;
+  overflow: hidden;
+  padding: 14px 0;
+  mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.flow-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: flowMove 30s linear infinite;
+}
+
+.flow-card {
+  width: 210px;
+  min-height: 76px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(110, 220, 255, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 16px 44px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.flow-card span {
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.flow-card strong {
+  font-size: 17px;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.flow-card.quick span {
+  color: #4bffd0;
+}
+
+.flow-card.memo span {
+  color: #53c7ff;
+}
+
+.flow-card.todo span {
+  color: #ff78b7;
+}
+
+.flow-card.backup span {
+  color: #baff77;
+}
+
+@keyframes flowMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .hero-chip {
@@ -196,6 +270,8 @@ h1 strong {
   margin: 48px auto 70px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  align-items: center;
 }
 
 .trust-row div {
@@ -424,7 +500,7 @@ h1 strong {
   }
 
   .hero {
-    padding-top: 150px;
+    padding-top: 136px;
   }
 
   .trust-row {
@@ -480,7 +556,21 @@ h1 strong {
   }
 
   .hero {
-    padding: 122px 22px 70px;
+    padding: 112px 22px 70px;
+  }
+
+  .flow-strip {
+    margin-bottom: 22px;
+  }
+
+  .flow-card {
+    width: 170px;
+    min-height: 68px;
+    padding: 14px 16px;
+  }
+
+  .flow-card strong {
+    font-size: 15px;
   }
 
   h1 {
