@@ -496,8 +496,8 @@ h1 strong {
 }
 
 .sequence-line {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: auto;
   text-align: center;
   white-space: nowrap;
 }
@@ -804,6 +804,8 @@ body::after {
   }
 
   .sequence-line {
+    display: inline-block;
+    width: auto;
     white-space: nowrap;
   }
 }
