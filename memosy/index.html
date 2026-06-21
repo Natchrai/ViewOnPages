@@ -284,10 +284,7 @@
         },
         {
             type: "cinematic",
-            lines: [
-            "빠른 메모",
-            "Memosy"
-            ]
+            lines: ["빠른 메모", "Memosy"]
         }
         ];
 
@@ -372,7 +369,6 @@
 
         function renderCinematic(lines) {
         clearInterval(scrambleTimer);
-
         title.className = "sequence-title is-cinematic";
 
         title.innerHTML = `
@@ -384,8 +380,9 @@
         const subLine = title.querySelector(".cinematic-sub-line");
         const mainLine = title.querySelector(".cinematic-main-line");
 
-        const subTarget = lines[1] || "";
-        const mainTarget = lines[2] || "";
+        const subTarget = lines[0] || ""; 
+        const mainTarget = lines[1] || ""; 
+        
         const maxFrames = 38;
         let frame = 0;
 
