@@ -883,3 +883,24 @@ padding-top:34px;
 font-size:clamp(38px,12vw,64px);
 }
 }
+
+
+/* Fix: place cinematic scramble title inside the hero title area */
+.hero-cinematic-title{
+padding:28px 20px 10px;
+margin:0 auto;
+}
+
+.hero-cinematic-title .cinematic-title{
+margin:0;
+}
+
+.hero-cinematic-title .cinematic-line{
+margin-top:22px;
+}
+
+@media (max-width:640px){
+.hero-cinematic-title{
+padding:22px 12px 8px;
+}
+}

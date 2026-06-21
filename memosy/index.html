@@ -15,78 +15,6 @@
 </head>
 
 <body>
-
-<div class="cinematic-title-wrap">
-  <div class="cinematic-kicker">Memosy</div>
-  <h1 id="cinematicTitle" class="cinematic-title">생각은 흩어집니다</h1>
-  <div class="cinematic-line"></div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const phrases = [
-    "생각은 흩어집니다",
-    "기억은 사라지고",
-    "기록은 남습니다",
-    "Memosy"
-  ];
-
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
-  const el = document.getElementById("cinematicTitle");
-  let phraseIndex = 0;
-
-  function randomChar() {
-    return chars[Math.floor(Math.random() * chars.length)];
-  }
-
-  function scrambleTo(nextText) {
-    const oldText = el.textContent;
-    const maxLength = Math.max(oldText.length, nextText.length);
-    let frame = 0;
-    const totalFrames = 28;
-
-    el.classList.add("is-changing");
-
-    const timer = setInterval(() => {
-      const progress = frame / totalFrames;
-      let output = "";
-
-      for (let i = 0; i < maxLength; i++) {
-        const targetChar = nextText[i] || "";
-        const revealPoint = i / maxLength * 0.65 + 0.18;
-
-        if (targetChar === " ") {
-          output += " ";
-        } else if (progress > revealPoint) {
-          output += targetChar;
-        } else if (progress > revealPoint - 0.18) {
-          output += randomChar();
-        } else {
-          output += oldText[i] || randomChar();
-        }
-      }
-
-      el.textContent = output.trimEnd();
-      frame++;
-
-      if (frame > totalFrames) {
-        clearInterval(timer);
-        el.textContent = nextText;
-        el.classList.remove("is-changing");
-        el.classList.add("is-settled");
-        setTimeout(() => el.classList.remove("is-settled"), 700);
-      }
-    }, 38);
-  }
-
-  setInterval(() => {
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    scrambleTo(phrases[phraseIndex]);
-  }, 3300);
-});
-</script>
-
-
 <header class="top-bar">
     <a class="brand" href="./">
       <img src="./assets/icon.png" alt="Memosy icon" />
@@ -137,9 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <p class="hero-chip">빠르게 기록하고, 쉽게 정리하고, 편하게 관리하세요</p>
 
-      <h1><span class="animated-title" aria-label="기억은 사라지고 기록은 남습니다"><span style="--i:0">기</span><span style="--i:1">억</span><span style="--i:2">은</span><span class="title-gap">&nbsp;</span><span style="--i:3">사</span><span style="--i:4">라</span><span style="--i:5">지</span><span style="--i:6">고</span><br><span style="--i:7">기</span><span style="--i:8">록</span><span style="--i:9">은</span><span class="title-gap">&nbsp;</span><span style="--i:10">남</span><span style="--i:11">습</span><span style="--i:12">니</span><span style="--i:13">다</span></span></h1>
+      <div class="cinematic-title-wrap hero-cinematic-title">
+        <h1 id="cinematicTitle" class="cinematic-title">생각은 흩어집니다</h1>
+        <div class="cinematic-line"></div>
+      </div>
 
-      <p class="subtitle">
+<p class="subtitle">
         생각나는 순간 바로 적으세요. 나머지는 Memosy가 할게요.<br />
         광고와 제약 없이 오롯이 당신의 기록에만 집중할 수 있는<br />
         가장 심플한 메모장입니다.
@@ -330,5 +261,72 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const phrases = [
+    "생각은 흩어집니다",
+    "기억은 사라지고",
+    "기록은 남습니다",
+    "Memosy"
+  ];
+
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
+  const el = document.getElementById("cinematicTitle");
+  if (!el) return;
+
+  let phraseIndex = 0;
+
+  function randomChar() {
+    return chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  function scrambleTo(nextText) {
+    const oldText = el.textContent;
+    const maxLength = Math.max(oldText.length, nextText.length);
+    let frame = 0;
+    const totalFrames = 28;
+
+    el.classList.add("is-changing");
+
+    const timer = setInterval(() => {
+      const progress = frame / totalFrames;
+      let output = "";
+
+      for (let i = 0; i < maxLength; i++) {
+        const targetChar = nextText[i] || "";
+        const revealPoint = (i / maxLength) * 0.65 + 0.18;
+
+        if (targetChar === " ") {
+          output += " ";
+        } else if (progress > revealPoint) {
+          output += targetChar;
+        } else if (progress > revealPoint - 0.18) {
+          output += randomChar();
+        } else {
+          output += oldText[i] || randomChar();
+        }
+      }
+
+      el.textContent = output.trimEnd();
+      frame++;
+
+      if (frame > totalFrames) {
+        clearInterval(timer);
+        el.textContent = nextText;
+        el.classList.remove("is-changing");
+        el.classList.add("is-settled");
+        setTimeout(() => el.classList.remove("is-settled"), 700);
+      }
+    }, 38);
+  }
+
+  setInterval(() => {
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    scrambleTo(phrases[phraseIndex]);
+  }, 3300);
+});
+</script>
+
 </body>
 </html>
