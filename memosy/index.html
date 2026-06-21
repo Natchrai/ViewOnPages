@@ -11,36 +11,10 @@
   />
 
   <link rel="stylesheet" href="./style.css" />
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css">
 </head>
 
 <body>
-
-<div class="morph-wrap">
-  <h1 id="morph-title" class="morph-title">생각은 흩어집니다</h1>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
- const words=[
-  '기억은 사라져도',
-  '기록은 남습니다',
-  'Memosy'
- ]; 
- let i=0;
- const el=document.getElementById('morph-title');
- setInterval(()=>{
-   el.classList.add('morph-out');
-   setTimeout(()=>{
-      i=(i+1)%words.length;
-      el.textContent=words[i];
-      el.classList.remove('morph-out');
-      el.classList.add('morph-in');
-      setTimeout(()=>el.classList.remove('morph-in'),700);
-   },450);
- },3000);
-});
-</script>
-
   <header class="top-bar">
     <a class="brand" href="./">
       <img src="./assets/icon.png" alt="Memosy icon" />
@@ -91,7 +65,11 @@ document.addEventListener('DOMContentLoaded',()=>{
 
       <p class="hero-chip">빠르게 기록하고, 쉽게 정리하고, 편하게 관리하세요</p>
 
-      <h1><span class="animated-title" aria-label="기억은 사라져도 기록은 남습니다"><span style="--i:0">기</span><span style="--i:1">억</span><span style="--i:2">은</span><span class="title-gap">&nbsp;</span><span style="--i:3">사</span><span style="--i:4">라</span><span style="--i:5">져</span><span style="--i:6">도</span><br><span style="--i:7">기</span><span style="--i:8">록</span><span style="--i:9">은</span><span class="title-gap">&nbsp;</span><span style="--i:10">남</span><span style="--i:11">습</span><span style="--i:12">니</span><span style="--i:13">다</span></span></h1>
+      <div class="hero-title-sequence" aria-live="polite">
+        <h1 id="heroSequenceTitle" class="sequence-title"></h1>
+      </div>
+
+      <div class="sequence-glow-line" aria-hidden="true"></div>
 
       <p class="subtitle">
         생각나는 순간 바로 적으세요. 나머지는 Memosy가 할게요.<br />
@@ -284,5 +262,195 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const title = document.getElementById("heroSequenceTitle");
+        if (!title) return;
+
+        const steps = [
+        {
+            type: "pretendard",
+            lines: [
+            "생각은 금방 흩어집니다."
+            ]
+        },
+        {
+            type: "pretendard",
+            lines: [
+            "정리하고 효율적으로",
+            "관리하세요."
+            ]
+        },
+        {
+            type: "cinematic",
+            lines: ["빠른 메모", "Memosy"]
+        }
+        ];
+
+        const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*@!?";
+        let stepIndex = 0;
+        let scrambleTimer = null;
+
+        function escapeHtml(text) {
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
+
+        function randomChar() {
+        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }
+
+        function sideDirection(index, total) {
+        return index < total / 2 ? -1 : 1;
+        }
+
+        function scatterCurrentTitle(callback) {
+        const chars = title.querySelectorAll(".sequence-char, .cinematic-char");
+
+        if (!chars.length) {
+            callback();
+            return;
+        }
+
+        const total = chars.length;
+
+        chars.forEach((char, index) => {
+            const dir = sideDirection(index, total);
+
+            char.style.setProperty("--scatter-x", `${dir * (180 + index * 8)}px`);
+            char.style.setProperty("--scatter-y", `${(index % 2 === 0 ? -1 : 1) * 70}px`);
+            char.style.setProperty("--scatter-r", `${dir * (12 + index)}deg`);
+            char.style.animationDelay = "0ms";
+            char.classList.add("scatter-out");
+        });
+
+        setTimeout(callback, 720);
+        }
+
+        function renderPretendard(lines) {
+        clearInterval(scrambleTimer);
+
+        let charIndex = 0;
+        title.className = "sequence-title is-pretendard";
+
+        title.innerHTML = lines.map((line) => {
+            const chars = [...line].map((ch, index) => {
+            if (ch === " ") {
+                return '<span class="title-space">&nbsp;</span>';
+            }
+
+            const total = line.length;
+            const dir = sideDirection(index, total);
+
+            const char = `
+                <span
+                class="sequence-char"
+                style="--i:${charIndex};"
+                >${escapeHtml(ch)}</span>
+            `;
+
+            charIndex += 1;
+            return char;
+            }).join("");
+
+            return `<span class="sequence-line">${chars}</span>`;
+        }).join("");
+        }
+
+        function renderCinematic(lines) {
+        clearInterval(scrambleTimer);
+        title.className = "sequence-title is-cinematic";
+
+        title.innerHTML = `
+            <span class="sequence-line cinematic-empty-line"></span>
+            <span class="sequence-line cinematic-sub-line"></span>
+            <span class="sequence-line cinematic-main-line"></span>
+        `;
+
+        const subLine = title.querySelector(".cinematic-sub-line");
+        const mainLine = title.querySelector(".cinematic-main-line");
+
+        const subTarget = lines[0] || ""; 
+        const mainTarget = lines[1] || ""; 
+        
+        const maxFrames = 38;
+        let frame = 0;
+
+        scrambleTimer = setInterval(() => {
+            const progress = frame / maxFrames;
+
+            function makeScrambleText(target) {
+            let output = "";
+
+            for (let i = 0; i < target.length; i++) {
+                const targetChar = target[i];
+                const revealPoint = (i / Math.max(target.length, 1)) * 0.62 + 0.18;
+
+                if (targetChar === " ") {
+                output += " ";
+                } else if (progress > revealPoint) {
+                output += targetChar;
+                } else {
+                output += randomChar();
+                }
+            }
+
+            return output;
+            }
+
+            subLine.innerHTML = [...makeScrambleText(subTarget)].map((ch, index) => {
+            if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+            return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+
+            mainLine.innerHTML = [...makeScrambleText(mainTarget)].map((ch, index) => {
+            if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+            return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+
+            frame += 1;
+
+            if (frame > maxFrames) {
+            clearInterval(scrambleTimer);
+
+            subLine.innerHTML = [...subTarget].map((ch, index) => {
+                if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+                return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+
+            mainLine.innerHTML = [...mainTarget].map((ch, index) => {
+                if (ch === " ") return '<span class="title-space">&nbsp;</span>';
+                return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
+            }).join("");
+            }
+        }, 38);
+        }
+
+        function renderStep(index) {
+        const step = steps[index];
+
+        if (step.type === "cinematic") {
+            renderCinematic(step.lines);
+        } else {
+            renderPretendard(step.lines);
+        }
+        }
+
+        function showNextStep() {
+        scatterCurrentTitle(() => {
+            stepIndex = (stepIndex + 1) % steps.length;
+            renderStep(stepIndex);
+        });
+        }
+
+        renderStep(stepIndex);
+        setInterval(showNextStep, 4600);
+    });
+    </script>
 </body>
 </html>
