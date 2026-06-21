@@ -504,12 +504,12 @@ h1 strong {
 
 .sequence-char {
   display: inline-block;
-  margin-right: -0.035em;
+  margin-right: -0.08em;
 }
 
 .title-space {
   display: inline-block;
-  width: .28em;
+  width: .18em;
 }
 
 .sequence-title.is-pretendard .sequence-char {
