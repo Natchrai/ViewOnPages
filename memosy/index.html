@@ -381,7 +381,7 @@
         const maxFrames = 38;
         let frame = 0;
 
-        scrambleTimer = setInterval(() => {
+        function updateCinematicFrame() {
             const progress = frame / maxFrames;
 
             function makeScrambleText(target) {
@@ -412,7 +412,12 @@
             if (ch === " ") return '<span class="title-space">&nbsp;</span>';
             return `<span class="cinematic-char" style="--i:${index}">${escapeHtml(ch)}</span>`;
             }).join("");
+        }
 
+        updateCinematicFrame();
+
+        scrambleTimer = setInterval(() => {
+            updateCinematicFrame();
             frame += 1;
 
             if (frame > maxFrames) {
