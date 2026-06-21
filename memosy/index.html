@@ -4,16 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Memosy - 빠른 기록부터 할 일 관리까지 한 번에</title>
+  <title>Memosy - 기억은 사라지고 기록은 남습니다 한 번에</title>
   <meta
     name="description"
     content="Memosy는 Quick, Memo, Todo를 한 곳에서 관리하는 광고 없는 심플 메모 앱입니다."
   />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=SUIT:wght@400;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
 </head>
 
+
 <body>
+<div class="starfield"></div>
+<div class="memory-cloud">
+<span>Quick</span><span>Memo</span><span>Todo</span>
+<span>Idea</span><span>Plan</span><span>Dream</span>
+</div>
+
   <header class="top-bar">
     <a class="brand" href="./">
       <img src="./assets/icon.png" alt="Memosy icon" />
@@ -40,7 +51,7 @@
 
   <main>
     <section class="hero">
-      <div class="memory-space" aria-hidden="true"><span class="memory m1">Quick</span><span class="memory m2">Memo</span><span class="memory m3">Todo</span><span class="memory m4">Idea</span><span class="memory m5">Plan</span></div><div class="flow-strip" aria-hidden="true">
+      <div class="flow-strip" aria-hidden="true">
         <div class="flow-track">
           <div class="flow-card quick"><span>Quick</span><strong>아이디어 즉시 기록</strong></div>
           <div class="flow-card memo"><span>Memo</span><strong>중요 메모 정리</strong></div>
@@ -67,7 +78,7 @@
       <h1>
         기억은 사라지고<br />
         <strong>기록은 남습니다</strong><br />
-        Memosy.
+        한 번에.
       </h1>
 
       <p class="subtitle">
