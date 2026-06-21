@@ -307,7 +307,7 @@
       function renderSoft(lines) {
         let charIndex = 0;
 
-        title.className = "sequence-title is-soft";
+        title.className = "sequence-title is-pretendard";
         title.innerHTML = lines.map((line) => {
           const chars = [...line].map((ch) => {
             if (ch === " ") return '<span class="title-space">&nbsp;</span>';
@@ -316,6 +316,10 @@
             charIndex += 1;
             return html;
           }).join("");
+
+          return `<span class="sequence-line">${chars}</span>`;
+        }).join("");
+      }).join("");
 
           return `<span class="sequence-line">${chars}</span>`;
         }).join("");
@@ -397,7 +401,7 @@
       setInterval(() => {
         stepIndex = (stepIndex + 1) % steps.length;
         showStep(stepIndex);
-      }, 3600);
+      }, 4600);
     });
   </script>
 </body>

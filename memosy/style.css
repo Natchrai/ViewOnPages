@@ -645,32 +645,35 @@ h1 strong {
   white-space:nowrap;
 }
 
-.sequence-title.is-soft .sequence-char{
+.sequence-title.is-pretendard .sequence-char{
   display:inline-block;
-  animation:pretendardWave 2.65s ease-in-out infinite;
-  animation-delay:calc(var(--i) * .045s);
-  will-change:transform, filter, opacity;
+  animation:pretendardTitleMove 3.2s ease-in-out infinite;
+  animation-delay:calc(var(--i) * .035s);
+  will-change:font-variation-settings, letter-spacing, opacity, filter;
 }
 
-.sequence-title.is-soft .sequence-line:nth-child(2) .sequence-char{
+.sequence-title.is-pretendard .sequence-line:nth-child(2) .sequence-char{
   animation-delay:calc((var(--i) * .045s) + .18s);
 }
 
-@keyframes pretendardWave{
+@keyframes pretendardTitleMove{
   0%,100%{
-    transform:translateY(0) rotate(0deg);
+    font-variation-settings:"wght" 760;
+    letter-spacing:-0.02em;
+    opacity:.92;
     filter:blur(0);
+  }
+  35%{
+    font-variation-settings:"wght" 950;
+    letter-spacing:.12em;
     opacity:1;
+    filter:blur(0);
   }
-  22%{
-    transform:translateY(-.13em) rotate(-.8deg);
-    filter:blur(.12px);
-  }
-  45%{
-    transform:translateY(.045em) rotate(.45deg);
-  }
-  62%{
-    transform:translateY(0) rotate(0deg);
+  65%{
+    font-variation-settings:"wght" 680;
+    letter-spacing:.02em;
+    opacity:.96;
+    filter:blur(.1px);
   }
 }
 
@@ -750,7 +753,7 @@ body::after{
 }
 
 @media (prefers-reduced-motion: reduce){
-  .sequence-title.is-soft .sequence-char,
+  .sequence-title.is-pretendard .sequence-char,
   .sequence-title.is-cinematic,
   .sequence-glow-line,
   body::after{
@@ -772,4 +775,24 @@ body::after{
   .sequence-line{
     white-space:normal;
   }
+}
+
+
+/* Pretendard title style: no wave, only spacing/weight motion */
+.sequence-title.is-pretendard{
+  font-weight:850;
+}
+
+.sequence-title.is-pretendard .sequence-line{
+  display:block;
+  white-space:nowrap;
+}
+
+.sequence-title.is-pretendard .sequence-char{
+  transform:none !important;
+}
+
+.sequence-title.is-pretendard .title-space{
+  display:inline-block;
+  width:.24em;
 }
