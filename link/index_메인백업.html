@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViewOn Link</title>
+<style>
+body{margin:0;background:#020817;font-family:Arial,sans-serif;min-height:220vh}
+.hero{height:100vh;position:sticky;top:0;position:-webkit-sticky;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.bg{position:absolute;inset:0;background:url('./assets/viewon-link-main-bg.webp') var(--bg-x, 50%) var(--bg-y, 50%)/cover no-repeat;
+animation:zoom 20s ease-in-out infinite alternate;filter:brightness(.45)}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+.wrap{position:relative;display:flex;gap:80px;align-items:center;z-index:2}
+.phone{width:260px;height:520px;border-radius:40px;background:#111;padding:10px;
+box-shadow:0 0 40px rgba(0,180,255,.4)}
+.screen{width:100%;height:100%;border-radius:30px;overflow:hidden;position:relative}
+.left .screen,.right.show .screen{
+background:url('./assets/viewon-link-main-bg.webp') var(--phone-x, 50%) var(--phone-y, 50%)/auto 122% no-repeat;
+}
+.right .screen{background:#000;transition:background-color 1s}
+.link{
+position:relative;
+width:230px;
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#7ee8ff;
+font-size:78px;
+text-shadow:0 0 24px rgba(70,220,255,1);
+filter:drop-shadow(0 0 18px rgba(0,200,255,.85));
+}
+.link-core{
+position:relative;
+width:148px;
+height:148px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+}
+.signal-core{
+width:26px;
+height:26px;
+border-radius:50%;
+background:#9ff4ff;
+box-shadow:
+0 0 12px #9ff4ff,
+0 0 32px rgba(66,223,255,.95),
+0 0 70px rgba(66,223,255,.55);
+position:relative;
+z-index:3;
+}
+.signal-core::after{
+content:"";
+position:absolute;
+inset:7px;
+border-radius:50%;
+background:#020817;
+box-shadow:inset 0 0 8px rgba(159,244,255,.9);
+}
+
+.wave{
+position:absolute;
+inset:-25px;
+border:4px solid rgba(82,215,255,.72);
+border-left-color:transparent;
+border-right-color:transparent;
+border-radius:50%;
+animation:pulse 2.1s ease-out infinite;
+}
+.wave:nth-child(2){animation-delay:.7s}
+.wave:nth-child(3){animation-delay:1.4s}
+@keyframes pulse{
+from{transform:scale(.7);opacity:1}
+to{transform:scale(1.7);opacity:0}
+}
+.data-dot{
+position:absolute;
+top:50%;
+left:50%;
+width:7px;
+height:7px;
+border-radius:50%;
+background:#91f6ff;
+box-shadow:0 0 15px #72edff;
+animation:sendDot 1.8s linear infinite;
+}
+.data-dot:nth-child(1){animation-delay:0s}
+.data-dot:nth-child(2){animation-delay:.35s}
+.data-dot:nth-child(3){animation-delay:.7s}
+.data-dot:nth-child(4){animation-delay:1.05s}
+@keyframes sendDot{
+from{transform:translate(-210px,-50%) scale(.55);opacity:0}
+18%{opacity:1}
+82%{opacity:1}
+to{transform:translate(210px,-50%) scale(1.08);opacity:0}
+}
+.scan{position:absolute;left:0;right:0;height:4px;background:#7de3ff;
+box-shadow:0 0 20px #7de3ff;animation:scan 3s linear infinite}
+@keyframes scan{from{top:0}to{top:100%}}
+
+.right .screen::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(90deg, transparent, rgba(114,232,255,.38), transparent),
+repeating-linear-gradient(to bottom, rgba(95,215,255,.20) 0 2px, transparent 2px 11px);
+transform:translateY(-110%);
+opacity:0;
+z-index:7;
+}
+.right.reveal .screen::after{
+animation:receiveScan 1.35s ease-out;
+}
+@keyframes receiveScan{
+0%{transform:translateY(-110%);opacity:0}
+18%{opacity:1}
+100%{transform:translateY(110%);opacity:0}
+}
+
+.title{position:absolute;top:70px;text-align:center;color:white;z-index:2}
+
+@media (max-width: 700px){
+  body{
+    min-height:220vh;
+    overflow-x:hidden;
+  }
+
+  .hero{
+    height:100svh;
+    min-height:640px;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .bg{
+    inset:-12%;
+    background-size:auto 118%;
+    filter:brightness(.48);
+  }
+
+  .title{
+    top:12vh;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    padding:0 24px;
+    z-index:8;
+  }
+
+  .title h1{
+    margin:0;
+    font-size:44px;
+    line-height:1.1;
+    letter-spacing:-1px;
+  }
+
+  .title p{
+    margin:18px 0 0;
+    font-size:22px;
+    line-height:1.25;
+  }
+
+  .wrap{
+    position:absolute;
+    inset:0;
+    display:block;
+    width:100%;
+    height:100%;
+    z-index:2;
+  }
+
+  .phone{
+    position:absolute;
+    width:44vw;
+    min-width:155px;
+    max-width:205px;
+    height:auto;
+    aspect-ratio:.5;
+    padding:8px;
+    border-radius:32px;
+    box-shadow:0 0 34px rgba(0,180,255,.34);
+  }
+
+  .screen{
+    border-radius:24px;
+  }
+
+  .left.phone{
+    left:14vw;
+    top:31vh;
+    z-index:1;
+    opacity:.92;
+    transform:rotate(-8deg);
+  }
+
+  .right.phone{
+    right:12vw;
+    top:35vh;
+    bottom:auto;
+    z-index:3;
+    transform:rotate(11deg);
+  }
+
+  .link{
+    position:absolute;
+    left:50%;
+    top:46%;
+    width:190px;
+    height:190px;
+    transform:translate(-50%,-50%) scale(.82);
+    z-index:5;
+  }
+
+  .link-core{
+    width:132px;
+    height:132px;
+  }
+
+  .data-dot{
+    animation:sendDotMobile 1.8s linear infinite;
+  }
+
+  @keyframes sendDotMobile{
+    from{transform:translate(-132px,-50%) scale(.5);opacity:0}
+    18%{opacity:1}
+    82%{opacity:1}
+    to{transform:translate(132px,-50%) scale(1);opacity:0}
+  }
+
+  .wave{
+    inset:-18px;
+  }
+
+  .phone::before{
+    top:12px;
+    height:18px;
+    border-radius:0 0 14px 14px;
+  }
+}
+
+@media (max-width: 390px){
+  .title{
+    top:11vh;
+  }
+
+  .title h1{
+    font-size:40px;
+  }
+
+  .title p{
+    font-size:20px;
+  }
+
+  .phone{
+    width:46vw;
+    min-width:145px;
+  }
+
+  .left.phone{
+    left:12vw;
+    top:31vh;
+  }
+
+  .right.phone{
+    right:10vw;
+    top:35vh;
+    bottom:auto;
+  }
+
+  .link{
+    top:46%;
+    transform:translate(-50%,-50%) scale(.76);
+  }
+}
+
+
+@media (max-width: 700px) and (max-height: 720px){
+  .left.phone{
+    top:28vh;
+  }
+
+  .right.phone{
+    top:32vh;
+  }
+
+  .link{
+    top:44%;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="bg"></div>
+<div class="title"><h1>ViewOn Link</h1><p>실시간 카메라 공유</p></div>
+<div class="wrap">
+<div class="phone left"><div class="screen"><div class="scan"></div></div></div>
+<div class="link">
+<div class="data-dot"></div>
+<div class="data-dot"></div>
+<div class="data-dot"></div>
+<div class="data-dot"></div>
+<div class="link-core">
+<div class="signal-core"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+</div>
+</div>
+<div class="phone right"><div class="screen"></div></div>
+</div>
+</div>
+
+
+
+
+<script>
+const root=document.documentElement;
+const right=document.querySelector('.right');
+
+let ticking=false;
+let viewerShown=false;
+
+function getScrollProgress(){
+ const maxScroll=Math.max(1,document.body.scrollHeight-window.innerHeight);
+ return Math.min(1,Math.max(0,window.scrollY/maxScroll));
+}
+
+function applyScenePosition(p){
+ const bgX=50+Math.sin(p*Math.PI*1.25)*5;
+ const bgY=34+p*42;
+
+ // index(15) 기준: 두 스마트폰 화면은 같은 x/y 값을 공유합니다.
+ // 오른쪽 폰이 나타난 이후에도 background-position transition을 쓰지 않아서
+ // 스크롤 시 왼쪽/오른쪽이 같은 속도로 움직입니다.
+ const phoneX=50+Math.sin(p*Math.PI*1.25)*8;
+ const phoneY=38+p*24;
+
+ root.style.setProperty('--bg-x',bgX.toFixed(2)+'%');
+ root.style.setProperty('--bg-y',bgY.toFixed(2)+'%');
+
+ root.style.setProperty('--phone-x',phoneX.toFixed(2)+'%');
+ root.style.setProperty('--phone-y',phoneY.toFixed(2)+'%');
+}
+
+function updateParallax(){
+ applyScenePosition(getScrollProgress());
+ ticking=false;
+}
+
+function requestParallax(){
+ if(!ticking){
+  requestAnimationFrame(updateParallax);
+  ticking=true;
+ }
+}
+
+function showViewerOnce(){
+ if(viewerShown) return;
+ viewerShown=true;
+
+ // 오른쪽 스마트폰에 처음 영상이 나타날 때만 reveal 애니메이션 실행
+ setTimeout(()=>{
+  right.classList.add('reveal');
+ },650);
+
+ setTimeout(()=>{
+  right.classList.add('show');
+  applyScenePosition(getScrollProgress());
+ },1050);
+
+ // reveal 효과만 제거하고 show는 계속 유지
+ setTimeout(()=>{
+  right.classList.remove('reveal');
+ },2500);
+}
+
+updateParallax();
+showViewerOnce();
+
+window.addEventListener('scroll',requestParallax,{passive:true});
+window.addEventListener('resize',requestParallax);
+</script>
+
+
+
+
+</body>
+</html>
