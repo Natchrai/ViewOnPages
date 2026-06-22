@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#020817" />
-<title>ViewOn Link - 실시간 카메라 공유</title>
-<meta name="description" content="ViewOn Link는 QR 코드로 두 대의 휴대폰을 연결해 한 기기의 카메라 화면을 다른 기기에서 실시간으로 확인할 수 있는 앱입니다." />
+<title>ViewOn Link - Real-time Camera Sharing</title>
+<meta name="description" content="ViewOn Link connects two phones with a QR code so you can view one device’s camera in real time on another device." />
 <style>
 :root{
   --bg:#020817;
@@ -77,15 +77,38 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
 
 .showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.case-card{position:relative;min-height:560px;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.13);box-shadow:var(--shadow);background:#071323}.case-card.tall{min-height:690px}.case-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .7s ease}.case-card:hover img{transform:scale(1.035);filter:brightness(1.04)}.case-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(2,8,23,.08),rgba(2,8,23,.05) 42%,rgba(2,8,23,.52) 100%)}.case-caption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px;background:linear-gradient(to top,rgba(2,8,23,.86),rgba(2,8,23,0))}.case-caption h3{margin:0;font-size:clamp(25px,2.8vw,38px);line-height:1.15;letter-spacing:-.065em}.case-caption p{margin:12px 0 0;color:rgba(221,241,255,.86);line-height:1.65;font-size:16px;font-weight:600;letter-spacing:-.035em}.case-chip{display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;padding:8px 12px;border-radius:999px;background:rgba(66,223,255,.15);border:1px solid rgba(126,232,255,.28);color:#a7f4ff;font-size:12px;font-weight:900}
 
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature-card{min-height:190px}.feature-card b{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:17px;background:rgba(126,232,255,.1);border:1px solid var(--line);margin-bottom:18px;font-size:24px}.secure-panel{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:center;border:1px solid var(--line);border-radius:34px;padding:26px;background:linear-gradient(135deg,rgba(13,237,191,.09),rgba(66,223,255,.04));box-shadow:var(--shadow)}.secure-image{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}.secure-copy h2{margin:0;font-size:clamp(34px,4vw,58px);line-height:1.1;letter-spacing:-.075em}.secure-copy p{margin:18px 0 0;color:var(--muted);font-size:18px;line-height:1.8;font-weight:600;letter-spacing:-.035em}.secure-list{display:grid;gap:12px;margin-top:24px}.secure-list div{display:flex;gap:12px;align-items:flex-start;color:#def7ff;font-weight:800;line-height:1.55}.secure-list span{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:rgba(125,247,212,.18);border:1px solid rgba(125,247,212,.45);display:flex;align-items:center;justify-content:center;color:#7df7d4;font-size:13px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature-card{min-height:190px}.feature-card b{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:17px;background:rgba(126,232,255,.1);border:1px solid var(--line);margin-bottom:18px;font-size:24px}.secure-panel{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:center;border:1px solid var(--line);border-radius:34px;padding:26px;background:linear-gradient(135deg,rgba(13,237,191,.09),rgba(66,223,255,.04));box-shadow:var(--shadow)}.secure-image{border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}.secure-copy h2{margin:0;font-size:clamp(34px,4vw,58px);line-height:1.1;letter-spacing:-.075em}.secure-copy p{margin:18px 0 0;color:var(--muted);font-size:18px;line-height:1.8;font-weight:600;letter-spacing:-.035em}.secure-list{display:grid;gap:12px;margin-top:24px}.secure-list div{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:flex-start;color:#def7ff;font-weight:800;line-height:1.55}.secure-check{width:24px;height:24px;border-radius:50%;background:rgba(125,247,212,.18);border:1px solid rgba(125,247,212,.45);display:inline-flex;align-items:center;justify-content:center;color:#7df7d4;font-size:13px;line-height:1;flex:0 0 auto;margin-top:.05em}.secure-text{display:block;min-width:0;line-height:1.55}
 
-.download{border:1px solid var(--line-strong);border-radius:36px;overflow:hidden;background:radial-gradient(circle at 78% 20%,rgba(66,223,255,.22),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.035));box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:center;padding:34px}.download h2{margin:0;font-size:clamp(34px,4.4vw,60px);line-height:1.1;letter-spacing:-.075em}.download p{margin:18px 0 0;color:var(--muted);font-weight:600;line-height:1.75;font-size:18px;letter-spacing:-.035em}.qr-card{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:30px;padding:24px;text-align:center}.qr-card img{width:160px;height:160px;border-radius:34px;margin:0 auto 16px;box-shadow:0 18px 42px rgba(0,0,0,.25)}.qr-card strong{font-size:20px;letter-spacing:-.04em}.qr-card small{display:block;margin-top:8px;color:var(--muted);font-weight:700;line-height:1.5}.store-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.store-pill{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:18px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);font-weight:900}.store-pill.disabled{opacity:.58}
+.download{border:1px solid var(--line-strong);border-radius:36px;overflow:hidden;background:radial-gradient(circle at 78% 20%,rgba(66,223,255,.22),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.035));box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:center;padding:34px}.download h2{margin:0;font-size:clamp(34px,4.4vw,60px);line-height:1.1;letter-spacing:-.075em}.download p{margin:18px 0 0;color:var(--muted);font-weight:600;line-height:1.75;font-size:18px;letter-spacing:-.035em}.qr-card{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:30px;padding:24px;text-align:center}.qr-card img{width:160px;height:160px;border-radius:34px;margin:0 auto 16px;box-shadow:0 18px 42px rgba(0,0,0,.25)}.qr-card strong{font-size:20px;letter-spacing:-.04em}.qr-card small{display:block;margin-top:8px;color:var(--muted);font-weight:700;line-height:1.5}.store-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.store-pill{display:inline-flex;align-items:center;gap:11px;padding:14px 18px;border-radius:18px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);font-weight:900;line-height:1;white-space:nowrap}.store-icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}.store-icon svg{width:100%;height:100%;display:block}.store-pill.disabled{opacity:.58}
+.language-control{position:relative;display:inline-flex;align-items:center}
+.language-trigger{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 36px 0 12px;border:1px solid rgba(126,232,255,.32);border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.055));color:var(--text);box-shadow:0 0 22px rgba(66,223,255,.10),inset 0 1px 0 rgba(255,255,255,.12);font:inherit;font-size:13px;font-weight:900;letter-spacing:-.02em;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
+.language-trigger:hover{transform:translateY(-1px);border-color:rgba(126,232,255,.58);background:linear-gradient(135deg,rgba(126,232,255,.16),rgba(255,255,255,.07));box-shadow:0 0 28px rgba(66,223,255,.16),inset 0 1px 0 rgba(255,255,255,.15)}
+.language-trigger .language-globe{font-size:15px;line-height:1}
+.language-trigger::after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:2px solid rgba(255,255,255,.72);border-bottom:2px solid rgba(255,255,255,.72);transform:translateY(-65%) rotate(45deg);transition:transform .2s ease}
+.language-control.is-open .language-trigger::after{transform:translateY(-35%) rotate(225deg)}
+.language-menu{position:absolute;right:0;top:calc(100% + 12px);width:190px;padding:8px;border:1px solid rgba(126,232,255,.32);border-radius:22px;background:linear-gradient(180deg,rgba(6,20,39,.96),rgba(2,8,23,.94));box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 36px rgba(66,223,255,.13),inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(18px);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .18s ease,visibility .18s ease,transform .18s ease;z-index:100}
+.language-control.is-open .language-menu{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.language-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border:0;border-radius:15px;background:transparent;color:rgba(247,251,255,.86);font:inherit;font-size:14px;font-weight:850;letter-spacing:-.02em;cursor:pointer;text-align:left;transition:background .18s ease,color .18s ease,transform .18s ease}
+.language-option:hover{background:rgba(126,232,255,.11);color:#fff;transform:translateX(2px)}
+.language-option.is-active{background:linear-gradient(135deg,rgba(66,223,255,.18),rgba(125,247,212,.10));color:#fff}
+.language-option .language-check{width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(126,232,255,.30);color:transparent;font-size:12px;flex:0 0 auto}
+.language-option.is-active .language-check{color:#7df7d4;border-color:rgba(125,247,212,.55);background:rgba(125,247,212,.12)}
+html[dir="rtl"] body{font-family:Arial,"Noto Sans Arabic","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+html[dir="rtl"] .topbar,html[dir="rtl"] .nav,html[dir="rtl"] .brand,html[dir="rtl"] .store-row,html[dir="rtl"] .footer,html[dir="rtl"] .secure-list div{direction:rtl}
+html[dir="rtl"] .section-title,html[dir="rtl"] .intro-copy,html[dir="rtl"] .secure-copy,html[dir="rtl"] .download,html[dir="rtl"] .case-caption,html[dir="rtl"] .feature-card,html[dir="rtl"] .faq-item{text-align:right}
+html[dir="rtl"] .language-trigger{padding:0 12px 0 36px}
+html[dir="rtl"] .language-trigger::after{right:auto;left:14px}
+html[dir="rtl"] .language-menu{right:auto;left:0;transform-origin:top left}
+html[dir="rtl"] .language-option{text-align:right}
+html[dir="rtl"] .language-option:hover{transform:translateX(-2px)}
+html[dir="rtl"] .secure-list div{grid-template-columns:24px 1fr}
+
 
 .faq{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.faq-item h3{margin:0;font-size:19px;line-height:1.4;letter-spacing:-.04em}.faq-item p{margin:10px 0 0;color:var(--muted);line-height:1.7;font-weight:600;letter-spacing:-.03em}.footer{padding:46px max(22px,calc((100vw - 1180px)/2));color:rgba(255,255,255,.58);display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.08)}.footer strong{color:white}.footer-links{display:flex;gap:16px;flex-wrap:wrap}
 .reveal-up{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}.reveal-up.is-visible{opacity:1;transform:translateY(0)}
 
 @media (max-width:960px){
-  .nav a:not(.mini-cta){display:none}.hero{min-height:720px}.title{top:100px}.wrap{gap:36px;transform:scale(.9)}.intro-grid,.secure-panel,.download{grid-template-columns:1fr}.showcase,.features,.steps,.faq{grid-template-columns:1fr}.case-card,.case-card.tall{min-height:620px}.download{padding:24px}.qr-card{max-width:360px}.section{padding-top:86px;padding-bottom:86px}
+  .nav a:not(.mini-cta){display:none}.language-trigger{min-height:36px;padding-right:34px}.language-menu{width:180px}.hero{min-height:720px}.title{top:100px}.wrap{gap:36px;transform:scale(.9)}.intro-grid,.secure-panel,.download{grid-template-columns:1fr}.showcase,.features,.steps,.faq{grid-template-columns:1fr}.case-card,.case-card.tall{min-height:620px}.download{padding:24px}.qr-card{max-width:360px}.section{padding-top:86px;padding-bottom:86px}
 }
 @media (max-width:700px){
   .topbar{padding:14px 18px}.brand span{font-size:15px}.hero{height:100svh;min-height:640px;align-items:center;justify-content:center}.bg{inset:-12%;background-size:auto 118%;filter:brightness(.48)}.title{top:92px;padding:0 22px;z-index:8}.title h1{font-size:44px}.title p{font-size:20px;margin-top:14px}.hero-bottom-copy{bottom:18px;width:min(350px,92vw);font-size:12px;line-height:1.55;padding:0 8px}.hero-actions{display:none}.btn{min-height:44px;padding:0 16px;font-size:14px}.wrap{position:absolute;inset:0;display:block;width:100%;height:100%;margin:0;transform:none;z-index:2}.phone{position:absolute;width:44vw;min-width:155px;max-width:205px;height:auto;aspect-ratio:.5;padding:8px;border-radius:32px;box-shadow:0 0 34px rgba(0,180,255,.34)}.screen{border-radius:24px}.left.phone{left:14vw;top:34vh;z-index:1;opacity:.92;transform:rotate(-8deg)}.right.phone{right:12vw;top:38vh;bottom:auto;z-index:3;transform:rotate(11deg)}.link{position:absolute;left:50%;top:49%;width:190px;height:190px;transform:translate(-50%,-50%) scale(.82);z-index:5}.link-core{width:132px;height:132px}.data-dot{animation:sendDotMobile 1.8s linear infinite}@keyframes sendDotMobile{from{transform:translate(-132px,-50%) scale(.5);opacity:0}18%{opacity:1}82%{opacity:1}to{transform:translate(132px,-50%) scale(1);opacity:0}}.wave{inset:-18px}.scroll-hint{bottom:76px}.section{padding:74px 18px}.section-title{text-align:left;margin-bottom:30px}.section-title h2,.intro-copy h2,.secure-copy h2,.download h2{letter-spacing:-.07em}.intro-panel{padding:20px;border-radius:24px}.intro-copy p,.secure-copy p,.download p{font-size:16px}.case-card,.case-card.tall{min-height:560px;border-radius:26px}.case-caption{padding:24px}.footer{flex-direction:column;align-items:flex-start;padding:36px 18px}.showcase{gap:18px}.topbar .mini-cta{padding:9px 12px;font-size:13px}
@@ -98,10 +121,26 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
 <header class="topbar">
   <a class="brand" href="#top" aria-label="ViewOn Link 홈"><img src="./assets/viewon-link-icon.png" alt="ViewOn Link 아이콘"><span>ViewOn Link</span></a>
   <nav class="nav" aria-label="주요 메뉴">
-    <a href="#how">사용법</a>
-    <a href="#cases">활용 예시</a>
-    <a href="#features">기능</a>
-    <a href="#download" class="mini-cta">다운로드</a>
+    <a href="#how" data-i18n="nav.how">How</a>
+    <a href="#cases" data-i18n="nav.cases">Use cases</a>
+    <a href="#features" data-i18n="nav.features">Features</a>
+    
+    <div class="language-control" id="languageControl">
+      <button class="language-trigger" id="languageTrigger" type="button" aria-label="Language" aria-haspopup="listbox" aria-expanded="false">
+        <span class="language-globe" aria-hidden="true">🌐</span>
+        <span id="languageCurrent">English</span>
+      </button>
+      <div class="language-menu" id="languageMenu" role="listbox" aria-label="Language">
+        <button class="language-option" type="button" data-lang-option="en" role="option"><span>English</span><span class="language-check">✓</span></button>
+        <button class="language-option" type="button" data-lang-option="ar" role="option"><span>العربية</span><span class="language-check">✓</span></button>
+        <button class="language-option" type="button" data-lang-option="de" role="option"><span>Deutsch</span><span class="language-check">✓</span></button>
+        <button class="language-option" type="button" data-lang-option="es" role="option"><span>Español</span><span class="language-check">✓</span></button>
+        <button class="language-option" type="button" data-lang-option="fr" role="option"><span>Français</span><span class="language-check">✓</span></button>
+        <button class="language-option" type="button" data-lang-option="ja" role="option"><span>日本語</span><span class="language-check">✓</span></button>
+        <button class="language-option" type="button" data-lang-option="ko" role="option"><span>한국어</span><span class="language-check">✓</span></button>
+      </div>
+    </div>
+    <a href="#download" class="mini-cta" data-i18n="nav.download">Download</a>
   </nav>
 </header>
 
@@ -109,7 +148,7 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
   <div class="bg"></div>
   <div class="title">
     <h1>ViewOn Link</h1>
-    <p>실시간 카메라 공유</p>
+    <p data-i18n="hero.subtitle">Real-time camera sharing</p>
   </div>
   <div class="wrap" aria-hidden="true">
     <div class="phone left"><div class="screen"><div class="scan"></div></div></div>
@@ -119,8 +158,8 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
     </div>
     <div class="phone right"><div class="screen"></div></div>
   </div>
-  <div class="scroll-hint">아래로 내려서 자세히 보기 <span></span></div>
-  <div class="hero-bottom-copy"><strong>한 기기의 카메라를 다른 기기에서 바로 확인하세요.</strong><span>QR 코드로 연결하고, 필요한 순간 실시간으로 보고 저장하세요.</span></div>
+  <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll down to learn more</span> <span></span></div>
+  <div class="hero-bottom-copy"><strong data-i18n="hero.bottomStrong">View one device’s camera directly on another device.</strong><span data-i18n="hero.bottomText">Connect with a QR code, view in real time, and save what you need.</span></div>
 </section>
 
 <main>
@@ -128,9 +167,9 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
     <div class="intro-panel reveal-up">
       <div class="intro-grid">
         <div class="intro-copy">
-          <div class="eyebrow">실시간 연결</div>
-          <h2>한 기기의 카메라를<br>다른 기기에서 확인하세요.</h2>
-          <p>ViewOn Link는 휴대폰 두 대를 QR 코드로 연결해 한쪽은 Camera, 다른 한쪽은 Viewer로 사용할 수 있게 도와줍니다. 수업, 작업, 촬영 보조, 확대 확인처럼 두 번째 화면이 필요한 순간에 간단하게 사용할 수 있습니다.</p>
+          <div class="eyebrow" data-i18n="intro.eyebrow">Real-time connection</div>
+          <h2 data-i18n="intro.title">View one device’s camera<br>on another device.</h2>
+          <p data-i18n="intro.text">ViewOn Link connects two phones with a QR code, letting one work as the Camera and the other as the Viewer. Use it whenever you need a second screen for classes, work, assisted shooting, or close-up checking.</p>
         </div>
         <div class="intro-visual"><img src="./assets/hero-viewon-link.png" alt="두 대의 휴대폰이 연결되는 ViewOn Link 이미지"></div>
       </div>
@@ -139,80 +178,80 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
 
   <section class="section" id="how">
     <div class="section-title reveal-up">
-      <div class="eyebrow">How it works</div>
-      <h2>3단계로 바로 연결</h2>
-      <p>계정 가입이나 복잡한 입력 없이, Camera 기기에서 QR을 만들고 Viewer 기기에서 QR Scan만 하면 실시간 화면을 확인할 수 있습니다.</p>
+      <div class="eyebrow" data-i18n="how.eyebrow">How it works</div>
+      <h2 data-i18n="how.title">Connect in 3 simple steps</h2>
+      <p data-i18n="how.text">No sign-up or complicated setup. Create a QR code on the Camera device, scan it on the Viewer device, and see the live screen instantly.</p>
     </div>
     <div class="steps">
-      <article class="step-card reveal-up"><div class="step-num">1</div><div class="step-icon">📷</div><h3>Camera에서 QR 생성</h3><p>카메라로 사용할 휴대폰에서 연결용 QR 코드를 생성합니다.</p></article>
-      <article class="step-card reveal-up"><div class="step-num">2</div><div class="step-icon">▦</div><h3>Viewer에서 QR Scan</h3><p>화면을 볼 휴대폰이나 태블릿에서 QR 코드를 스캔합니다.</p></article>
-      <article class="step-card reveal-up"><div class="step-num">3</div><div class="step-icon">👁</div><h3>실시간 화면 확인</h3><p>두 기기가 연결되면 Camera 화면을 Viewer에서 바로 볼 수 있습니다.</p></article>
+      <article class="step-card reveal-up"><div class="step-num">1</div><div class="step-icon">📷</div><h3 data-i18n="step1.title">Create a QR on Camera</h3><p data-i18n="step1.text">Generate a connection QR code on the phone you will use as the camera.</p></article>
+      <article class="step-card reveal-up"><div class="step-num">2</div><div class="step-icon">▦</div><h3 data-i18n="step2.title">Scan QR on Viewer</h3><p data-i18n="step2.text">Scan the QR code with the phone or tablet you will use as the viewer.</p></article>
+      <article class="step-card reveal-up"><div class="step-num">3</div><div class="step-icon">👁</div><h3 data-i18n="step3.title">View in real time</h3><p data-i18n="step3.text">Once connected, you can see the Camera screen directly on the Viewer.</p></article>
     </div>
   </section>
 
   <section class="section" id="cases">
     <div class="section-title reveal-up">
-      <div class="eyebrow">Use cases</div>
-      <h2>혼자 보기 어려운 곳을<br>두 번째 화면으로</h2>
-      <p>작은 글씨 확대, 옷 핏과 뒷모습 확인, 차량 하부 점검, 가구 밑 확인, 운동 자세 체크, 그루밍 보조처럼 실제 사용 장면에 맞춰 바로 활용할 수 있습니다.</p>
+      <div class="eyebrow" data-i18n="cases.eyebrow">Use cases</div>
+      <h2 data-i18n="cases.title">Use a second screen<br>for places hard to see alone</h2>
+      <p data-i18n="cases.text">Use it right away for real situations like magnifying small text, checking outfit fit and your back view, inspecting under a car, looking under furniture, checking workout posture, or grooming.</p>
     </div>
     <div class="showcase">
       <article class="case-card tall reveal-up">
         <img src="./assets/info5.png" alt="운동 자세와 뒷모습을 확인하는 모습">
-        <div class="case-caption"><div class="case-chip">운동 자세</div><h3>운동 자세와 뒷모습을<br>실시간 체크</h3><p>혼자 홈트할 때도 등, 어깨, 골반 라인과 움직임의 균형을 바로 확인할 수 있습니다.</p></div>
+        <div class="case-caption"><div class="case-chip" data-i18n="case1.chip">Workout posture</div><h3 data-i18n="case1.title">Check workout posture<br>and your back view in real time</h3><p data-i18n="case1.text">Even when working out alone at home, you can check your back, shoulders, hip line, and movement balance right away.</p></div>
       </article>
       <article class="case-card tall reveal-up">
         <img src="./assets/info9.png" alt="백더블 바이셉스 자세와 등 근육 라인을 촬영하는 모습">
         <div class="case-caption">
-          <div class="case-chip">등사진 촬영</div>
-          <h3>백더블 바이셉스도<br>혼자서 제대로 촬영</h3>
-          <p>등 근육의 라인과 자세를 다른 사람이 찍어준 것처럼 실시간으로 확인하고 촬영하세요.</p>
+          <div class="case-chip" data-i18n="case2.chip">Back photo</div>
+          <h3 data-i18n="case2.title">Capture a back double biceps pose<br>properly by yourself</h3>
+          <p data-i18n="case2.text">Check your back muscle lines and pose in real time, then capture it like someone else took the photo for you.</p>
         </div>
       </article>
       <article class="case-card tall reveal-up">
         <img src="./assets/info8.png" alt="등처럼 눈으로 보기 어려운 신체 부위를 실시간으로 확인하는 모습">
         <div class="case-caption">
-          <div class="case-chip">사각지대 확인</div>
-          <h3>내 몸의 사각지대도<br>혼자서 확인하세요</h3>
-          <p>등처럼 손은 닿아도 눈으로 보기 어려운 부위도 직접 보는 것보다 더 선명하게 확인할 수 있습니다.</p>
+          <div class="case-chip" data-i18n="case3.chip">Blind spot check</div>
+          <h3 data-i18n="case3.title">Check your body’s blind spots<br>by yourself</h3>
+          <p data-i18n="case3.text">Even areas like your back that your hands can reach but your eyes cannot see can be checked more clearly than trying to look directly.</p>
         </div>
       </article>
       <article class="case-card tall reveal-up">
         <img src="./assets/info2.png" alt="옷 핏과 뒷모습을 실시간으로 확인하는 모습">
-        <div class="case-caption"><div class="case-chip">핏 확인</div><h3>옷 핏과 뒷모습을<br>혼자서도 한눈에</h3><p>어깨선, 뒤태, 전체 핏처럼 거울 하나로 보기 어려운 부분을 실시간으로 확인하세요.</p></div>
+        <div class="case-caption"><div class="case-chip" data-i18n="case4.chip">Fit check</div><h3 data-i18n="case4.title">See your outfit fit<br>and back view at a glance</h3><p data-i18n="case4.text">Check details that are hard to see with one mirror, such as shoulder lines, your back view, and overall fit.</p></div>
       </article>
       <article class="case-card reveal-up">
         <img src="./assets/info3.png" alt="차량 하부를 휴대폰 화면으로 확인하는 모습">
-        <div class="case-caption"><div class="case-chip">차량 확인</div><h3>차량 하부와 깊숙한 곳을<br>편하게 확인</h3><p>허리를 깊게 숙이거나 바닥에 눕지 않고도 보이지 않는 곳을 화면으로 확인할 수 있습니다.</p></div>
+        <div class="case-caption"><div class="case-chip" data-i18n="case5.chip">Car check</div><h3 data-i18n="case5.title">Check under the car<br>and deep areas with ease</h3><p data-i18n="case5.text">Check hidden areas on screen without bending deeply or lying on the ground.</p></div>
       </article>
       <article class="case-card reveal-up">
         <img src="./assets/info4.png" alt="가구 밑과 틈새 공간을 확인하는 모습">
-        <div class="case-caption"><div class="case-chip">틈새 공간</div><h3>가구 밑과 어두운 틈새도<br>쉽게 확인</h3><p>침대 밑, 소파 아래, 가구 뒤쪽처럼 손과 눈이 닿기 어려운 공간을 확인하세요.</p></div>
+        <div class="case-caption"><div class="case-chip" data-i18n="case6.chip">Narrow spaces</div><h3 data-i18n="case6.title">Check under furniture<br>and dark gaps easily</h3><p data-i18n="case6.text">Look into places your hands and eyes cannot easily reach, like under beds, sofas, and behind furniture.</p></div>
       </article>
       <article class="case-card reveal-up">
         <img src="./assets/info6.png" alt="수염 라인과 옆모습을 확인하는 모습">
-        <div class="case-caption"><div class="case-chip">그루밍</div><h3>수염 라인과 옆모습을<br>더 정확하게</h3><p>턱선, 구레나룻, 옆 라인처럼 혼자 보기 어려운 부분을 선명하게 확인하세요.</p></div>
+        <div class="case-caption"><div class="case-chip" data-i18n="case7.chip">Grooming</div><h3 data-i18n="case7.title">Check your beard line<br>and side profile more accurately</h3><p data-i18n="case7.text">Clearly check areas that are hard to see alone, such as the jawline, sideburns, and side lines.</p></div>
       </article>
       <article class="case-card reveal-up">
         <img src="./assets/info1.png" alt="작은 글씨와 초소형 물체를 확대해서 확인하는 돋보기 모드">
-        <div class="case-caption"><div class="case-chip">돋보기 모드</div><h3>작은 글씨와 부품 번호를<br>크게 확대해서</h3><p>미세한 글씨, 부품 번호, 작은 물체를 휴대폰 화면으로 크게 확인할 수 있습니다.</p></div>
+        <div class="case-caption"><div class="case-chip" data-i18n="case8.chip">Magnifier mode</div><h3 data-i18n="case8.title">See small text and part numbers<br>large and clear</h3><p data-i18n="case8.text">Enlarge fine print, part numbers, and tiny objects on your phone screen.</p></div>
       </article>
     </div>
   </section>
 
   <section class="section" id="features">
     <div class="section-title reveal-up">
-      <div class="eyebrow">Features</div>
-      <h2>필요한 기능만 간단하게</h2>
-      <p>복잡한 설정보다 빠른 연결과 실시간 확인에 집중했습니다.</p>
+      <div class="eyebrow" data-i18n="features.eyebrow">Features</div>
+      <h2 data-i18n="features.title">Simple features that matter</h2>
+      <p data-i18n="features.text">Focused on quick connection and real-time viewing instead of complicated settings.</p>
     </div>
     <div class="features">
-      <article class="feature-card reveal-up"><b>📡</b><h3>실시간 카메라 공유</h3><p>Camera 기기의 화면을 Viewer 기기에서 실시간으로 확인합니다.</p></article>
-      <article class="feature-card reveal-up"><b>▦</b><h3>QR 빠른 연결</h3><p>긴 주소나 코드를 입력하지 않고 QR Scan으로 연결합니다.</p></article>
-      <article class="feature-card reveal-up"><b>⚙</b><h3>화질 선택</h3><p>240p, 480p, 720p, 1080p 중 상황에 맞는 품질을 선택할 수 있습니다.</p></article>
-      <article class="feature-card reveal-up"><b>🔍</b><h3>돋보기 모드</h3><p>연결 없이도 작은 글씨와 초소형 물체를 크게 확대해서 볼 수 있습니다.</p></article>
-      <article class="feature-card reveal-up"><b>📸</b><h3>사진 저장</h3><p>Viewer에서 보고 있는 화면을 필요한 순간 사진으로 저장할 수 있습니다.</p></article>
-      <article class="feature-card reveal-up"><b>📱</b><h3>Android · iPhone 준비</h3><p>Android를 먼저 제공하고, iPhone 지원도 순차적으로 준비합니다.</p></article>
+      <article class="feature-card reveal-up"><b>📡</b><h3 data-i18n="feature1.title">Real-time camera sharing</h3><p data-i18n="feature1.text">View the Camera device’s screen in real time on the Viewer device.</p></article>
+      <article class="feature-card reveal-up"><b>▦</b><h3 data-i18n="feature2.title">Fast QR connection</h3><p data-i18n="feature2.text">Connect by scanning a QR code without typing long addresses or codes.</p></article>
+      <article class="feature-card reveal-up"><b>⚙</b><h3 data-i18n="feature3.title">Quality selection</h3><p data-i18n="feature3.text">Choose the right quality for the situation from 240p, 480p, 720p, and 1080p.</p></article>
+      <article class="feature-card reveal-up"><b>🔍</b><h3 data-i18n="feature4.title">Magnifier mode</h3><p data-i18n="feature4.text">Magnify small text and tiny objects even without connecting two devices.</p></article>
+      <article class="feature-card reveal-up"><b>📸</b><h3 data-i18n="feature5.title">Photo / video saving</h3><p data-i18n="feature5.text">Save the screen you are viewing whenever you need it.</p></article>
+      <article class="feature-card reveal-up"><b>📱</b><h3 data-i18n="feature6.title">Android · iPhone</h3><p data-i18n="feature6.text">Connect Android and iPhone with each other. Both platforms are coming soon.</p></article>
     </div>
   </section>
 
@@ -220,13 +259,13 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
     <div class="secure-panel reveal-up">
       <div class="secure-image"><img src="./assets/local-secure.png" alt="로컬 연결과 안전한 Wi-Fi 연결을 표현한 이미지"></div>
       <div class="secure-copy">
-        <div class="eyebrow">Local connection</div>
-        <h2>우리끼리만 안전하게,<br>로컬 연결</h2>
-        <p>사생활 보호를 위해 같은 Wi‑Fi 환경에 연결되어 있을때만 사용할 수 있습니다. 매번 생성되는 랜덤 연결정보를 QR로 생성해서 Camera와 Viewer를 빠르게 연결하고, 사용이 끝나면 연결 정보를 정리합니다.</p>
+        <div class="eyebrow" data-i18n="secure.eyebrow">Local connection</div>
+        <h2 data-i18n="secure.title">Private and secure,<br>local connection</h2>
+        <p data-i18n="secure.text">To protect privacy, it works only when both devices are connected to the same Wi‑Fi environment. A random connection code is generated each time as a QR code, and connection information is cleared when you finish.</p>
         <div class="secure-list">
-          <div><span>✓</span>QR 코드로 Camera와 Viewer를 연결</div>
-          <div><span>✓</span>같은 Wi‑Fi 환경에서 안정적인 실시간 확인</div>
-          <div><span>✓</span>복잡한 회원가입 없이 필요한 순간 바로 사용</div>
+          <div><span class="secure-check" aria-hidden="true">✓</span><span class="secure-text" data-i18n="secure.list1">Connect Camera and Viewer with a QR code</span></div>
+          <div><span class="secure-check" aria-hidden="true">✓</span><span class="secure-text" data-i18n="secure.list2">Stable real-time viewing on the same Wi‑Fi</span></div>
+          <div><span class="secure-check" aria-hidden="true">✓</span><span class="secure-text" data-i18n="secure.list3">Use it instantly without complicated sign-up</span></div>
         </div>
       </div>
     </div>
@@ -235,37 +274,814 @@ main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#0
   <section class="section" id="download">
     <div class="download reveal-up">
       <div>
-        <div class="eyebrow">Download</div>
-        <h2>지금 ViewOn Link를<br>시작해보세요.</h2>
-        <p>QR 코드로 연결하고, 다른 기기에서 카메라 화면을 바로 확인하세요. Android 버전을 먼저 사용할 수 있고 iPhone 버전도 준비 중입니다.</p>
+        <div class="eyebrow" data-i18n="download.eyebrow">Download</div>
+        <h2 data-i18n="download.title">Start using<br>ViewOn Link today.</h2>
+        <p data-i18n="download.text">Connect with a QR code and view the camera screen on another device right away. Android and iPhone support are being prepared.</p>
         <div class="store-row">
-          <a class="store-pill" href="https://play.google.com/store/apps/details?id=com.natchrai.viewonlink" target="_blank" rel="noopener">▶ Google Play</a>
-          <span class="store-pill disabled"> App Store 준비중</span>
+          <a class="store-pill" href="https://play.google.com/store/apps/details?id=com.natchrai.viewonlink" target="_blank" rel="noopener" aria-label="Google Play in preparation">
+            <span class="store-icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28" role="img" focusable="false">
+                <path d="M5.2 3.4c-.45.27-.72.8-.72 1.5v18.2c0 .7.27 1.23.72 1.5L16.1 14 5.2 3.4Z" fill="#6ee7ff"/>
+                <path d="M16.1 14 5.2 3.4c.5-.3 1.17-.24 1.88.17l12.6 7.22L16.1 14Z" fill="#7df7d4"/>
+                <path d="M19.68 17.21 7.08 24.43c-.71.41-1.38.47-1.88.17L16.1 14l3.58 3.21Z" fill="#ffd166"/>
+                <path d="M23.04 12.72c1.15.66 1.15 1.9 0 2.56l-3.36 1.93L16.1 14l3.58-3.21 3.36 1.93Z" fill="#ff6b6b"/>
+              </svg>
+            </span>
+            <span data-i18n="download.google">Google Play in preparation</span>
+          </a>
+          <span class="store-pill disabled" aria-label="App Store in preparation">
+            <span class="store-icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28" role="img" focusable="false">
+                <path d="M17.8 3.2c.1 1.3-.42 2.58-1.23 3.5-.87.98-2.17 1.73-3.42 1.63-.14-1.26.47-2.6 1.25-3.44.88-.96 2.36-1.7 3.4-1.69Z" fill="currentColor"/>
+                <path d="M22.7 19.55c-.62 1.38-.92 2-1.72 3.2-1.12 1.68-2.7 3.78-4.66 3.8-1.73.02-2.18-1.1-4.54-1.08-2.36.01-2.85 1.1-4.58 1.08-1.96-.02-3.46-1.9-4.58-3.58C-.52 18.22.1 12.66 3.98 10.44c1.93-1.1 3.96-.9 5.33-.48 1 .3 1.93.76 2.48.76.5 0 1.45-.56 2.45-.9 1.86-.62 3.68-.53 5.23.25-4.6 2.43-3.86 8.96.23 9.48Z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span data-i18n="download.appstore">App Store in preparation</span>
+          </span>
         </div>
       </div>
       <div class="qr-card">
         <img src="./assets/viewon-link-icon.png" alt="ViewOn Link 앱 아이콘">
         <strong>ViewOn Link</strong>
-        <small>스마트폰으로 페이지를 열고<br>앱을 설치하세요.</small>
+        <small data-i18n="download.qrText">Open this page on your phone<br>and install the app.</small>
       </div>
     </div>
   </section>
 
   <section class="section compact">
-    <div class="section-title reveal-up"><div class="eyebrow">FAQ</div><h2>자주 묻는 질문</h2></div>
+    <div class="section-title reveal-up"><div class="eyebrow" data-i18n="faq.eyebrow">FAQ</div><h2 data-i18n="faq.title">Frequently asked questions</h2></div>
     <div class="faq">
-      <article class="faq-item reveal-up"><h3>두 기기가 같은 Wi‑Fi에 있어야 하나요?</h3><p>안정적인 실시간 연결을 위해 같은 Wi‑Fi 환경에서 사용하는 것을 권장합니다.</p></article>
-      <article class="faq-item reveal-up"><h3>계정 가입이 필요한가요?</h3><p>기본 연결은 QR 코드로 진행되며, 복잡한 가입 없이 사용할 수 있도록 구성했습니다.</p></article>
-      <article class="faq-item reveal-up"><h3>사진 저장이 가능한가요?</h3><p>Viewer에서 보고 있는 화면을 필요한 순간 사진 또는 영상으로 저장할 수 있습니다.</p></article>
-      <article class="faq-item reveal-up"><h3>무료로 사용할 수 있나요?</h3><p>2026년 9월까지는 모든 기능을 오픈합니다. 이후 무료와 Pro버젼으로 구분될 예정입니다.</p></article>
+      <article class="faq-item reveal-up"><h3 data-i18n="faq1.q">Do both devices need to be on the same Wi‑Fi?</h3><p data-i18n="faq1.a">For a stable real-time connection, using the same Wi‑Fi environment is recommended.</p></article>
+      <article class="faq-item reveal-up"><h3 data-i18n="faq2.q">Do I need to create an account?</h3><p data-i18n="faq2.a">Basic connection is done with a QR code and is designed to work without complicated sign-up.</p></article>
+      <article class="faq-item reveal-up"><h3 data-i18n="faq3.q">Can I save photos?</h3><p data-i18n="faq3.a">You can save the screen viewed on the Viewer as a photo or video whenever needed.</p></article>
+      <article class="faq-item reveal-up"><h3 data-i18n="faq4.q">Can I use it for free?</h3><p data-i18n="faq4.a">All features will be open until September 2026. After that, the app is planned to be divided into Free and Pro versions.</p></article>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div><strong>ViewOn Link</strong><br>실시간 카메라 공유</div>
-  <div class="footer-links"><a href="#top">맨 위로</a><a href="#how">사용법</a><a href="#download">다운로드</a></div>
+  <div><strong>ViewOn Link</strong><br><span data-i18n="footer.tagline">Real-time camera sharing</span></div>
+  <div class="footer-links"><a href="#top" data-i18n="footer.top">Back to top</a><a href="#how" data-i18n="nav.how">How</a><a href="#download" data-i18n="nav.download">Download</a></div>
 </footer>
+
+
+<script>
+const I18N = {
+  "en": {
+    "meta.title": "ViewOn Link - Real-time Camera Sharing",
+    "meta.description": "ViewOn Link connects two phones with a QR code so you can view one device’s camera in real time on another device.",
+    "nav.how": "How",
+    "nav.cases": "Use cases",
+    "nav.features": "Features",
+    "nav.download": "Download",
+    "hero.subtitle": "Real-time camera sharing",
+    "hero.scroll": "Scroll down to learn more",
+    "hero.bottomStrong": "View one device’s camera directly on another device.",
+    "hero.bottomText": "Connect with a QR code, view in real time, and save what you need.",
+    "intro.eyebrow": "Real-time connection",
+    "intro.title": "View one device’s camera<br>on another device.",
+    "intro.text": "ViewOn Link connects two phones with a QR code, letting one work as the Camera and the other as the Viewer. Use it whenever you need a second screen for classes, work, assisted shooting, or close-up checking.",
+    "how.eyebrow": "How it works",
+    "how.title": "Connect in 3 simple steps",
+    "how.text": "No sign-up or complicated setup. Create a QR code on the Camera device, scan it on the Viewer device, and see the live screen instantly.",
+    "step1.title": "Create a QR on Camera",
+    "step1.text": "Generate a connection QR code on the phone you will use as the camera.",
+    "step2.title": "Scan QR on Viewer",
+    "step2.text": "Scan the QR code with the phone or tablet you will use as the viewer.",
+    "step3.title": "View in real time",
+    "step3.text": "Once connected, you can see the Camera screen directly on the Viewer.",
+    "cases.eyebrow": "Use cases",
+    "cases.title": "Use a second screen<br>for places hard to see alone",
+    "cases.text": "Use it right away for real situations like magnifying small text, checking outfit fit and your back view, inspecting under a car, looking under furniture, checking workout posture, or grooming.",
+    "case1.chip": "Workout posture",
+    "case1.title": "Check workout posture<br>and your back view in real time",
+    "case1.text": "Even when working out alone at home, you can check your back, shoulders, hip line, and movement balance right away.",
+    "case2.chip": "Back photo",
+    "case2.title": "Capture a back double biceps pose<br>properly by yourself",
+    "case2.text": "Check your back muscle lines and pose in real time, then capture it like someone else took the photo for you.",
+    "case3.chip": "Blind spot check",
+    "case3.title": "Check your body’s blind spots<br>by yourself",
+    "case3.text": "Even areas like your back that your hands can reach but your eyes cannot see can be checked more clearly than trying to look directly.",
+    "case4.chip": "Fit check",
+    "case4.title": "See your outfit fit<br>and back view at a glance",
+    "case4.text": "Check details that are hard to see with one mirror, such as shoulder lines, your back view, and overall fit.",
+    "case5.chip": "Car check",
+    "case5.title": "Check under the car<br>and deep areas with ease",
+    "case5.text": "Check hidden areas on screen without bending deeply or lying on the ground.",
+    "case6.chip": "Narrow spaces",
+    "case6.title": "Check under furniture<br>and dark gaps easily",
+    "case6.text": "Look into places your hands and eyes cannot easily reach, like under beds, sofas, and behind furniture.",
+    "case7.chip": "Grooming",
+    "case7.title": "Check your beard line<br>and side profile more accurately",
+    "case7.text": "Clearly check areas that are hard to see alone, such as the jawline, sideburns, and side lines.",
+    "case8.chip": "Magnifier mode",
+    "case8.title": "See small text and part numbers<br>large and clear",
+    "case8.text": "Enlarge fine print, part numbers, and tiny objects on your phone screen.",
+    "features.eyebrow": "Features",
+    "features.title": "Simple features that matter",
+    "features.text": "Focused on quick connection and real-time viewing instead of complicated settings.",
+    "feature1.title": "Real-time camera sharing",
+    "feature1.text": "View the Camera device’s screen in real time on the Viewer device.",
+    "feature2.title": "Fast QR connection",
+    "feature2.text": "Connect by scanning a QR code without typing long addresses or codes.",
+    "feature3.title": "Quality selection",
+    "feature3.text": "Choose the right quality for the situation from 240p, 480p, 720p, and 1080p.",
+    "feature4.title": "Magnifier mode",
+    "feature4.text": "Magnify small text and tiny objects even without connecting two devices.",
+    "feature5.title": "Photo / video saving",
+    "feature5.text": "Save the screen you are viewing whenever you need it.",
+    "feature6.title": "Android · iPhone",
+    "feature6.text": "Connect Android and iPhone with each other. Both platforms are coming soon.",
+    "secure.eyebrow": "Local connection",
+    "secure.title": "Private and secure,<br>local connection",
+    "secure.text": "To protect privacy, it works only when both devices are connected to the same Wi‑Fi environment. A random connection code is generated each time as a QR code, and connection information is cleared when you finish.",
+    "secure.list1": "Connect Camera and Viewer with a QR code",
+    "secure.list2": "Stable real-time viewing on the same Wi‑Fi",
+    "secure.list3": "Use it instantly without complicated sign-up",
+    "download.eyebrow": "Download",
+    "download.title": "Start using<br>ViewOn Link today.",
+    "download.text": "Connect with a QR code and view the camera screen on another device right away. Android and iPhone support are being prepared.",
+    "download.google": "Google Play in preparation",
+    "download.appstore": "App Store in preparation",
+    "download.qrText": "Open this page on your phone<br>and install the app.",
+    "faq.eyebrow": "FAQ",
+    "faq.title": "Frequently asked questions",
+    "faq1.q": "Do both devices need to be on the same Wi‑Fi?",
+    "faq1.a": "For a stable real-time connection, using the same Wi‑Fi environment is recommended.",
+    "faq2.q": "Do I need to create an account?",
+    "faq2.a": "Basic connection is done with a QR code and is designed to work without complicated sign-up.",
+    "faq3.q": "Can I save photos?",
+    "faq3.a": "You can save the screen viewed on the Viewer as a photo or video whenever needed.",
+    "faq4.q": "Can I use it for free?",
+    "faq4.a": "All features will be open until September 2026. After that, the app is planned to be divided into Free and Pro versions.",
+    "footer.tagline": "Real-time camera sharing",
+    "footer.top": "Back to top"
+  },
+  "ko": {
+    "meta.title": "ViewOn Link - 실시간 카메라 공유",
+    "meta.description": "ViewOn Link는 QR 코드로 두 대의 휴대폰을 연결해 한 기기의 카메라 화면을 다른 기기에서 실시간으로 확인할 수 있는 앱입니다.",
+    "nav.how": "사용법",
+    "nav.cases": "활용 예시",
+    "nav.features": "기능",
+    "nav.download": "다운로드",
+    "hero.subtitle": "실시간 카메라 공유",
+    "hero.scroll": "아래로 내려서 자세히 보기",
+    "hero.bottomStrong": "한 기기의 카메라를 다른 기기에서 바로 확인하세요.",
+    "hero.bottomText": "QR 코드로 연결하고, 필요한 순간 실시간으로 보고 저장하세요.",
+    "intro.eyebrow": "실시간 연결",
+    "intro.title": "한 기기의 카메라를<br>다른 기기에서 확인하세요.",
+    "intro.text": "ViewOn Link는 휴대폰 두 대를 QR 코드로 연결해 한쪽은 Camera, 다른 한쪽은 Viewer로 사용할 수 있게 도와줍니다. 수업, 작업, 촬영 보조, 확대 확인처럼 두 번째 화면이 필요한 순간에 간단하게 사용할 수 있습니다.",
+    "how.eyebrow": "How it works",
+    "how.title": "3단계로 바로 연결",
+    "how.text": "계정 가입이나 복잡한 입력 없이, Camera 기기에서 QR을 만들고 Viewer 기기에서 QR Scan만 하면 실시간 화면을 확인할 수 있습니다.",
+    "step1.title": "Camera에서 QR 생성",
+    "step1.text": "카메라로 사용할 휴대폰에서 연결용 QR 코드를 생성합니다.",
+    "step2.title": "Viewer에서 QR Scan",
+    "step2.text": "화면을 볼 휴대폰이나 태블릿에서 QR 코드를 스캔합니다.",
+    "step3.title": "실시간 화면 확인",
+    "step3.text": "두 기기가 연결되면 Camera 화면을 Viewer에서 바로 볼 수 있습니다.",
+    "cases.eyebrow": "Use cases",
+    "cases.title": "혼자 보기 어려운 곳을<br>두 번째 화면으로",
+    "cases.text": "작은 글씨 확대, 옷 핏과 뒷모습 확인, 차량 하부 점검, 가구 밑 확인, 운동 자세 체크, 외모 관리처럼 실제 사용 장면에 맞춰 바로 활용할 수 있습니다.",
+    "case1.chip": "운동 자세",
+    "case1.title": "운동 자세와 뒷모습을<br>실시간 체크",
+    "case1.text": "혼자 홈트할 때도 등, 어깨, 골반 라인과 움직임의 균형을 바로 확인할 수 있습니다.",
+    "case2.chip": "등사진 촬영",
+    "case2.title": "백더블 바이셉스도<br>혼자서 제대로 촬영",
+    "case2.text": "등 근육의 라인과 자세를 다른 사람이 찍어준 것처럼 실시간으로 확인하고 촬영하세요.",
+    "case3.chip": "사각지대 확인",
+    "case3.title": "내 몸의 사각지대도<br>혼자서 확인하세요",
+    "case3.text": "등처럼 손은 닿아도 눈으로 보기 어려운 부위도 직접 보는 것보다 더 선명하게 확인할 수 있습니다.",
+    "case4.chip": "핏 확인",
+    "case4.title": "옷 핏과 뒷모습을<br>혼자서도 한눈에",
+    "case4.text": "어깨선, 뒤태, 전체 핏처럼 거울 하나로 보기 어려운 부분을 실시간으로 확인하세요.",
+    "case5.chip": "차량 확인",
+    "case5.title": "차량 하부와 깊숙한 곳을<br>편하게 확인",
+    "case5.text": "허리를 깊게 숙이거나 바닥에 눕지 않고도 보이지 않는 곳을 화면으로 확인할 수 있습니다.",
+    "case6.chip": "틈새 공간",
+    "case6.title": "가구 밑과 어두운 틈새도<br>쉽게 확인",
+    "case6.text": "침대 밑, 소파 아래, 가구 뒤쪽처럼 손과 눈이 닿기 어려운 공간을 확인하세요.",
+    "case7.chip": "외모 관리",
+    "case7.title": "수염 라인과 옆모습을<br>더 정확하게",
+    "case7.text": "턱선, 구레나룻, 옆 라인처럼 혼자 보기 어려운 부분을 선명하게 확인하세요.",
+    "case8.chip": "돋보기 모드",
+    "case8.title": "작은 글씨와 부품 번호를<br>크고 선명하게",
+    "case8.text": "미세한 글씨, 부품 번호, 작은 물체를 휴대폰 화면으로 크게 확인할 수 있습니다.",
+    "features.eyebrow": "Features",
+    "features.title": "필요한 기능만 간단하게",
+    "features.text": "복잡한 설정보다 빠른 연결과 실시간 확인에 집중했습니다.",
+    "feature1.title": "실시간 카메라 공유",
+    "feature1.text": "Camera 기기의 화면을 Viewer 기기에서 실시간으로 확인합니다.",
+    "feature2.title": "QR 빠른 연결",
+    "feature2.text": "긴 주소나 코드를 입력하지 않고 QR Scan으로 연결합니다.",
+    "feature3.title": "화질 선택",
+    "feature3.text": "240p, 480p, 720p, 1080p 중 상황에 맞는 품질을 선택할 수 있습니다.",
+    "feature4.title": "돋보기 모드",
+    "feature4.text": "연결 없이도 작은 글씨와 초소형 물체를 크게 확대해서 볼 수 있습니다.",
+    "feature5.title": "사진/영상 저장",
+    "feature5.text": "Viewer에서 보고 있는 화면을 필요한 순간 저장할 수 있습니다.",
+    "feature6.title": "Android · iPhone",
+    "feature6.text": "Android와 iPhone을 서로 연결할 수 있으며, 두 플랫폼 모두 곧 만나볼 수 있습니다.",
+    "secure.eyebrow": "Local connection",
+    "secure.title": "우리끼리만 안전하게,<br>로컬 연결",
+    "secure.text": "사생활 보호를 위해 같은 Wi‑Fi 환경에 연결되어 있을때만 사용할 수 있습니다. 매번 생성되는 랜덤 연결정보를 QR로 생성해서 Camera와 Viewer를 빠르게 연결하고, 사용이 끝나면 연결 정보를 정리합니다.",
+    "secure.list1": "QR 코드로 Camera와 Viewer를 연결",
+    "secure.list2": "같은 Wi‑Fi 환경에서 안정적인 실시간 확인",
+    "secure.list3": "복잡한 회원가입 없이 필요한 순간 바로 사용",
+    "download.eyebrow": "Download",
+    "download.title": "지금 ViewOn Link를<br>시작해보세요.",
+    "download.text": "QR 코드로 연결하고, 다른 기기에서 카메라 화면을 바로 확인하세요. Android와 iPhone 지원을 준비 중입니다.",
+    "download.google": "Google Play 준비중",
+    "download.appstore": "App Store 준비중",
+    "download.qrText": "스마트폰으로 페이지를 열고<br>앱을 설치하세요.",
+    "faq.eyebrow": "FAQ",
+    "faq.title": "자주 묻는 질문",
+    "faq1.q": "두 기기가 같은 Wi‑Fi에 있어야 하나요?",
+    "faq1.a": "안정적인 실시간 연결을 위해 같은 Wi‑Fi 환경에서 사용하는 것을 권장합니다.",
+    "faq2.q": "계정 가입이 필요한가요?",
+    "faq2.a": "기본 연결은 QR 코드로 진행되며, 복잡한 가입 없이 사용할 수 있도록 구성했습니다.",
+    "faq3.q": "사진 저장이 가능한가요?",
+    "faq3.a": "Viewer에서 보고 있는 화면을 필요한 순간 사진 또는 영상으로 저장할 수 있습니다.",
+    "faq4.q": "무료로 사용할 수 있나요?",
+    "faq4.a": "2026년 9월까지는 모든 기능을 오픈합니다. 이후 무료와 Pro버전으로 구분될 예정입니다.",
+    "footer.tagline": "실시간 카메라 공유",
+    "footer.top": "맨 위로"
+  },
+  "de": {
+    "meta.title": "ViewOn Link - Kamera in Echtzeit teilen",
+    "meta.description": "ViewOn Link verbindet zwei Smartphones per QR-Code, damit du die Kamera eines Geräts in Echtzeit auf einem anderen Gerät ansehen kannst.",
+    "nav.how": "So geht’s",
+    "nav.cases": "Beispiele",
+    "nav.features": "Funktionen",
+    "nav.download": "Download",
+    "hero.subtitle": "Kamera in Echtzeit teilen",
+    "hero.scroll": "Nach unten scrollen",
+    "hero.bottomStrong": "Sieh die Kamera eines Geräts direkt auf einem anderen Gerät.",
+    "hero.bottomText": "Per QR-Code verbinden, live ansehen und bei Bedarf speichern.",
+    "intro.eyebrow": "Echtzeit-Verbindung",
+    "intro.title": "Sieh die Kamera eines Geräts<br>auf einem anderen Gerät.",
+    "intro.text": "ViewOn Link verbindet zwei Smartphones per QR-Code. Ein Gerät wird zur Camera, das andere zum Viewer. Ideal, wenn du bei Unterricht, Arbeit, Aufnahmehilfe oder Detailprüfung einen zweiten Bildschirm brauchst.",
+    "how.eyebrow": "How it works",
+    "how.title": "In 3 Schritten verbinden",
+    "how.text": "Keine Anmeldung und keine komplizierte Eingabe. Erstelle einen QR-Code auf dem Camera-Gerät, scanne ihn mit dem Viewer-Gerät und sieh sofort das Livebild.",
+    "step1.title": "QR auf Camera erstellen",
+    "step1.text": "Erzeuge einen Verbindungs-QR-Code auf dem Smartphone, das als Kamera dient.",
+    "step2.title": "QR mit Viewer scannen",
+    "step2.text": "Scanne den QR-Code mit dem Smartphone oder Tablet, das als Viewer dient.",
+    "step3.title": "Livebild ansehen",
+    "step3.text": "Nach der Verbindung siehst du den Camera-Bildschirm direkt auf dem Viewer.",
+    "cases.eyebrow": "Use cases",
+    "cases.title": "Ein zweiter Bildschirm<br>für schwer sichtbare Stellen",
+    "cases.text": "Nutze ViewOn Link zum Vergrößern kleiner Schrift, Prüfen von Outfit und Rückenansicht, Blick unter das Auto, unter Möbel, für Trainingshaltung oder Körperpflege.",
+    "case1.chip": "Trainingshaltung",
+    "case1.title": "Trainingshaltung und Rückenansicht<br>in Echtzeit prüfen",
+    "case1.text": "Auch beim Heimtraining allein kannst du Rücken, Schultern, Hüftlinie und Bewegungsbalance sofort prüfen.",
+    "case2.chip": "Rückenfoto",
+    "case2.title": "Back Double Biceps<br>allein richtig aufnehmen",
+    "case2.text": "Prüfe Rückenlinien und Pose live und nimm das Foto so auf, als hätte es jemand anderes gemacht.",
+    "case3.chip": "Blinde Stelle",
+    "case3.title": "Auch blinde Stellen am Körper<br>allein prüfen",
+    "case3.text": "Bereiche wie der Rücken, die du berühren, aber kaum sehen kannst, lassen sich klarer prüfen als mit direktem Blick.",
+    "case4.chip": "Passform",
+    "case4.title": "Outfit-Passform und Rückenansicht<br>auf einen Blick",
+    "case4.text": "Prüfe Schulterlinie, Rückenansicht und Gesamtpassform, die mit nur einem Spiegel schwer zu sehen sind.",
+    "case5.chip": "Auto prüfen",
+    "case5.title": "Unterboden und tiefe Bereiche<br>bequem prüfen",
+    "case5.text": "Sieh versteckte Bereiche auf dem Bildschirm, ohne dich stark zu bücken oder auf den Boden zu legen.",
+    "case6.chip": "Enge Stellen",
+    "case6.title": "Unter Möbeln und dunkle Spalten<br>einfach prüfen",
+    "case6.text": "Schau in Bereiche, die Hände und Augen kaum erreichen, etwa unter Bett, Sofa oder hinter Möbeln.",
+    "case7.chip": "Körperpflege",
+    "case7.title": "Bartlinie und Seitenprofil<br>genauer prüfen",
+    "case7.text": "Sieh Kieferlinie, Koteletten und Seitenlinien klarer, die allein schwer zu erkennen sind.",
+    "case8.chip": "Lupe",
+    "case8.title": "Kleine Schrift und Teilenummern<br>groß und klar",
+    "case8.text": "Vergrößere feine Schrift, Teilenummern und kleine Objekte auf dem Smartphone-Bildschirm.",
+    "features.eyebrow": "Features",
+    "features.title": "Nur die Funktionen, die zählen",
+    "features.text": "Fokus auf schnelle Verbindung und Echtzeitansicht statt komplizierter Einstellungen.",
+    "feature1.title": "Kamera in Echtzeit teilen",
+    "feature1.text": "Sieh den Bildschirm des Camera-Geräts in Echtzeit auf dem Viewer-Gerät.",
+    "feature2.title": "Schnelle QR-Verbindung",
+    "feature2.text": "Verbinde dich per QR-Scan, ohne lange Adressen oder Codes einzugeben.",
+    "feature3.title": "Qualität auswählen",
+    "feature3.text": "Wähle je nach Situation 240p, 480p, 720p oder 1080p.",
+    "feature4.title": "Lupenmodus",
+    "feature4.text": "Vergrößere kleine Schrift und winzige Objekte auch ohne Geräteverbindung.",
+    "feature5.title": "Foto / Video speichern",
+    "feature5.text": "Speichere den Bildschirm, den du gerade siehst, wenn du ihn brauchst.",
+    "feature6.title": "Android · iPhone",
+    "feature6.text": "Android und iPhone können miteinander verbunden werden. Beide Plattformen erscheinen bald.",
+    "secure.eyebrow": "Local connection",
+    "secure.title": "Privat und sicher,<br>lokale Verbindung",
+    "secure.text": "Zum Schutz der Privatsphäre funktioniert es nur, wenn beide Geräte mit demselben Wi‑Fi verbunden sind. Jedes Mal wird eine zufällige Verbindung als QR-Code erzeugt und nach der Nutzung bereinigt.",
+    "secure.list1": "Camera und Viewer per QR-Code verbinden",
+    "secure.list2": "Stabile Echtzeitansicht im selben Wi‑Fi",
+    "secure.list3": "Sofort nutzen, ohne komplizierte Anmeldung",
+    "download.eyebrow": "Download",
+    "download.title": "Starte jetzt mit<br>ViewOn Link.",
+    "download.text": "Verbinde dich per QR-Code und sieh die Kamera sofort auf einem anderen Gerät. Android- und iPhone-Unterstützung wird vorbereitet.",
+    "download.google": "Google Play in Vorbereitung",
+    "download.appstore": "App Store in Vorbereitung",
+    "download.qrText": "Öffne diese Seite auf deinem Smartphone<br>und installiere die App.",
+    "faq.eyebrow": "FAQ",
+    "faq.title": "Häufige Fragen",
+    "faq1.q": "Müssen beide Geräte im selben Wi‑Fi sein?",
+    "faq1.a": "Für eine stabile Echtzeitverbindung wird dasselbe Wi‑Fi empfohlen.",
+    "faq2.q": "Brauche ich ein Konto?",
+    "faq2.a": "Die Grundverbindung erfolgt per QR-Code und ist ohne komplizierte Anmeldung gedacht.",
+    "faq3.q": "Kann ich Fotos speichern?",
+    "faq3.a": "Du kannst den Viewer-Bildschirm bei Bedarf als Foto oder Video speichern.",
+    "faq4.q": "Kann ich es kostenlos nutzen?",
+    "faq4.a": "Bis September 2026 sind alle Funktionen geöffnet. Danach ist eine Aufteilung in Free und Pro geplant.",
+    "footer.tagline": "Kamera in Echtzeit teilen",
+    "footer.top": "Nach oben"
+  },
+  "es": {
+    "meta.title": "ViewOn Link - Cámara compartida en tiempo real",
+    "meta.description": "ViewOn Link conecta dos teléfonos con un código QR para ver la cámara de un dispositivo en tiempo real en otro.",
+    "nav.how": "Cómo funciona",
+    "nav.cases": "Usos",
+    "nav.features": "Funciones",
+    "nav.download": "Descargar",
+    "hero.subtitle": "Cámara compartida en tiempo real",
+    "hero.scroll": "Desplázate para ver más",
+    "hero.bottomStrong": "Ve la cámara de un dispositivo directamente en otro.",
+    "hero.bottomText": "Conecta con un código QR, mira en tiempo real y guarda lo que necesites.",
+    "intro.eyebrow": "Conexión en tiempo real",
+    "intro.title": "Ve la cámara de un dispositivo<br>en otro dispositivo.",
+    "intro.text": "ViewOn Link conecta dos teléfonos con un código QR: uno funciona como Camera y el otro como Viewer. Úsalo cuando necesites una segunda pantalla para clases, trabajo, apoyo de grabación o revisar detalles.",
+    "how.eyebrow": "How it works",
+    "how.title": "Conecta en 3 pasos",
+    "how.text": "Sin registro ni configuración complicada. Crea un QR en el dispositivo Camera, escanéalo con el Viewer y mira la pantalla en vivo al instante.",
+    "step1.title": "Crear QR en Camera",
+    "step1.text": "Genera un código QR de conexión en el teléfono que usarás como cámara.",
+    "step2.title": "Escanear QR en Viewer",
+    "step2.text": "Escanea el QR con el teléfono o tablet que usarás como visor.",
+    "step3.title": "Ver en tiempo real",
+    "step3.text": "Al conectarse, verás la pantalla de Camera directamente en Viewer.",
+    "cases.eyebrow": "Use cases",
+    "cases.title": "Una segunda pantalla<br>para lugares difíciles de ver",
+    "cases.text": "Úsalo para ampliar texto pequeño, revisar ropa y vista posterior, inspeccionar debajo del coche, mirar debajo de muebles, comprobar postura de ejercicio o cuidado personal.",
+    "case1.chip": "Postura",
+    "case1.title": "Revisa tu postura y espalda<br>en tiempo real",
+    "case1.text": "Incluso entrenando solo en casa, puedes revisar espalda, hombros, cadera y equilibrio del movimiento.",
+    "case2.chip": "Foto de espalda",
+    "case2.title": "Captura un back double biceps<br>correctamente tú solo",
+    "case2.text": "Revisa líneas musculares y postura en tiempo real y toma la foto como si alguien más la hubiera hecho.",
+    "case3.chip": "Punto ciego",
+    "case3.title": "Revisa los puntos ciegos<br>de tu cuerpo tú solo",
+    "case3.text": "Zonas como la espalda, que puedes tocar pero no ver bien, se pueden comprobar con más claridad que mirándolas directamente.",
+    "case4.chip": "Ajuste",
+    "case4.title": "Ve el ajuste de tu ropa<br>y la espalda de un vistazo",
+    "case4.text": "Revisa hombros, espalda y ajuste general, detalles difíciles de ver con un solo espejo.",
+    "case5.chip": "Coche",
+    "case5.title": "Revisa debajo del coche<br>y zonas profundas fácilmente",
+    "case5.text": "Mira zonas ocultas en la pantalla sin agacharte demasiado ni tumbarte en el suelo.",
+    "case6.chip": "Espacios estrechos",
+    "case6.title": "Revisa debajo de muebles<br>y rincones oscuros fácilmente",
+    "case6.text": "Mira lugares difíciles de alcanzar, como debajo de la cama, el sofá o detrás de muebles.",
+    "case7.chip": "Cuidado personal",
+    "case7.title": "Revisa la línea de barba<br>y el perfil lateral con precisión",
+    "case7.text": "Ve claramente mandíbula, patillas y líneas laterales que son difíciles de revisar solo.",
+    "case8.chip": "Modo lupa",
+    "case8.title": "Texto pequeño y números de pieza<br>grandes y claros",
+    "case8.text": "Amplía letras pequeñas, números de pieza y objetos diminutos en la pantalla del teléfono.",
+    "features.eyebrow": "Features",
+    "features.title": "Funciones simples y necesarias",
+    "features.text": "Centrado en conexión rápida y visualización en tiempo real, no en ajustes complicados.",
+    "feature1.title": "Cámara en tiempo real",
+    "feature1.text": "Ve la pantalla del dispositivo Camera en tiempo real en el dispositivo Viewer.",
+    "feature2.title": "Conexión QR rápida",
+    "feature2.text": "Conecta escaneando QR sin escribir direcciones o códigos largos.",
+    "feature3.title": "Selección de calidad",
+    "feature3.text": "Elige 240p, 480p, 720p o 1080p según la situación.",
+    "feature4.title": "Modo lupa",
+    "feature4.text": "Amplía texto pequeño y objetos diminutos incluso sin conectar dos dispositivos.",
+    "feature5.title": "Guardar foto / video",
+    "feature5.text": "Guarda la pantalla que estás viendo cuando la necesites.",
+    "feature6.title": "Android · iPhone",
+    "feature6.text": "Android y iPhone pueden conectarse entre sí. Ambas plataformas estarán disponibles pronto.",
+    "secure.eyebrow": "Local connection",
+    "secure.title": "Privado y seguro,<br>conexión local",
+    "secure.text": "Para proteger la privacidad, funciona solo cuando ambos dispositivos están conectados al mismo Wi‑Fi. Cada vez se genera una conexión aleatoria como QR y se limpia al finalizar.",
+    "secure.list1": "Conecta Camera y Viewer con QR",
+    "secure.list2": "Visualización estable en el mismo Wi‑Fi",
+    "secure.list3": "Úsalo al instante sin registro complicado",
+    "download.eyebrow": "Download",
+    "download.title": "Empieza hoy con<br>ViewOn Link.",
+    "download.text": "Conecta con QR y mira la cámara en otro dispositivo al instante. La compatibilidad con Android y iPhone está en preparación.",
+    "download.google": "Google Play en preparación",
+    "download.appstore": "App Store en preparación",
+    "download.qrText": "Abre esta página en tu teléfono<br>e instala la app.",
+    "faq.eyebrow": "FAQ",
+    "faq.title": "Preguntas frecuentes",
+    "faq1.q": "¿Ambos dispositivos deben estar en el mismo Wi‑Fi?",
+    "faq1.a": "Para una conexión estable en tiempo real, se recomienda usar el mismo Wi‑Fi.",
+    "faq2.q": "¿Necesito crear una cuenta?",
+    "faq2.a": "La conexión básica se realiza con QR y está diseñada para usarse sin registro complicado.",
+    "faq3.q": "¿Puedo guardar fotos?",
+    "faq3.a": "Puedes guardar la pantalla del Viewer como foto o video cuando lo necesites.",
+    "faq4.q": "¿Puedo usarlo gratis?",
+    "faq4.a": "Todas las funciones estarán abiertas hasta septiembre de 2026. Después se planea dividir en Free y Pro.",
+    "footer.tagline": "Cámara compartida en tiempo real",
+    "footer.top": "Arriba"
+  },
+  "fr": {
+    "meta.title": "ViewOn Link - Partage de caméra en temps réel",
+    "meta.description": "ViewOn Link connecte deux téléphones avec un QR code pour voir la caméra d’un appareil en temps réel sur un autre.",
+    "nav.how": "Mode d’emploi",
+    "nav.cases": "Usages",
+    "nav.features": "Fonctions",
+    "nav.download": "Télécharger",
+    "hero.subtitle": "Partage de caméra en temps réel",
+    "hero.scroll": "Faites défiler pour en savoir plus",
+    "hero.bottomStrong": "Regardez la caméra d’un appareil directement sur un autre.",
+    "hero.bottomText": "Connectez par QR code, regardez en direct et enregistrez ce dont vous avez besoin.",
+    "intro.eyebrow": "Connexion en temps réel",
+    "intro.title": "Regardez la caméra d’un appareil<br>sur un autre appareil.",
+    "intro.text": "ViewOn Link connecte deux téléphones par QR code : l’un devient Camera, l’autre Viewer. Utilisez-le quand vous avez besoin d’un second écran pour les cours, le travail, l’aide à la prise de vue ou les vérifications de détail.",
+    "how.eyebrow": "How it works",
+    "how.title": "Connexion en 3 étapes",
+    "how.text": "Pas d’inscription ni de configuration compliquée. Créez un QR code sur l’appareil Camera, scannez-le avec le Viewer et voyez l’image en direct.",
+    "step1.title": "Créer un QR sur Camera",
+    "step1.text": "Générez un QR code de connexion sur le téléphone utilisé comme caméra.",
+    "step2.title": "Scanner le QR sur Viewer",
+    "step2.text": "Scannez le QR code avec le téléphone ou la tablette utilisé comme viewer.",
+    "step3.title": "Voir en temps réel",
+    "step3.text": "Une fois connectés, l’écran Camera s’affiche directement sur Viewer.",
+    "cases.eyebrow": "Use cases",
+    "cases.title": "Un second écran<br>pour les zones difficiles à voir seul",
+    "cases.text": "Agrandir de petits textes, vérifier une tenue et le dos, inspecter sous une voiture, regarder sous un meuble, contrôler une posture d’entraînement ou la toilette.",
+    "case1.chip": "Posture",
+    "case1.title": "Vérifiez votre posture<br>et votre dos en temps réel",
+    "case1.text": "Même seul à la maison, vérifiez le dos, les épaules, les hanches et l’équilibre des mouvements.",
+    "case2.chip": "Photo du dos",
+    "case2.title": "Photographiez un back double biceps<br>correctement, seul",
+    "case2.text": "Vérifiez les lignes musculaires du dos et la pose en direct, puis prenez la photo comme si quelqu’un l’avait prise.",
+    "case3.chip": "Zone invisible",
+    "case3.title": "Vérifiez les angles morts<br>de votre corps, seul",
+    "case3.text": "Les zones comme le dos, que l’on peut toucher mais difficilement voir, peuvent être vérifiées plus clairement qu’en essayant de les regarder directement.",
+    "case4.chip": "Tenue",
+    "case4.title": "Voyez la coupe de vos vêtements<br>et votre dos d’un coup d’œil",
+    "case4.text": "Vérifiez les épaules, le dos et l’allure générale, difficiles à voir avec un seul miroir.",
+    "case5.chip": "Voiture",
+    "case5.title": "Vérifiez sous la voiture<br>et les zones profondes facilement",
+    "case5.text": "Voyez les zones cachées à l’écran sans vous pencher fortement ni vous allonger au sol.",
+    "case6.chip": "Espaces étroits",
+    "case6.title": "Vérifiez sous les meubles<br>et les recoins sombres facilement",
+    "case6.text": "Regardez les endroits difficiles d’accès, comme sous un lit, un canapé ou derrière un meuble.",
+    "case7.chip": "Toilette",
+    "case7.title": "Vérifiez la ligne de barbe<br>et le profil plus précisément",
+    "case7.text": "Voyez clairement la mâchoire, les pattes et les lignes latérales difficiles à vérifier seul.",
+    "case8.chip": "Mode loupe",
+    "case8.title": "Petits textes et numéros de pièce<br>grands et nets",
+    "case8.text": "Agrandissez petits caractères, numéros de pièce et objets minuscules sur l’écran du téléphone.",
+    "features.eyebrow": "Features",
+    "features.title": "Des fonctions simples et utiles",
+    "features.text": "Priorité à la connexion rapide et à l’affichage en temps réel, sans réglages compliqués.",
+    "feature1.title": "Partage de caméra en temps réel",
+    "feature1.text": "Affichez l’écran de l’appareil Camera en temps réel sur l’appareil Viewer.",
+    "feature2.title": "Connexion QR rapide",
+    "feature2.text": "Connectez-vous par scan QR sans saisir de longues adresses ou codes.",
+    "feature3.title": "Choix de qualité",
+    "feature3.text": "Choisissez 240p, 480p, 720p ou 1080p selon la situation.",
+    "feature4.title": "Mode loupe",
+    "feature4.text": "Agrandissez petits textes et objets minuscules même sans connecter deux appareils.",
+    "feature5.title": "Enregistrer photo / vidéo",
+    "feature5.text": "Enregistrez l’écran que vous regardez quand vous en avez besoin.",
+    "feature6.title": "Android · iPhone",
+    "feature6.text": "Android et iPhone peuvent se connecter entre eux. Les deux plateformes arrivent bientôt.",
+    "secure.eyebrow": "Local connection",
+    "secure.title": "Privé et sécurisé,<br>connexion locale",
+    "secure.text": "Pour protéger la vie privée, cela fonctionne uniquement lorsque les deux appareils sont connectés au même Wi‑Fi. Une connexion aléatoire est générée à chaque fois sous forme de QR code et supprimée après utilisation.",
+    "secure.list1": "Connecter Camera et Viewer par QR code",
+    "secure.list2": "Affichage stable sur le même Wi‑Fi",
+    "secure.list3": "Utilisation instantanée sans inscription compliquée",
+    "download.eyebrow": "Download",
+    "download.title": "Commencez avec<br>ViewOn Link dès aujourd’hui.",
+    "download.text": "Connectez par QR code et voyez immédiatement la caméra sur un autre appareil. La prise en charge Android et iPhone est en préparation.",
+    "download.google": "Google Play en préparation",
+    "download.appstore": "App Store en préparation",
+    "download.qrText": "Ouvrez cette page sur votre téléphone<br>et installez l’app.",
+    "faq.eyebrow": "FAQ",
+    "faq.title": "Questions fréquentes",
+    "faq1.q": "Les deux appareils doivent-ils être sur le même Wi‑Fi ?",
+    "faq1.a": "Pour une connexion en temps réel stable, le même Wi‑Fi est recommandé.",
+    "faq2.q": "Faut-il créer un compte ?",
+    "faq2.a": "La connexion de base se fait par QR code et est conçue sans inscription compliquée.",
+    "faq3.q": "Puis-je enregistrer des photos ?",
+    "faq3.a": "Vous pouvez enregistrer l’écran du Viewer en photo ou vidéo quand nécessaire.",
+    "faq4.q": "Puis-je l’utiliser gratuitement ?",
+    "faq4.a": "Toutes les fonctions seront ouvertes jusqu’en septembre 2026. Ensuite, une séparation Free et Pro est prévue.",
+    "footer.tagline": "Partage de caméra en temps réel",
+    "footer.top": "Haut de page"
+  },
+  "ja": {
+    "meta.title": "ViewOn Link - リアルタイムカメラ共有",
+    "meta.description": "ViewOn LinkはQRコードで2台のスマートフォンを接続し、片方のカメラ映像をもう片方でリアルタイムに確認できるアプリです。",
+    "nav.how": "使い方",
+    "nav.cases": "活用例",
+    "nav.features": "機能",
+    "nav.download": "ダウンロード",
+    "hero.subtitle": "リアルタイムカメラ共有",
+    "hero.scroll": "下にスクロールして詳しく見る",
+    "hero.bottomStrong": "1台のカメラを、別の端末ですぐに確認できます。",
+    "hero.bottomText": "QRコードで接続し、必要な瞬間をリアルタイムで見て保存できます。",
+    "intro.eyebrow": "リアルタイム接続",
+    "intro.title": "1台のカメラを<br>別の端末で確認できます。",
+    "intro.text": "ViewOn Linkは2台のスマートフォンをQRコードで接続し、片方をCamera、もう片方をViewerとして使えるようにします。授業、作業、撮影補助、拡大確認など、第二の画面が必要な場面で簡単に使えます。",
+    "how.eyebrow": "How it works",
+    "how.title": "3ステップですぐ接続",
+    "how.text": "アカウント登録や複雑な入力は不要。Camera端末でQRを作成し、Viewer端末でスキャンするだけでライブ映像を確認できます。",
+    "step1.title": "CameraでQRを作成",
+    "step1.text": "カメラとして使うスマートフォンで接続用QRコードを作成します。",
+    "step2.title": "ViewerでQRをスキャン",
+    "step2.text": "映像を見るスマートフォンやタブレットでQRコードをスキャンします。",
+    "step3.title": "リアルタイム確認",
+    "step3.text": "接続されると、Cameraの映像をViewerですぐに確認できます。",
+    "cases.eyebrow": "Use cases",
+    "cases.title": "ひとりでは見えにくい場所を<br>第二の画面で",
+    "cases.text": "小さな文字の拡大、服のフィット感や後ろ姿の確認、車の下回り、家具の下、運動フォーム、身だしなみ確認などにすぐ活用できます。",
+    "case1.chip": "運動フォーム",
+    "case1.title": "運動フォームと後ろ姿を<br>リアルタイムでチェック",
+    "case1.text": "ひとりでの自宅トレーニングでも、背中、肩、骨盤ライン、動きのバランスをすぐ確認できます。",
+    "case2.chip": "背中写真",
+    "case2.title": "バックダブルバイセップスも<br>ひとりでしっかり撮影",
+    "case2.text": "背中の筋肉ラインとポーズをリアルタイムで確認し、誰かに撮ってもらったように撮影できます。",
+    "case3.chip": "死角確認",
+    "case3.title": "体の死角も<br>ひとりで確認",
+    "case3.text": "背中のように手は届いても目で見にくい部位も、直接見るより鮮明に確認できます。",
+    "case4.chip": "フィット確認",
+    "case4.title": "服のフィット感と後ろ姿を<br>ひと目で確認",
+    "case4.text": "肩のライン、後ろ姿、全体のフィット感など、鏡ひとつでは見えにくい部分を確認できます。",
+    "case5.chip": "車の確認",
+    "case5.title": "車の下や奥まった場所を<br>楽に確認",
+    "case5.text": "深くかがんだり床に寝転んだりせず、見えない場所を画面で確認できます。",
+    "case6.chip": "すき間",
+    "case6.title": "家具の下や暗いすき間も<br>簡単に確認",
+    "case6.text": "ベッド下、ソファ下、家具の裏など、手や目が届きにくい場所を確認できます。",
+    "case7.chip": "身だしなみ",
+    "case7.title": "ヒゲのラインと横顔を<br>より正確に",
+    "case7.text": "あごのライン、もみあげ、横のラインなど、ひとりでは見えにくい部分を鮮明に確認できます。",
+    "case8.chip": "拡大モード",
+    "case8.title": "小さな文字や部品番号を<br>大きく鮮明に",
+    "case8.text": "細かな文字、部品番号、小さな物をスマートフォン画面で大きく確認できます。",
+    "features.eyebrow": "Features",
+    "features.title": "必要な機能だけをシンプルに",
+    "features.text": "複雑な設定より、すばやい接続とリアルタイム確認に集中しました。",
+    "feature1.title": "リアルタイムカメラ共有",
+    "feature1.text": "Camera端末の映像をViewer端末でリアルタイムに確認できます。",
+    "feature2.title": "QRですばやく接続",
+    "feature2.text": "長いURLやコードを入力せず、QRスキャンで接続します。",
+    "feature3.title": "画質選択",
+    "feature3.text": "240p、480p、720p、1080pから状況に合わせて選べます。",
+    "feature4.title": "拡大モード",
+    "feature4.text": "接続なしでも小さな文字や極小の物を大きく拡大できます。",
+    "feature5.title": "写真 / 動画保存",
+    "feature5.text": "Viewerで見ている画面を必要な瞬間に保存できます。",
+    "feature6.title": "Android · iPhone",
+    "feature6.text": "AndroidとiPhoneを相互に接続できます。両プラットフォームとも近日公開予定です。",
+    "secure.eyebrow": "Local connection",
+    "secure.title": "自分たちだけで安全に、<br>ローカル接続",
+    "secure.text": "プライバシー保護のため、同じWi‑Fi環境に接続されている場合のみ使用できます。毎回ランダムな接続情報をQRコードとして生成し、使用後に接続情報を整理します。",
+    "secure.list1": "QRコードでCameraとViewerを接続",
+    "secure.list2": "同じWi‑Fi環境で安定したリアルタイム確認",
+    "secure.list3": "複雑な登録なしで必要な時にすぐ使用",
+    "download.eyebrow": "Download",
+    "download.title": "今すぐViewOn Linkを<br>始めましょう。",
+    "download.text": "QRコードで接続し、別の端末でカメラ映像をすぐ確認できます。AndroidとiPhone対応を準備中です。",
+    "download.google": "Google Play 準備中",
+    "download.appstore": "App Store 準備中",
+    "download.qrText": "スマートフォンでこのページを開き<br>アプリをインストールしてください。",
+    "faq.eyebrow": "FAQ",
+    "faq.title": "よくある質問",
+    "faq1.q": "2台の端末は同じWi‑Fiに必要がありますか？",
+    "faq1.a": "安定したリアルタイム接続のため、同じWi‑Fi環境での使用をおすすめします。",
+    "faq2.q": "アカウント登録は必要ですか？",
+    "faq2.a": "基本接続はQRコードで行い、複雑な登録なしで使えるように構成しています。",
+    "faq3.q": "写真保存はできますか？",
+    "faq3.a": "Viewerで見ている画面を必要な時に写真または動画として保存できます。",
+    "faq4.q": "無料で使えますか？",
+    "faq4.a": "2026年9月までは全機能を公開します。その後、Free版とPro版に分かれる予定です。",
+    "footer.tagline": "リアルタイムカメラ共有",
+    "footer.top": "トップへ"
+  },
+  "ar": {
+    "meta.title": "ViewOn Link - مشاركة الكاميرا في الوقت الفعلي",
+    "meta.description": "يربط ViewOn Link هاتفين عبر رمز QR لتتمكن من مشاهدة كاميرا جهاز على جهاز آخر في الوقت الفعلي.",
+    "nav.how": "طريقة الاستخدام",
+    "nav.cases": "الاستخدامات",
+    "nav.features": "الميزات",
+    "nav.download": "تنزيل",
+    "hero.subtitle": "مشاركة الكاميرا في الوقت الفعلي",
+    "hero.scroll": "مرّر للأسفل لمعرفة المزيد",
+    "hero.bottomStrong": "شاهد كاميرا جهاز مباشرة على جهاز آخر.",
+    "hero.bottomText": "اتصل عبر رمز QR، شاهد مباشرة، واحفظ ما تحتاج إليه.",
+    "intro.eyebrow": "اتصال مباشر",
+    "intro.title": "شاهد كاميرا جهاز<br>على جهاز آخر.",
+    "intro.text": "يربط ViewOn Link هاتفين عبر رمز QR، ليعمل أحدهما كـ Camera والآخر كـ Viewer. استخدمه عندما تحتاج إلى شاشة ثانية للدراسة أو العمل أو المساعدة في التصوير أو فحص التفاصيل.",
+    "how.eyebrow": "How it works",
+    "how.title": "اتصل في 3 خطوات بسيطة",
+    "how.text": "بدون تسجيل حساب أو إعدادات معقدة. أنشئ رمز QR على جهاز Camera، وامسحه بجهاز Viewer، وشاهد الشاشة مباشرة.",
+    "step1.title": "إنشاء QR على Camera",
+    "step1.text": "أنشئ رمز QR للاتصال على الهاتف الذي ستستخدمه ككاميرا.",
+    "step2.title": "مسح QR على Viewer",
+    "step2.text": "امسح رمز QR بالهاتف أو الجهاز اللوحي الذي ستستخدمه للمشاهدة.",
+    "step3.title": "المشاهدة في الوقت الفعلي",
+    "step3.text": "بعد الاتصال، يمكنك مشاهدة شاشة Camera مباشرة على Viewer.",
+    "cases.eyebrow": "Use cases",
+    "cases.title": "استخدم شاشة ثانية<br>للأماكن التي يصعب رؤيتها وحدك",
+    "cases.text": "استخدمه لتكبير النصوص الصغيرة، فحص مظهر الملابس من الخلف، تفقد أسفل السيارة، النظر أسفل الأثاث، التحقق من وضعية التمرين أو العناية بالمظهر.",
+    "case1.chip": "وضعية التمرين",
+    "case1.title": "تحقق من وضعية التمرين<br>ومنظرك الخلفي مباشرة",
+    "case1.text": "حتى عند التمرين وحدك في المنزل، يمكنك فحص الظهر والكتفين وخط الحوض وتوازن الحركة فوراً.",
+    "case2.chip": "صورة الظهر",
+    "case2.title": "صوّر وضعية Back Double Biceps<br>بشكل صحيح وحدك",
+    "case2.text": "راقب خطوط عضلات الظهر والوضعية مباشرة ثم التقط الصورة كما لو أن شخصاً آخر التقطها لك.",
+    "case3.chip": "فحص النقاط العمياء",
+    "case3.title": "تحقق من النقاط العمياء في جسمك<br>بنفسك",
+    "case3.text": "حتى مناطق مثل الظهر، التي تصل إليها باليد ولا تراها بعينيك، يمكن فحصها بوضوح أكبر من محاولة النظر إليها مباشرة.",
+    "case4.chip": "فحص المقاس",
+    "case4.title": "شاهد مقاس الملابس<br>ومنظرك الخلفي بنظرة واحدة",
+    "case4.text": "تحقق من خط الكتفين والمنظر الخلفي والمظهر العام، وهي تفاصيل يصعب رؤيتها بمرآة واحدة.",
+    "case5.chip": "فحص السيارة",
+    "case5.title": "تحقق من أسفل السيارة<br>والأماكن العميقة بسهولة",
+    "case5.text": "شاهد المناطق المخفية على الشاشة دون الانحناء كثيراً أو الاستلقاء على الأرض.",
+    "case6.chip": "المساحات الضيقة",
+    "case6.title": "افحص أسفل الأثاث<br>والزوايا المظلمة بسهولة",
+    "case6.text": "انظر إلى الأماكن التي يصعب وصول اليد والعين إليها، مثل أسفل السرير أو الأريكة أو خلف الأثاث.",
+    "case7.chip": "العناية بالمظهر",
+    "case7.title": "تحقق من خط اللحية<br>والجانب بدقة أكبر",
+    "case7.text": "شاهد خط الفك والسوالف والخطوط الجانبية بوضوح، وهي مناطق يصعب فحصها وحدك.",
+    "case8.chip": "وضع المكبر",
+    "case8.title": "النصوص الصغيرة وأرقام القطع<br>كبيرة وواضحة",
+    "case8.text": "كبّر النصوص الدقيقة وأرقام القطع والأشياء الصغيرة على شاشة الهاتف.",
+    "features.eyebrow": "Features",
+    "features.title": "ميزات بسيطة ومفيدة",
+    "features.text": "نركز على الاتصال السريع والمشاهدة المباشرة بدلاً من الإعدادات المعقدة.",
+    "feature1.title": "مشاركة الكاميرا مباشرة",
+    "feature1.text": "شاهد شاشة جهاز Camera مباشرة على جهاز Viewer.",
+    "feature2.title": "اتصال QR سريع",
+    "feature2.text": "اتصل بمسح رمز QR دون كتابة عناوين أو رموز طويلة.",
+    "feature3.title": "اختيار الجودة",
+    "feature3.text": "اختر الجودة المناسبة من 240p و480p و720p و1080p.",
+    "feature4.title": "وضع المكبر",
+    "feature4.text": "كبّر النصوص الصغيرة والأشياء الدقيقة حتى دون توصيل جهازين.",
+    "feature5.title": "حفظ الصور / الفيديو",
+    "feature5.text": "احفظ الشاشة التي تشاهدها عندما تحتاج إليها.",
+    "feature6.title": "Android · iPhone",
+    "feature6.text": "يمكن توصيل Android و iPhone ببعضهما. كلا النظامين قادمان قريباً.",
+    "secure.eyebrow": "Local connection",
+    "secure.title": "خاص وآمن،<br>اتصال محلي",
+    "secure.text": "لحماية الخصوصية، يعمل فقط عندما يكون الجهازان متصلين بنفس شبكة Wi‑Fi. يتم إنشاء معلومات اتصال عشوائية كل مرة كرمز QR، ويتم تنظيفها عند الانتهاء.",
+    "secure.list1": "توصيل Camera و Viewer عبر رمز QR",
+    "secure.list2": "مشاهدة مستقرة في الوقت الفعلي على نفس Wi‑Fi",
+    "secure.list3": "استخدام فوري بدون تسجيل معقد",
+    "download.eyebrow": "Download",
+    "download.title": "ابدأ استخدام<br>ViewOn Link اليوم.",
+    "download.text": "اتصل عبر رمز QR وشاهد الكاميرا فوراً على جهاز آخر. يجري تجهيز دعم Android و iPhone.",
+    "download.google": "Google Play قيد التحضير",
+    "download.appstore": "App Store قيد التحضير",
+    "download.qrText": "افتح هذه الصفحة على هاتفك<br>وثبّت التطبيق.",
+    "faq.eyebrow": "FAQ",
+    "faq.title": "الأسئلة الشائعة",
+    "faq1.q": "هل يجب أن يكون الجهازان على نفس Wi‑Fi؟",
+    "faq1.a": "للحصول على اتصال مستقر في الوقت الفعلي، يُنصح باستخدام نفس شبكة Wi‑Fi.",
+    "faq2.q": "هل أحتاج إلى إنشاء حساب؟",
+    "faq2.a": "الاتصال الأساسي يتم عبر رمز QR ومصمم للعمل بدون تسجيل معقد.",
+    "faq3.q": "هل يمكنني حفظ الصور؟",
+    "faq3.a": "يمكنك حفظ شاشة Viewer كصورة أو فيديو عند الحاجة.",
+    "faq4.q": "هل يمكن استخدامه مجاناً؟",
+    "faq4.a": "ستكون كل الميزات متاحة حتى سبتمبر 2026. بعد ذلك من المخطط تقسيم التطبيق إلى Free و Pro.",
+    "footer.tagline": "مشاركة الكاميرا في الوقت الفعلي",
+    "footer.top": "إلى الأعلى"
+  }
+};
+
+const SUPPORTED_LANGS = Object.keys(I18N);
+const RTL_LANGS = new Set(["ar"]);
+
+function normalizeLang(lang) {
+  if (!lang) return null;
+  const lower = String(lang).toLowerCase();
+  if (lower.startsWith("ko")) return "ko";
+  if (lower.startsWith("ja")) return "ja";
+  if (lower.startsWith("ar")) return "ar";
+  if (lower.startsWith("de")) return "de";
+  if (lower.startsWith("es")) return "es";
+  if (lower.startsWith("fr")) return "fr";
+  if (lower.startsWith("en")) return "en";
+  return null;
+}
+
+function detectInitialLang() {
+  const saved = localStorage.getItem("viewon_link_site_lang");
+  if (SUPPORTED_LANGS.includes(saved)) return saved;
+
+  const langs = navigator.languages && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language, navigator.userLanguage, navigator.browserLanguage];
+
+  for (const lang of langs) {
+    const normalized = normalizeLang(lang);
+    if (normalized && SUPPORTED_LANGS.includes(normalized)) return normalized;
+  }
+
+  return "en";
+}
+
+function applyLanguage(lang) {
+  const selected = SUPPORTED_LANGS.includes(lang) ? lang : "en";
+  const dict = I18N[selected] || I18N.en;
+
+  document.documentElement.lang = selected;
+  document.documentElement.dir = RTL_LANGS.has(selected) ? "rtl" : "ltr";
+  document.title = dict["meta.title"] || I18N.en["meta.title"];
+
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute("content", dict["meta.description"] || I18N.en["meta.description"]);
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const value = dict[key] || I18N.en[key];
+    if (value !== undefined) el.innerHTML = value;
+  });
+
+  const googleStore = document.querySelector('[data-i18n="download.google"]');
+  const appStore = document.querySelector('[data-i18n="download.appstore"]');
+  if (googleStore) {
+    const pill = googleStore.closest('.store-pill');
+    if (pill) pill.setAttribute('aria-label', googleStore.textContent.trim());
+  }
+  if (appStore) {
+    const pill = appStore.closest('.store-pill');
+    if (pill) pill.setAttribute('aria-label', appStore.textContent.trim());
+  }
+
+  updateLanguageDropdown(selected);
+  localStorage.setItem("viewon_link_site_lang", selected);
+}
+
+const LANGUAGE_LABELS = {
+  en: "English",
+  ar: "العربية",
+  de: "Deutsch",
+  es: "Español",
+  fr: "Français",
+  ja: "日本語",
+  ko: "한국어"
+};
+
+function updateLanguageDropdown(lang) {
+  const current = document.getElementById("languageCurrent");
+  if (current) current.textContent = LANGUAGE_LABELS[lang] || LANGUAGE_LABELS.en;
+
+  document.querySelectorAll("[data-lang-option]").forEach((button) => {
+    const isActive = button.getAttribute("data-lang-option") === lang;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
+}
+
+function closeLanguageMenu() {
+  const control = document.getElementById("languageControl");
+  const trigger = document.getElementById("languageTrigger");
+  if (control) control.classList.remove("is-open");
+  if (trigger) trigger.setAttribute("aria-expanded", "false");
+}
+
+const initialLanguage = detectInitialLang();
+applyLanguage(initialLanguage);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const control = document.getElementById("languageControl");
+  const trigger = document.getElementById("languageTrigger");
+
+  updateLanguageDropdown(initialLanguage);
+
+  if (control && trigger) {
+    trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const isOpen = control.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll("[data-lang-option]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      applyLanguage(button.getAttribute("data-lang-option"));
+      closeLanguageMenu();
+    });
+  });
+
+  document.addEventListener("click", closeLanguageMenu);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeLanguageMenu();
+  });
+});
+</script>
 
 <script>
 const root=document.documentElement;
