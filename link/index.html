@@ -66,7 +66,7 @@ button,a{tap-highlight-color:transparent;-webkit-tap-highlight-color:transparent
 @keyframes sendDot{from{transform:translate(-210px,-50%) scale(.55);opacity:0}18%{opacity:1}82%{opacity:1}to{transform:translate(210px,-50%) scale(1.08);opacity:0}}
 .scan{position:absolute;left:0;right:0;height:4px;background:#7de3ff;box-shadow:0 0 20px #7de3ff;animation:scan 3s linear infinite}@keyframes scan{from{top:0}to{top:100%}}
 .right .screen::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(114,232,255,.38),transparent),repeating-linear-gradient(to bottom,rgba(95,215,255,.20) 0 2px,transparent 2px 11px);transform:translateY(-110%);opacity:0;z-index:7}.right.reveal .screen::after{animation:receiveScan 1.35s ease-out}@keyframes receiveScan{0%{transform:translateY(-110%);opacity:0}18%{opacity:1}100%{transform:translateY(110%);opacity:0}}
-.scroll-hint{position:absolute;bottom:86px;left:50%;transform:translateX(-50%);z-index:5;color:rgba(255,255,255,.68);font-size:13px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}.scroll-hint span{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);animation:bounce 1.2s infinite}@keyframes bounce{50%{transform:translateY(5px) rotate(45deg)}}
+.scroll-hint{position:absolute;bottom:86px;left:50%;transform:translateX(-50%);z-index:5;color:rgba(255,255,255,.68);font-size:13px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;white-space:nowrap}.scroll-hint-text{display:inline-block;line-height:1.2}.scroll-hint-arrow{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);animation:bounce 1.2s infinite;flex:0 0 auto}@keyframes bounce{50%{transform:translateY(5px) rotate(45deg)}}
 
 main{position:relative;z-index:3;background:linear-gradient(to bottom,#020817,#041225 12%,#020817 100%)}
 .section{position:relative;padding:110px max(22px,calc((100vw - 1180px)/2));overflow:hidden}.section.compact{padding-top:72px;padding-bottom:72px}.section::before{content:"";position:absolute;inset:auto -20% 0 -20%;height:1px;background:linear-gradient(90deg,transparent,rgba(126,232,255,.32),transparent)}
@@ -158,7 +158,7 @@ html[dir="rtl"] .secure-list div{grid-template-columns:24px 1fr}
     </div>
     <div class="phone right"><div class="screen"></div></div>
   </div>
-  <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll down to learn more</span> <span></span></div>
+  <div class="scroll-hint"><span class="scroll-hint-text" data-i18n="hero.scroll">Scroll down to learn more</span><span class="scroll-hint-arrow" aria-hidden="true"></span></div>
   <div class="hero-bottom-copy"><strong data-i18n="hero.bottomStrong">View one device’s camera directly on another device.</strong><span data-i18n="hero.bottomText">Connect with a QR code, view in real time, and save what you need.</span></div>
 </section>
 
