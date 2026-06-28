@@ -32,12 +32,12 @@ body{
 body::before{
   content:"";
   position:fixed;
-  inset:0;
+  inset:-8%;
   z-index:-3;
-  background:url('./assets/viewon-link-main-bg.webp') center center/cover no-repeat;
-  opacity:.42;
-  filter:brightness(.72) saturate(1.18) blur(2px);
-  transform:scale(1.015);
+  background:url('./assets/viewon-link-main-bg.webp') var(--bg-x,50%) var(--bg-y,50%)/cover no-repeat;
+  opacity:0.5;
+  animation:zoom 20s ease-in-out infinite alternate;
+  filter:brightness(.98) saturate(1.18) blur(.6px);
   pointer-events:none;
 }
 body::after{
@@ -46,10 +46,16 @@ body::after{
   inset:0;
   z-index:-2;
   background:
-    radial-gradient(circle at 50% 16%,rgba(66,223,255,.18),transparent 34%),
-    linear-gradient(to bottom,rgba(2,8,23,.44),rgba(2,8,23,.72) 38%,rgba(2,8,23,.88) 100%);
+    radial-gradient(circle at 50% 16%,rgba(66,223,255,.12),transparent 36%),
+    linear-gradient(
+      to bottom,
+      rgba(2,8,23,.10),
+      rgba(2,8,23,.28) 34%,
+      rgba(2,8,23,.54) 100%
+    );
   pointer-events:none;
 }
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.08)}}
 a{color:inherit;text-decoration:none}
 a:hover{opacity:.92}
 img{max-width:100%;display:block}
@@ -198,7 +204,11 @@ html[dir="rtl"] .language-option:hover{transform:translateX(-2px)}
   .language-menu{width:180px}
 }
 @media (max-width:700px){
-  body::before{opacity:.38;filter:brightness(.68) saturate(1.12) blur(1.5px)}
+  body::before{
+    inset:-12%;
+    background-size:auto 118%;
+    filter:brightness(.95) saturate(1.14) blur(.4px);
+  }
   .topbar{padding:14px 18px}.brand span{font-size:15px}.topbar .mini-cta{padding:9px 12px;font-size:13px}
   main{width:calc(100vw - 36px);padding-top:108px;padding-bottom:64px}
   h1{font-size:42px}.intro{font-size:16px}
