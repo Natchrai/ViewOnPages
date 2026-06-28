@@ -4,64 +4,228 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#020817" />
-<title>ViewOn Link</title>
-<meta name="description" content="ViewOn Link policy and support page." />
+<title>ViewOn Link - Terms of Use</title>
+<meta name="description" content="ViewOn Link Terms of Use page." />
 <style>
 :root{
-  --bg:#020817;--panel:#061427;--line:rgba(126,232,255,.24);--line-strong:rgba(126,232,255,.46);
-  --text:#f7fbff;--muted:#b8cae1;--blue:#42dfff;--mint:#7df7d4;--shadow:0 24px 80px rgba(0,0,0,.42);
+  --bg:#020817;
+  --line:rgba(126,232,255,.24);
+  --line-strong:rgba(126,232,255,.46);
+  --text:#f7fbff;
+  --muted:#b8cae1;
+  --blue:#42dfff;
+  --mint:#7df7d4;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--bg)}
-body{margin:0;background:radial-gradient(circle at 30% 0,rgba(66,223,255,.14),transparent 32%),linear-gradient(to bottom,#020817,#041225 45%,#020817);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);overflow-x:hidden}
-a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
-.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px max(22px,calc((100vw - 1180px)/2));background:linear-gradient(to bottom,rgba(2,8,23,.88),rgba(2,8,23,.58));backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
-.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.03em}
+body{
+  margin:0;
+  min-height:100vh;
+  position:relative;
+  isolation:isolate;
+  overflow-x:hidden;
+  background:#020817;
+  font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--text);
+  line-height:1.72;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:url('./assets/viewon-link-main-bg.webp') center center/cover no-repeat;
+  opacity:.42;
+  filter:brightness(.72) saturate(1.18) blur(2px);
+  transform:scale(1.015);
+  pointer-events:none;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 50% 16%,rgba(66,223,255,.18),transparent 34%),
+    linear-gradient(to bottom,rgba(2,8,23,.44),rgba(2,8,23,.72) 38%,rgba(2,8,23,.88) 100%);
+  pointer-events:none;
+}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.92}
+img{max-width:100%;display:block}
+button,a{-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}
+.topbar{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px max(22px,calc((100vw - 1180px)/2));
+  background:linear-gradient(to bottom,rgba(2,8,23,.82),rgba(2,8,23,.18),rgba(2,8,23,0));
+  backdrop-filter:blur(10px);
+}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.03em;color:var(--text)}
 .brand img{width:34px;height:34px;border-radius:10px;box-shadow:0 0 22px rgba(66,223,255,.35)}
-.nav{display:flex;align-items:center;gap:16px;color:rgba(255,255,255,.82);font-size:14px;font-weight:800;flex-wrap:wrap;justify-content:flex-end}
-.nav a{transition:.2s color,.2s opacity}.nav a:hover{color:white;opacity:.92}
+.nav{display:flex;align-items:center;gap:18px;color:rgba(255,255,255,.82);font-size:14px;font-weight:700}
+.nav a{transition:.2s opacity,.2s color}.nav a:hover{color:white;opacity:.92}
+.nav .mini-cta{padding:10px 15px;border:1px solid var(--line-strong);border-radius:999px;background:rgba(66,223,255,.12);box-shadow:0 0 24px rgba(66,223,255,.12)}
 .language-control{position:relative;display:inline-flex;align-items:center}
-.language-trigger{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 36px 0 12px;border:1px solid rgba(126,232,255,.32);border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.055));color:var(--text);box-shadow:0 0 22px rgba(66,223,255,.10),inset 0 1px 0 rgba(255,255,255,.12);font:inherit;font-size:13px;font-weight:900;cursor:pointer}
-.language-trigger::after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:2px solid rgba(255,255,255,.72);border-bottom:2px solid rgba(255,255,255,.72);transform:translateY(-65%) rotate(45deg)}
+.language-trigger{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 36px 0 12px;border:1px solid rgba(126,232,255,.32);border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.055));color:var(--text);box-shadow:0 0 22px rgba(66,223,255,.10),inset 0 1px 0 rgba(255,255,255,.12);font:inherit;font-size:13px;font-weight:900;letter-spacing:-.02em;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
+.language-trigger:hover{transform:translateY(-1px);border-color:rgba(126,232,255,.58);background:linear-gradient(135deg,rgba(126,232,255,.16),rgba(255,255,255,.07));box-shadow:0 0 28px rgba(66,223,255,.16),inset 0 1px 0 rgba(255,255,255,.15)}
+.language-trigger .language-globe{font-size:15px;line-height:1}
+.language-trigger::after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:2px solid rgba(255,255,255,.72);border-bottom:2px solid rgba(255,255,255,.72);transform:translateY(-65%) rotate(45deg);transition:transform .2s ease}
 .language-control.is-open .language-trigger::after{transform:translateY(-35%) rotate(225deg)}
-.language-menu{position:absolute;right:0;top:calc(100% + 12px);width:190px;padding:8px;border:1px solid rgba(126,232,255,.32);border-radius:22px;background:linear-gradient(180deg,rgba(6,20,39,.96),rgba(2,8,23,.94));box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 36px rgba(66,223,255,.13);backdrop-filter:blur(18px);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:.18s;z-index:100}
+.language-menu{position:absolute;right:0;top:calc(100% + 12px);width:190px;padding:8px;border:1px solid rgba(126,232,255,.32);border-radius:22px;background:linear-gradient(180deg,rgba(6,20,39,.96),rgba(2,8,23,.94));box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 36px rgba(66,223,255,.13),inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(18px);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .18s ease,visibility .18s ease,transform .18s ease;z-index:100}
 .language-control.is-open .language-menu{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
-.language-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border:0;border-radius:15px;background:transparent;color:rgba(247,251,255,.86);font:inherit;font-size:14px;font-weight:850;cursor:pointer;text-align:left}
-.language-option:hover{background:rgba(126,232,255,.11);color:#fff}
+.language-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border:0;border-radius:15px;background:transparent;color:rgba(247,251,255,.86);font:inherit;font-size:14px;font-weight:850;letter-spacing:-.02em;cursor:pointer;text-align:left;transition:background .18s ease,color .18s ease,transform .18s ease}
+.language-option:hover{background:rgba(126,232,255,.11);color:#fff;transform:translateX(2px)}
 .language-option.is-active{background:linear-gradient(135deg,rgba(66,223,255,.18),rgba(125,247,212,.10));color:#fff}
 .language-check{width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(126,232,255,.30);color:transparent;font-size:12px;flex:0 0 auto}
 .language-option.is-active .language-check{color:#7df7d4;border-color:rgba(125,247,212,.55);background:rgba(125,247,212,.12)}
-.hero{padding:82px max(22px,calc((100vw - 940px)/2)) 44px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(126,232,255,.08);color:#95ecff;font-size:13px;font-weight:900;margin-bottom:18px}
-h1{margin:0;font-size:clamp(42px,5vw,76px);line-height:1.03;letter-spacing:-.075em}
-.lead{margin:22px 0 0;color:var(--muted);font-size:clamp(17px,1.6vw,21px);line-height:1.78;font-weight:650;letter-spacing:-.035em;max-width:820px}
-.back-link{display:inline-flex;margin-top:28px;padding:13px 18px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(66,223,255,.12);font-weight:900;color:white}
-.content{padding:26px max(22px,calc((100vw - 940px)/2)) 92px;display:grid;gap:16px}
-.policy-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border-radius:26px;padding:26px;box-shadow:0 20px 64px rgba(0,0,0,.22)}
-.policy-card h2{margin:0;font-size:22px;letter-spacing:-.045em;line-height:1.35}
-.policy-card p{margin:12px 0 0;color:var(--muted);line-height:1.75;font-size:16px;font-weight:600;letter-spacing:-.025em}
-.footer{padding:46px max(22px,calc((100vw - 1180px)/2));color:rgba(255,255,255,.58);display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.08)}
-.footer strong{color:white}.footer-links{display:flex;gap:16px;flex-wrap:wrap}
-.reveal-up{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}.reveal-up.is-visible{opacity:1;transform:translateY(0)}
+main{
+  width:min(960px,calc(100vw - 40px));
+  margin:0 auto;
+  padding:136px 0 78px;
+}
+.page-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 12px;
+  color:#95ecff;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.page-label::before{
+  content:"";
+  width:28px;
+  height:1px;
+  background:linear-gradient(90deg,var(--blue),transparent);
+}
+h1{
+  margin:0;
+  font-size:clamp(42px,5.5vw,72px);
+  line-height:.98;
+  letter-spacing:-.075em;
+  text-shadow:0 14px 42px rgba(0,0,0,.45);
+}
+.intro{
+  margin:22px 0 0;
+  color:rgba(230,246,255,.9);
+  font-size:clamp(17px,1.7vw,21px);
+  max-width:780px;
+  font-weight:700;
+  letter-spacing:-.035em;
+}
+.updated{margin:10px 0 0;color:rgba(184,202,225,.82);font-size:14px;font-weight:650}
+.notice{
+  margin:34px 0 0;
+  max-width:900px;
+  padding:0 0 0 18px;
+  border-left:3px solid rgba(125,247,212,.72);
+  color:#e7fbff;
+  font-size:clamp(16px,1.35vw,18px);
+  line-height:1.82;
+  font-weight:760;
+  letter-spacing:-.035em;
+  text-shadow:0 8px 26px rgba(0,0,0,.4);
+}
+.content{
+  margin-top:54px;
+  display:grid;
+  gap:0;
+  border-top:1px solid rgba(126,232,255,.28);
+}
+section.policy-section{
+  display:block;
+  padding:34px 0;
+  border-bottom:1px solid rgba(126,232,255,.18);
+}
+section.policy-section:last-child{border-bottom:0}
+.policy-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:42px;
+  margin:0 12px 0 0;
+  color:#95ecff;
+  font-size:18px;
+  line-height:1;
+  font-weight:1000;
+  letter-spacing:-.04em;
+  vertical-align:.12em;
+  text-shadow:0 0 22px rgba(66,223,255,.28);
+}
+.policy-body h2{
+  margin:0 0 12px;
+  font-size:clamp(21px,2.1vw,28px);
+  line-height:1.28;
+  letter-spacing:-.055em;
+  color:#f7fbff;
+  white-space:normal;
+}
+.policy-body p{
+  margin:0 0 0 54px;
+  max-width:860px;
+  color:rgba(202,224,240,.88);
+  font-size:16.5px;
+  line-height:1.86;
+  font-weight:620;
+  letter-spacing:-.03em;
+}
+.back-row{margin-top:34px}
+.back-row a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(66,223,255,.12);font-weight:900;color:white}
+.footer{padding:46px max(22px,calc((100vw - 1180px)/2));color:rgba(255,255,255,.58);display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.08);background:rgba(2,8,23,.52);backdrop-filter:blur(8px)}
+.footer strong{color:white}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.footer a{color:rgba(255,255,255,.70)}
 html[dir="rtl"] body{font-family:Arial,"Noto Sans Arabic","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
 html[dir="rtl"] .topbar,html[dir="rtl"] .nav,html[dir="rtl"] .brand,html[dir="rtl"] .footer{direction:rtl}
-html[dir="rtl"] .hero,html[dir="rtl"] .content,html[dir="rtl"] .policy-card{text-align:right}
-html[dir="rtl"] .language-trigger{padding:0 12px 0 36px}html[dir="rtl"] .language-trigger::after{right:auto;left:14px}html[dir="rtl"] .language-menu{right:auto;left:0;transform-origin:top left}html[dir="rtl"] .language-option{text-align:right}
-@media(max-width:760px){.topbar{align-items:flex-start;gap:14px;flex-direction:column;padding:14px 18px}.nav{justify-content:flex-start;gap:12px}.nav a.optional{display:none}.hero{padding:52px 18px 30px}.content{padding:20px 18px 70px}.policy-card{padding:21px;border-radius:22px}.footer{flex-direction:column;align-items:flex-start;padding:36px 18px}}
+html[dir="rtl"] main,html[dir="rtl"] .policy-section{text-align:right}
+html[dir="rtl"] .page-label::before{background:linear-gradient(270deg,var(--blue),transparent)}
+html[dir="rtl"] .notice{padding:0 18px 0 0;border-left:0;border-right:3px solid rgba(125,247,212,.72)}
+html[dir="rtl"] .language-trigger{padding:0 12px 0 36px}
+html[dir="rtl"] .language-trigger::after{right:auto;left:14px}
+html[dir="rtl"] .language-menu{right:auto;left:0;transform-origin:top left}
+html[dir="rtl"] .language-option{text-align:right}
+html[dir="rtl"] .language-option:hover{transform:translateX(-2px)}
+@media (max-width:960px){
+  .nav a:not(.mini-cta){display:none}
+  .language-trigger{min-height:36px;padding-right:34px}
+  .language-menu{width:180px}
+}
+@media (max-width:700px){
+  body::before{opacity:.38;filter:brightness(.68) saturate(1.12) blur(1.5px)}
+  .topbar{padding:14px 18px}.brand span{font-size:15px}.topbar .mini-cta{padding:9px 12px;font-size:13px}
+  main{width:calc(100vw - 36px);padding-top:108px;padding-bottom:64px}
+  h1{font-size:42px}.intro{font-size:16px}
+  .notice{padding-left:14px;font-size:15.5px}
+  .content{margin-top:40px}
+  section.policy-section{padding:28px 0}
+  .policy-number{min-width:34px;margin-right:10px;font-size:16px}
+  .policy-body h2{font-size:22px}
+  .policy-body p{margin-left:44px;font-size:15.5px}
+  .footer{flex-direction:column;align-items:flex-start;padding:36px 18px}
+}
 </style>
 </head>
 <body>
 <header class="topbar">
-  <a class="brand" href="./index.html" aria-label="ViewOn Link home"><img src="./assets/viewon-link-icon.png" alt="ViewOn Link icon"><span>ViewOn Link</span></a>
-  <nav class="nav" aria-label="Page menu">
-    <a href="./index.html" data-i18n="nav.home">Home</a>
-    <a class="optional" href="./privacy.html" data-i18n="nav.privacy">Privacy Policy</a>
-    <a class="optional" href="./terms.html" data-i18n="nav.terms">Terms of Use</a>
-    <a class="optional" href="./support.html" data-i18n="nav.support">Support</a>
-    <a href="mailto:natchrai75@Gmail.com" data-i18n="nav.contact">Contact</a>
+  <a class="brand" href="./index.html#top" aria-label="ViewOn Link home">
+    <img src="./assets/viewon-link-icon.png" alt="ViewOn Link icon" />
+    <span>ViewOn Link</span>
+  </a>
+  <nav class="nav" aria-label="Main menu">
+    <a href="./index.html#how">How</a>
+    <a href="./index.html#cases">Use cases</a>
+    <a href="./index.html#features">Features</a>
     <div class="language-control" id="languageControl">
       <button class="language-trigger" id="languageTrigger" type="button" aria-label="Language" aria-haspopup="listbox" aria-expanded="false">
-        <span aria-hidden="true">🌐</span><span id="languageCurrent">English</span>
+        <span class="language-globe" aria-hidden="true">🌐</span>
+        <span id="languageCurrent">English</span>
       </button>
       <div class="language-menu" id="languageMenu" role="listbox" aria-label="Language">
         <button class="language-option" type="button" data-lang-option="en" role="option"><span>English</span><span class="language-check">✓</span></button>
@@ -73,540 +237,137 @@ html[dir="rtl"] .language-trigger{padding:0 12px 0 36px}html[dir="rtl"] .languag
         <button class="language-option" type="button" data-lang-option="ko" role="option"><span>한국어</span><span class="language-check">✓</span></button>
       </div>
     </div>
+    <a href="./index.html#download" class="mini-cta">Download</a>
   </nav>
 </header>
+
 <main id="top">
-  <section class="hero">
-    <div class="eyebrow">ViewOn Link</div>
-    <h1 data-i18n="terms.title"></h1>
-    <p class="lead" data-i18n="terms.intro"></p>
-    <p class="lead" data-i18n="common.updated"></p>
-    <a class="back-link" href="./index.html" data-i18n="common.back">Back to ViewOn Link</a>
-  </section>
-  <section class="content">
-      <article class="policy-card reveal-up">
-        <h2 data-i18n="terms.s1.t"></h2>
-        <p data-i18n="terms.s1.p"></p>
-      </article>
-      <article class="policy-card reveal-up">
-        <h2 data-i18n="terms.s2.t"></h2>
-        <p data-i18n="terms.s2.p"></p>
-      </article>
-      <article class="policy-card reveal-up">
-        <h2 data-i18n="terms.s3.t"></h2>
-        <p data-i18n="terms.s3.p"></p>
-      </article>
-      <article class="policy-card reveal-up">
-        <h2 data-i18n="terms.s4.t"></h2>
-        <p data-i18n="terms.s4.p"></p>
-      </article>
-      <article class="policy-card reveal-up">
-        <h2 data-i18n="terms.s5.t"></h2>
-        <p data-i18n="terms.s5.p"></p>
-      </article>
-      <article class="policy-card reveal-up">
-        <h2 data-i18n="terms.s6.t"></h2>
-        <p data-i18n="terms.s6.p"></p>
-      </article>
-      <article class="policy-card reveal-up">
-        <h2 data-i18n="terms.s7.t"></h2>
-        <p data-i18n="terms.s7.p"></p>
-      </article>
-  </section>
+  <p class="page-label">ViewOn Link</p>
+  <h1 id="pageTitle">Terms of Use</h1>
+  <p class="intro" id="pageIntro"></p>
+  <p class="updated" id="updatedText"></p>
+  <p class="notice" id="noticeText"></p>
+  <div class="content" id="content"></div>
+  <p class="back-row"><a href="./index.html#top" data-common="back">Back to ViewOn Link</a></p>
 </main>
+
 <footer class="footer">
-  <div><strong>ViewOn Link</strong><br><span data-i18n="footer.tagline">Real-time camera sharing</span></div>
-  <div class="footer-links"><a href="#top" data-i18n="footer.top">Back to top</a><a href="./privacy.html" data-i18n="nav.privacy">Privacy Policy</a><a href="./terms.html" data-i18n="nav.terms">Terms of Use</a><a href="./support.html" data-i18n="nav.support">Support</a></div>
+  <div><strong>ViewOn Link</strong><br><span data-common="tagline">Real-time camera sharing by QR connection</span></div>
+  <div class="footer-links">
+    <a href="#top">Top</a>
+    <a href="./privacy.html" data-common="privacy">Privacy Policy</a>
+    <a href="./terms.html" data-common="terms">Terms of Use</a>
+    <a href="./support.html" data-common="support">Support</a>
+    <a href="mailto:natchrai75@Gmail.com" data-common="contact">Contact</a>
+  </div>
 </footer>
+
 <script>
-const PAGE_TYPE = "terms";
-const I18N = {
-  "en": {
-    "meta.title.privacy": "ViewOn Link - Privacy Policy",
-    "meta.title.terms": "ViewOn Link - Terms of Use",
-    "meta.title.support": "ViewOn Link - Support",
-    "nav.home": "Home",
-    "nav.privacy": "Privacy Policy",
-    "nav.terms": "Terms of Use",
-    "nav.support": "Support",
-    "nav.contact": "Contact",
-    "common.back": "Back to ViewOn Link",
-    "common.updated": "Last updated: June 25, 2026",
-    "footer.tagline": "Real-time camera sharing",
-    "footer.top": "Back to top",
-    "privacy.title": "Privacy Policy",
-    "privacy.intro": "ViewOn Link is designed to connect two devices with a QR code so one device can view the other device’s camera in real time. This policy explains what information is used and how it is handled.",
-    "privacy.s1.t": "1. Information we do not require",
-    "privacy.s1.p": "ViewOn Link does not require account registration. We do not ask for your name, email address, phone number, contacts, or precise location to use the basic camera connection feature.",
-    "privacy.s2.t": "2. Camera, microphone, photos, and videos",
-    "privacy.s2.p": "The app uses camera permission to show the camera preview, scan QR codes, use magnifier mode, and stream the camera view to the paired device. Photos or videos are saved only when you choose to capture or record, and they are stored on your device.",
-    "privacy.s3.t": "3. Temporary connection data",
-    "privacy.s3.p": "To connect devices, ViewOn Link may use temporary signaling data such as room IDs, offers, answers, and network candidates. This data is used only to establish the connection and is intended to be cleared when the connection ends.",
-    "privacy.s4.t": "4. Same Wi‑Fi and local connection",
-    "privacy.s4.p": "ViewOn Link is designed for use when both devices are connected to the same Wi‑Fi network. The app may check network status to guide you before connection.",
-    "privacy.s5.t": "5. Website language preference",
-    "privacy.s5.p": "This website may save your selected language in your browser’s local storage so the page can open in the same language next time.",
-    "privacy.s6.t": "6. Third-party services",
-    "privacy.s6.p": "The app may use Firebase services for temporary connection signaling and update configuration. These services may process technical data needed to provide and secure the service.",
-    "privacy.s7.t": "7. Data sharing and sale",
-    "privacy.s7.p": "We do not sell your personal information. We do not share your camera screen, photos, or videos with advertisers.",
-    "privacy.s8.t": "8. Contact",
-    "privacy.s8.p": "For privacy questions, contact us at natchrai75@Gmail.com.",
-    "terms.title": "Terms of Use",
-    "terms.intro": "By using ViewOn Link, you agree to these terms. If you do not agree, please do not use the app.",
-    "terms.s1.t": "1. Purpose of the app",
-    "terms.s1.p": "ViewOn Link helps you connect two devices by QR code and view one device’s camera from another device in real time.",
-    "terms.s2.t": "2. Safe and lawful use",
-    "terms.s2.p": "You must use the app lawfully and respect other people’s privacy. Do not use ViewOn Link for hidden surveillance, harassment, unauthorized recording, or any illegal activity.",
-    "terms.s3.t": "3. Permissions and saved files",
-    "terms.s3.p": "The app requires camera permission for QR scanning, camera sharing, and magnifier features. Photos and videos are saved only when you choose to save them.",
-    "terms.s4.t": "4. Open testing and service changes",
-    "terms.s4.p": "During open or closed testing, some features may be limited, changed, interrupted, or removed as we improve the app.",
-    "terms.s5.t": "5. Free and future Pro features",
-    "terms.s5.p": "The app may later add Free and Pro features or in-app purchases. Any paid feature will be clearly shown before purchase.",
-    "terms.s6.t": "6. Disclaimer",
-    "terms.s6.p": "ViewOn Link is provided as is. Network condition, device performance, camera compatibility, and operating system restrictions may affect connection quality.",
-    "terms.s7.t": "7. Contact",
-    "terms.s7.p": "For questions about these terms, contact natchrai75@Gmail.com.",
-    "support.title": "Support",
-    "support.intro": "Need help with ViewOn Link? Check the items below or contact us.",
-    "support.s1.t": "Connection checklist",
-    "support.s1.p": "Make sure both devices are connected to the same Wi‑Fi, allow camera permission, create the QR on the Camera device, then scan it on the Viewer device.",
-    "support.s2.t": "QR scan does not work",
-    "support.s2.p": "Check camera permission, brightness, focus, and distance from the QR code. Try creating a new QR code if the old one has expired.",
-    "support.s3.t": "Viewer screen is delayed or unclear",
-    "support.s3.p": "Try a lower quality setting, move closer to the Wi‑Fi router, or close heavy apps running in the background.",
-    "support.s4.t": "Magnifier mode",
-    "support.s4.p": "Magnifier mode can be used without connecting two devices. It is useful for small text, part numbers, and small objects.",
-    "support.s5.t": "Contact email",
-    "support.s5.p": "Email: natchrai75@Gmail.com"
-  },
-  "ko": {
-    "meta.title.privacy": "ViewOn Link - 개인정보처리방침",
-    "meta.title.terms": "ViewOn Link - 이용약관",
-    "meta.title.support": "ViewOn Link - 지원",
-    "nav.home": "홈",
-    "nav.privacy": "개인정보처리방침",
-    "nav.terms": "이용약관",
-    "nav.support": "지원",
-    "nav.contact": "문의하기",
-    "common.back": "ViewOn Link로 돌아가기",
-    "common.updated": "최종 업데이트: 2026년 6월 25일",
-    "footer.tagline": "실시간 카메라 공유",
-    "footer.top": "맨 위로",
-    "privacy.title": "개인정보처리방침",
-    "privacy.intro": "ViewOn Link는 QR 코드로 두 기기를 연결해 한 기기의 카메라 화면을 다른 기기에서 실시간으로 확인할 수 있도록 설계된 앱입니다. 이 문서는 어떤 정보가 사용되고 어떻게 처리되는지 설명합니다.",
-    "privacy.s1.t": "1. 요구하지 않는 정보",
-    "privacy.s1.p": "ViewOn Link는 계정 가입을 요구하지 않습니다. 기본 카메라 연결 기능 사용을 위해 이름, 이메일 주소, 전화번호, 연락처, 정확한 위치 정보를 요구하지 않습니다.",
-    "privacy.s2.t": "2. 카메라, 마이크, 사진 및 영상",
-    "privacy.s2.p": "앱은 카메라 미리보기, QR 코드 스캔, 돋보기 모드, 연결된 기기로의 카메라 화면 전송을 위해 카메라 권한을 사용합니다. 사진 또는 영상은 사용자가 직접 촬영 또는 녹화를 선택한 경우에만 저장되며, 사용자의 기기에 저장됩니다.",
-    "privacy.s3.t": "3. 임시 연결 정보",
-    "privacy.s3.p": "기기를 연결하기 위해 ViewOn Link는 room ID, offer, answer, network candidate 같은 임시 연결 신호 정보를 사용할 수 있습니다. 이 정보는 연결을 설정하기 위한 용도로만 사용되며, 연결 종료 시 정리되도록 설계되어 있습니다.",
-    "privacy.s4.t": "4. 같은 Wi‑Fi와 로컬 연결",
-    "privacy.s4.p": "ViewOn Link는 두 기기가 같은 Wi‑Fi 네트워크에 연결된 상태에서 사용하도록 설계되어 있습니다. 앱은 연결 전 안내를 위해 네트워크 상태를 확인할 수 있습니다.",
-    "privacy.s5.t": "5. 웹사이트 언어 설정",
-    "privacy.s5.p": "이 웹사이트는 다음 방문 시 같은 언어로 열 수 있도록 사용자가 선택한 언어를 브라우저의 로컬 저장소에 저장할 수 있습니다.",
-    "privacy.s6.t": "6. 제3자 서비스",
-    "privacy.s6.p": "앱은 임시 연결 신호 처리와 업데이트 설정 확인을 위해 Firebase 서비스를 사용할 수 있습니다. 해당 서비스는 기능 제공과 보안을 위해 필요한 기술 정보를 처리할 수 있습니다.",
-    "privacy.s7.t": "7. 정보 공유 및 판매",
-    "privacy.s7.p": "개인정보를 판매하지 않습니다. 카메라 화면, 사진, 영상을 광고주와 공유하지 않습니다.",
-    "privacy.s8.t": "8. 문의",
-    "privacy.s8.p": "개인정보 관련 문의는 natchrai75@Gmail.com 으로 연락해 주세요.",
-    "terms.title": "이용약관",
-    "terms.intro": "ViewOn Link를 사용하면 본 약관에 동의한 것으로 봅니다. 동의하지 않는 경우 앱을 사용하지 마세요.",
-    "terms.s1.t": "1. 앱의 목적",
-    "terms.s1.p": "ViewOn Link는 QR 코드로 두 기기를 연결해 한 기기의 카메라 화면을 다른 기기에서 실시간으로 확인할 수 있도록 도와줍니다.",
-    "terms.s2.t": "2. 안전하고 합법적인 사용",
-    "terms.s2.p": "사용자는 앱을 합법적으로 사용하고 다른 사람의 사생활을 존중해야 합니다. 몰래 감시, 괴롭힘, 무단 녹화 또는 불법적인 용도로 사용할 수 없습니다.",
-    "terms.s3.t": "3. 권한과 저장 파일",
-    "terms.s3.p": "앱은 QR 스캔, 카메라 공유, 돋보기 기능을 위해 카메라 권한이 필요합니다. 사진과 영상은 사용자가 저장을 선택한 경우에만 저장됩니다.",
-    "terms.s4.t": "4. 테스트 기간과 서비스 변경",
-    "terms.s4.p": "비공개 테스트 또는 오픈 테스트 기간에는 앱 개선을 위해 일부 기능이 제한, 변경, 중단 또는 제거될 수 있습니다.",
-    "terms.s5.t": "5. 무료 및 향후 Pro 기능",
-    "terms.s5.p": "향후 무료 기능과 Pro 기능 또는 인앱결제가 추가될 수 있습니다. 유료 기능은 구매 전에 명확히 안내됩니다.",
-    "terms.s6.t": "6. 면책",
-    "terms.s6.p": "ViewOn Link는 현재 상태로 제공됩니다. 네트워크 상태, 기기 성능, 카메라 호환성, 운영체제 제한에 따라 연결 품질이 달라질 수 있습니다.",
-    "terms.s7.t": "7. 문의",
-    "terms.s7.p": "약관 관련 문의는 natchrai75@Gmail.com 으로 연락해 주세요.",
-    "support.title": "지원 / 도움말",
-    "support.intro": "ViewOn Link 사용 중 문제가 있으면 아래 내용을 먼저 확인하거나 문의해 주세요.",
-    "support.s1.t": "연결 확인 사항",
-    "support.s1.p": "두 기기가 같은 Wi‑Fi에 연결되어 있는지 확인하고, 카메라 권한을 허용한 뒤 Camera 기기에서 QR을 만들고 Viewer 기기에서 스캔하세요.",
-    "support.s2.t": "QR 스캔이 안 될 때",
-    "support.s2.p": "카메라 권한, 화면 밝기, 초점, QR 코드와의 거리를 확인하세요. 이전 QR이 만료되었을 수 있으니 새 QR을 만들어 보세요.",
-    "support.s3.t": "Viewer 화면이 느리거나 흐릴 때",
-    "support.s3.p": "화질을 낮추고, Wi‑Fi 공유기 가까이 이동하거나 백그라운드에서 실행 중인 무거운 앱을 종료해 보세요.",
-    "support.s4.t": "돋보기 모드",
-    "support.s4.p": "돋보기 모드는 두 기기를 연결하지 않아도 사용할 수 있습니다. 작은 글씨, 부품 번호, 작은 물체 확인에 유용합니다.",
-    "support.s5.t": "문의 이메일",
-    "support.s5.p": "이메일: natchrai75@Gmail.com"
-  },
-  "ja": {
-    "meta.title.privacy": "ViewOn Link - プライバシーポリシー",
-    "meta.title.terms": "ViewOn Link - 利用規約",
-    "meta.title.support": "ViewOn Link - サポート",
-    "nav.home": "ホーム",
-    "nav.privacy": "プライバシーポリシー",
-    "nav.terms": "利用規約",
-    "nav.support": "サポート",
-    "nav.contact": "お問い合わせ",
-    "common.back": "ViewOn Linkに戻る",
-    "common.updated": "最終更新日: 2026年6月25日",
-    "footer.tagline": "リアルタイムカメラ共有",
-    "footer.top": "トップへ",
-    "privacy.title": "プライバシーポリシー",
-    "privacy.intro": "ViewOn Linkは、QRコードで2台のデバイスを接続し、一方のカメラ映像をもう一方のデバイスでリアルタイムに確認できるように設計されたアプリです。本ポリシーでは、使用される情報とその取り扱いについて説明します。",
-    "privacy.s1.t": "1. 必須ではない情報",
-    "privacy.s1.p": "ViewOn Linkはアカウント登録を必要としません。基本的なカメラ接続機能の利用に、氏名、メールアドレス、電話番号、連絡先、正確な位置情報は求めません。",
-    "privacy.s2.t": "2. カメラ、写真、動画",
-    "privacy.s2.p": "アプリはカメラプレビュー、QRコードのスキャン、拡大鏡モード、ペアリングしたデバイスへのカメラ映像送信のためにカメラ権限を使用します。写真や動画は、ユーザーが撮影または録画を選択した場合にのみ端末に保存されます。",
-    "privacy.s3.t": "3. 一時的な接続データ",
-    "privacy.s3.p": "デバイス接続のため、room ID、offer、answer、network candidateなどの一時的なシグナリングデータを使用する場合があります。このデータは接続確立のためだけに使用され、接続終了時に削除されるよう設計されています。",
-    "privacy.s4.t": "4. 同じWi‑Fiとローカル接続",
-    "privacy.s4.p": "ViewOn Linkは、両方のデバイスが同じWi‑Fiネットワークに接続されている状態で使用することを想定しています。接続前の案内のためにネットワーク状態を確認する場合があります。",
-    "privacy.s5.t": "5. ウェブサイトの言語設定",
-    "privacy.s5.p": "このウェブサイトは、次回も同じ言語で表示するため、選択した言語をブラウザのローカルストレージに保存する場合があります。",
-    "privacy.s6.t": "6. 第三者サービス",
-    "privacy.s6.p": "アプリは一時的な接続シグナリングと更新設定の確認のためFirebaseサービスを使用する場合があります。これらのサービスは機能提供と安全性確保に必要な技術情報を処理する場合があります。",
-    "privacy.s7.t": "7. 共有と販売",
-    "privacy.s7.p": "個人情報を販売しません。カメラ画面、写真、動画を広告主と共有しません。",
-    "privacy.s8.t": "8. お問い合わせ",
-    "privacy.s8.p": "プライバシーに関するお問い合わせは natchrai75@Gmail.com までご連絡ください。",
-    "terms.title": "利用規約",
-    "terms.intro": "ViewOn Linkを使用することで、本規約に同意したものとみなされます。同意しない場合はアプリを使用しないでください。",
-    "terms.s1.t": "1. アプリの目的",
-    "terms.s1.p": "ViewOn Linkは、QRコードで2台のデバイスを接続し、一方のカメラ映像を別のデバイスでリアルタイムに確認できるようにします。",
-    "terms.s2.t": "2. 安全で合法的な利用",
-    "terms.s2.p": "ユーザーはアプリを合法的に使用し、他者のプライバシーを尊重する必要があります。隠し監視、嫌がらせ、無断録画、違法行為には使用できません。",
-    "terms.s3.t": "3. 権限と保存ファイル",
-    "terms.s3.p": "アプリはQRスキャン、カメラ共有、拡大鏡機能のためにカメラ権限を必要とします。写真や動画はユーザーが保存を選択した場合にのみ保存されます。",
-    "terms.s4.t": "4. テスト期間と変更",
-    "terms.s4.p": "クローズドテストまたはオープンテスト期間中、一部機能は改善のため制限、変更、中断、削除される場合があります。",
-    "terms.s5.t": "5. 無料機能と今後のPro機能",
-    "terms.s5.p": "今後、無料機能、Pro機能、アプリ内購入が追加される場合があります。有料機能は購入前に明確に表示されます。",
-    "terms.s6.t": "6. 免責",
-    "terms.s6.p": "ViewOn Linkは現状のまま提供されます。ネットワーク状態、端末性能、カメラ互換性、OSの制限により接続品質が変わる場合があります。",
-    "terms.s7.t": "7. お問い合わせ",
-    "terms.s7.p": "本規約に関するお問い合わせは natchrai75@Gmail.com までご連絡ください。",
-    "support.title": "サポート",
-    "support.intro": "ViewOn Linkで問題がある場合は、以下を確認するかお問い合わせください。",
-    "support.s1.t": "接続チェック",
-    "support.s1.p": "両方のデバイスが同じWi‑Fiに接続されていることを確認し、カメラ権限を許可して、CameraデバイスでQRを作成しViewerデバイスでスキャンしてください。",
-    "support.s2.t": "QRスキャンできない場合",
-    "support.s2.p": "カメラ権限、画面の明るさ、ピント、QRコードとの距離を確認してください。古いQRが無効な場合は新しいQRを作成してください。",
-    "support.s3.t": "Viewer画面が遅い・不鮮明な場合",
-    "support.s3.p": "画質を下げ、Wi‑Fiルーターに近づくか、バックグラウンドの重いアプリを終了してください。",
-    "support.s4.t": "拡大鏡モード",
-    "support.s4.p": "拡大鏡モードは2台のデバイスを接続しなくても使用できます。小さな文字、部品番号、小さな物の確認に便利です。",
-    "support.s5.t": "お問い合わせメール",
-    "support.s5.p": "メール: natchrai75@Gmail.com"
-  },
-  "de": {
-    "meta.title.privacy": "ViewOn Link - Datenschutzerklärung",
-    "meta.title.terms": "ViewOn Link - Nutzungsbedingungen",
-    "meta.title.support": "ViewOn Link - Support",
-    "nav.home": "Startseite",
-    "nav.privacy": "Datenschutzerklärung",
-    "nav.terms": "Nutzungsbedingungen",
-    "nav.support": "Support",
-    "nav.contact": "Kontakt",
-    "common.back": "Zurück zu ViewOn Link",
-    "common.updated": "Zuletzt aktualisiert: 25. Juni 2026",
-    "footer.tagline": "Kamera in Echtzeit teilen",
-    "footer.top": "Nach oben",
-    "privacy.title": "Datenschutzerklärung",
-    "privacy.intro": "ViewOn Link verbindet zwei Geräte per QR-Code, damit die Kamera eines Geräts in Echtzeit auf einem anderen Gerät angezeigt werden kann. Diese Erklärung beschreibt, welche Informationen verwendet und wie sie verarbeitet werden.",
-    "privacy.s1.t": "1. Informationen, die wir nicht verlangen",
-    "privacy.s1.p": "ViewOn Link erfordert keine Registrierung. Für die grundlegende Kameraverbindung fragen wir nicht nach Name, E-Mail-Adresse, Telefonnummer, Kontakten oder genauer Standortangabe.",
-    "privacy.s2.t": "2. Kamera, Fotos und Videos",
-    "privacy.s2.p": "Die App verwendet die Kameraberechtigung für Kameravorschau, QR-Scan, Lupenmodus und die Übertragung des Kamerabildes an das gekoppelte Gerät. Fotos oder Videos werden nur gespeichert, wenn du Aufnahme oder Speicherung auswählst, und bleiben auf deinem Gerät.",
-    "privacy.s3.t": "3. Temporäre Verbindungsdaten",
-    "privacy.s3.p": "Zur Verbindung der Geräte kann ViewOn Link temporäre Signalisierungsdaten wie Room IDs, Offers, Answers und Netzwerkkandidaten verwenden. Diese Daten dienen nur zum Aufbau der Verbindung und sollen beim Beenden gelöscht werden.",
-    "privacy.s4.t": "4. Gleiches Wi‑Fi und lokale Verbindung",
-    "privacy.s4.p": "ViewOn Link ist für die Nutzung konzipiert, wenn beide Geräte mit demselben Wi‑Fi verbunden sind. Die App kann den Netzwerkstatus prüfen, um dich vor der Verbindung zu informieren.",
-    "privacy.s5.t": "5. Spracheinstellung der Website",
-    "privacy.s5.p": "Diese Website kann die gewählte Sprache im lokalen Speicher deines Browsers speichern, damit sie beim nächsten Besuch wieder in derselben Sprache geöffnet wird.",
-    "privacy.s6.t": "6. Drittanbieterdienste",
-    "privacy.s6.p": "Die App kann Firebase-Dienste für temporäre Verbindungssignalisierung und Update-Konfiguration verwenden. Diese Dienste können technische Daten verarbeiten, die für Bereitstellung und Sicherheit nötig sind.",
-    "privacy.s7.t": "7. Weitergabe und Verkauf",
-    "privacy.s7.p": "Wir verkaufen keine personenbezogenen Daten. Wir teilen Kamerabild, Fotos oder Videos nicht mit Werbetreibenden.",
-    "privacy.s8.t": "8. Kontakt",
-    "privacy.s8.p": "Bei Datenschutzfragen kontaktiere uns unter natchrai75@Gmail.com.",
-    "terms.title": "Nutzungsbedingungen",
-    "terms.intro": "Durch die Nutzung von ViewOn Link stimmst du diesen Bedingungen zu. Wenn du nicht zustimmst, nutze die App bitte nicht.",
-    "terms.s1.t": "1. Zweck der App",
-    "terms.s1.p": "ViewOn Link hilft, zwei Geräte per QR-Code zu verbinden und die Kamera eines Geräts auf einem anderen Gerät in Echtzeit anzusehen.",
-    "terms.s2.t": "2. Sichere und rechtmäßige Nutzung",
-    "terms.s2.p": "Du musst die App rechtmäßig nutzen und die Privatsphäre anderer respektieren. Verboten sind versteckte Überwachung, Belästigung, unerlaubte Aufnahmen oder illegale Nutzung.",
-    "terms.s3.t": "3. Berechtigungen und gespeicherte Dateien",
-    "terms.s3.p": "Die App benötigt Kameraberechtigung für QR-Scan, Kamerafreigabe und Lupenfunktionen. Fotos und Videos werden nur gespeichert, wenn du die Speicherung auswählst.",
-    "terms.s4.t": "4. Testphase und Änderungen",
-    "terms.s4.p": "Während geschlossener oder offener Tests können Funktionen eingeschränkt, geändert, unterbrochen oder entfernt werden, um die App zu verbessern.",
-    "terms.s5.t": "5. Kostenlose und künftige Pro-Funktionen",
-    "terms.s5.p": "Die App kann später kostenlose und Pro-Funktionen oder In-App-Käufe hinzufügen. Kostenpflichtige Funktionen werden vor dem Kauf klar angezeigt.",
-    "terms.s6.t": "6. Haftungsausschluss",
-    "terms.s6.p": "ViewOn Link wird wie besehen bereitgestellt. Netzwerkbedingungen, Geräteleistung, Kamerakompatibilität und Betriebssystembeschränkungen können die Verbindungsqualität beeinflussen.",
-    "terms.s7.t": "7. Kontakt",
-    "terms.s7.p": "Fragen zu diesen Bedingungen: natchrai75@Gmail.com.",
-    "support.title": "Support",
-    "support.intro": "Brauchst du Hilfe mit ViewOn Link? Prüfe die Punkte unten oder kontaktiere uns.",
-    "support.s1.t": "Verbindungs-Checkliste",
-    "support.s1.p": "Stelle sicher, dass beide Geräte im selben Wi‑Fi sind, erlaube die Kamera, erstelle den QR auf dem Camera-Gerät und scanne ihn auf dem Viewer-Gerät.",
-    "support.s2.t": "QR-Scan funktioniert nicht",
-    "support.s2.p": "Prüfe Kameraberechtigung, Helligkeit, Fokus und Abstand zum QR-Code. Erstelle einen neuen QR-Code, wenn der alte abgelaufen ist.",
-    "support.s3.t": "Viewer-Bild ist verzögert oder unscharf",
-    "support.s3.p": "Wähle eine niedrigere Qualität, gehe näher zum Wi‑Fi-Router oder schließe ressourcenintensive Apps im Hintergrund.",
-    "support.s4.t": "Lupenmodus",
-    "support.s4.p": "Der Lupenmodus kann ohne Verbindung zweier Geräte genutzt werden. Er ist nützlich für kleine Schrift, Teilenummern und kleine Objekte.",
-    "support.s5.t": "Kontakt-E-Mail",
-    "support.s5.p": "E-Mail: natchrai75@Gmail.com"
-  },
-  "es": {
-    "meta.title.privacy": "ViewOn Link - Política de privacidad",
-    "meta.title.terms": "ViewOn Link - Términos de uso",
-    "meta.title.support": "ViewOn Link - Soporte",
-    "nav.home": "Inicio",
-    "nav.privacy": "Política de privacidad",
-    "nav.terms": "Términos de uso",
-    "nav.support": "Soporte",
-    "nav.contact": "Contacto",
-    "common.back": "Volver a ViewOn Link",
-    "common.updated": "Última actualización: 25 de junio de 2026",
-    "footer.tagline": "Cámara compartida en tiempo real",
-    "footer.top": "Arriba",
-    "privacy.title": "Política de privacidad",
-    "privacy.intro": "ViewOn Link está diseñado para conectar dos dispositivos con un código QR y ver en tiempo real la cámara de un dispositivo en otro. Esta política explica qué información se usa y cómo se trata.",
-    "privacy.s1.t": "1. Información que no requerimos",
-    "privacy.s1.p": "ViewOn Link no requiere registro de cuenta. No solicitamos nombre, correo electrónico, teléfono, contactos ni ubicación precisa para usar la conexión básica de cámara.",
-    "privacy.s2.t": "2. Cámara, fotos y vídeos",
-    "privacy.s2.p": "La app usa el permiso de cámara para la vista previa, el escaneo QR, el modo lupa y la transmisión al dispositivo emparejado. Las fotos o vídeos solo se guardan cuando eliges capturar o grabar, y se almacenan en tu dispositivo.",
-    "privacy.s3.t": "3. Datos temporales de conexión",
-    "privacy.s3.p": "Para conectar dispositivos, ViewOn Link puede usar datos temporales como room IDs, offers, answers y candidatos de red. Se usan solo para establecer la conexión y están pensados para borrarse al finalizar.",
-    "privacy.s4.t": "4. Misma Wi‑Fi y conexión local",
-    "privacy.s4.p": "ViewOn Link está diseñado para usarse cuando ambos dispositivos están conectados a la misma red Wi‑Fi. La app puede comprobar el estado de la red antes de conectar.",
-    "privacy.s5.t": "5. Preferencia de idioma del sitio web",
-    "privacy.s5.p": "Este sitio puede guardar el idioma seleccionado en el almacenamiento local del navegador para abrirse en el mismo idioma la próxima vez.",
-    "privacy.s6.t": "6. Servicios de terceros",
-    "privacy.s6.p": "La app puede usar Firebase para señalización temporal de conexión y configuración de actualizaciones. Estos servicios pueden procesar datos técnicos necesarios para ofrecer y proteger el servicio.",
-    "privacy.s7.t": "7. Compartir y vender datos",
-    "privacy.s7.p": "No vendemos información personal. No compartimos la pantalla de la cámara, fotos ni vídeos con anunciantes.",
-    "privacy.s8.t": "8. Contacto",
-    "privacy.s8.p": "Para preguntas de privacidad, contáctanos en natchrai75@Gmail.com.",
-    "terms.title": "Términos de uso",
-    "terms.intro": "Al usar ViewOn Link, aceptas estos términos. Si no estás de acuerdo, no uses la app.",
-    "terms.s1.t": "1. Finalidad de la app",
-    "terms.s1.p": "ViewOn Link ayuda a conectar dos dispositivos por QR y ver la cámara de un dispositivo desde otro en tiempo real.",
-    "terms.s2.t": "2. Uso seguro y legal",
-    "terms.s2.p": "Debes usar la app legalmente y respetar la privacidad de otras personas. No la uses para vigilancia oculta, acoso, grabaciones no autorizadas ni actividades ilegales.",
-    "terms.s3.t": "3. Permisos y archivos guardados",
-    "terms.s3.p": "La app requiere cámara para escanear QR, compartir cámara y usar la lupa. Las fotos y vídeos solo se guardan cuando eliges guardarlos.",
-    "terms.s4.t": "4. Pruebas y cambios del servicio",
-    "terms.s4.p": "Durante pruebas cerradas o abiertas, algunas funciones pueden limitarse, cambiar, interrumpirse o eliminarse para mejorar la app.",
-    "terms.s5.t": "5. Funciones gratis y futuras Pro",
-    "terms.s5.p": "La app puede añadir funciones Free y Pro o compras dentro de la app. Cualquier función de pago se mostrará claramente antes de comprar.",
-    "terms.s6.t": "6. Descargo de responsabilidad",
-    "terms.s6.p": "ViewOn Link se ofrece tal cual. La red, el rendimiento del dispositivo, la compatibilidad de cámara y el sistema operativo pueden afectar la calidad.",
-    "terms.s7.t": "7. Contacto",
-    "terms.s7.p": "Preguntas sobre estos términos: natchrai75@Gmail.com.",
-    "support.title": "Soporte",
-    "support.intro": "¿Necesitas ayuda con ViewOn Link? Revisa lo siguiente o contáctanos.",
-    "support.s1.t": "Lista de conexión",
-    "support.s1.p": "Asegúrate de que ambos dispositivos estén en la misma Wi‑Fi, permite la cámara, crea el QR en Camera y escanéalo en Viewer.",
-    "support.s2.t": "El QR no se escanea",
-    "support.s2.p": "Revisa permiso de cámara, brillo, enfoque y distancia. Crea un nuevo QR si el anterior venció.",
-    "support.s3.t": "La pantalla Viewer va lenta o borrosa",
-    "support.s3.p": "Prueba una calidad más baja, acércate al router Wi‑Fi o cierra apps pesadas en segundo plano.",
-    "support.s4.t": "Modo lupa",
-    "support.s4.p": "El modo lupa se puede usar sin conectar dos dispositivos. Es útil para textos pequeños, números de piezas y objetos pequeños.",
-    "support.s5.t": "Correo de contacto",
-    "support.s5.p": "Email: natchrai75@Gmail.com"
-  },
-  "fr": {
-    "meta.title.privacy": "ViewOn Link - Politique de confidentialité",
-    "meta.title.terms": "ViewOn Link - Conditions d’utilisation",
-    "meta.title.support": "ViewOn Link - Assistance",
-    "nav.home": "Accueil",
-    "nav.privacy": "Confidentialité",
-    "nav.terms": "Conditions",
-    "nav.support": "Assistance",
-    "nav.contact": "Contact",
-    "common.back": "Retour à ViewOn Link",
-    "common.updated": "Dernière mise à jour : 25 juin 2026",
-    "footer.tagline": "Partage de caméra en temps réel",
-    "footer.top": "Haut de page",
-    "privacy.title": "Politique de confidentialité",
-    "privacy.intro": "ViewOn Link est conçu pour connecter deux appareils avec un code QR afin de voir en temps réel la caméra d’un appareil sur un autre. Cette politique explique quelles informations sont utilisées et comment elles sont traitées.",
-    "privacy.s1.t": "1. Informations non requises",
-    "privacy.s1.p": "ViewOn Link ne nécessite pas de compte. Nous ne demandons pas votre nom, adresse e-mail, numéro de téléphone, contacts ou localisation précise pour la connexion caméra de base.",
-    "privacy.s2.t": "2. Caméra, photos et vidéos",
-    "privacy.s2.p": "L’app utilise l’autorisation caméra pour l’aperçu, le scan QR, le mode loupe et la transmission vers l’appareil associé. Les photos ou vidéos ne sont enregistrées que lorsque vous choisissez de capturer ou d’enregistrer, et restent sur votre appareil.",
-    "privacy.s3.t": "3. Données temporaires de connexion",
-    "privacy.s3.p": "Pour connecter les appareils, ViewOn Link peut utiliser des données temporaires comme des room IDs, offers, answers et candidats réseau. Elles servent uniquement à établir la connexion et sont destinées à être supprimées à la fin.",
-    "privacy.s4.t": "4. Même Wi‑Fi et connexion locale",
-    "privacy.s4.p": "ViewOn Link est conçu pour fonctionner lorsque les deux appareils sont connectés au même réseau Wi‑Fi. L’app peut vérifier l’état du réseau avant la connexion.",
-    "privacy.s5.t": "5. Préférence de langue du site",
-    "privacy.s5.p": "Ce site peut enregistrer la langue choisie dans le stockage local du navigateur afin de rouvrir la page dans la même langue.",
-    "privacy.s6.t": "6. Services tiers",
-    "privacy.s6.p": "L’app peut utiliser Firebase pour la signalisation temporaire de connexion et la configuration des mises à jour. Ces services peuvent traiter des données techniques nécessaires au service et à la sécurité.",
-    "privacy.s7.t": "7. Partage et vente",
-    "privacy.s7.p": "Nous ne vendons pas vos informations personnelles. Nous ne partageons pas votre écran caméra, vos photos ou vidéos avec des annonceurs.",
-    "privacy.s8.t": "8. Contact",
-    "privacy.s8.p": "Pour toute question de confidentialité, contactez natchrai75@Gmail.com.",
-    "terms.title": "Conditions d’utilisation",
-    "terms.intro": "En utilisant ViewOn Link, vous acceptez ces conditions. Si vous n’êtes pas d’accord, n’utilisez pas l’app.",
-    "terms.s1.t": "1. Objet de l’app",
-    "terms.s1.p": "ViewOn Link aide à connecter deux appareils par QR code et à voir en temps réel la caméra d’un appareil depuis un autre.",
-    "terms.s2.t": "2. Utilisation sûre et légale",
-    "terms.s2.p": "Vous devez utiliser l’app légalement et respecter la vie privée d’autrui. N’utilisez pas l’app pour de la surveillance cachée, du harcèlement, des enregistrements non autorisés ou toute activité illégale.",
-    "terms.s3.t": "3. Autorisations et fichiers enregistrés",
-    "terms.s3.p": "L’app nécessite l’autorisation caméra pour le scan QR, le partage caméra et la loupe. Les photos et vidéos ne sont sauvegardées que lorsque vous choisissez de les sauvegarder.",
-    "terms.s4.t": "4. Tests et modifications",
-    "terms.s4.p": "Pendant les tests fermés ou ouverts, certaines fonctions peuvent être limitées, modifiées, interrompues ou supprimées pour améliorer l’app.",
-    "terms.s5.t": "5. Fonctions gratuites et futures Pro",
-    "terms.s5.p": "L’app pourra ajouter des fonctions Free et Pro ou des achats intégrés. Toute fonction payante sera clairement indiquée avant l’achat.",
-    "terms.s6.t": "6. Avertissement",
-    "terms.s6.p": "ViewOn Link est fourni tel quel. La qualité peut dépendre du réseau, de l’appareil, de la caméra et des restrictions du système.",
-    "terms.s7.t": "7. Contact",
-    "terms.s7.p": "Questions sur ces conditions : natchrai75@Gmail.com.",
-    "support.title": "Assistance",
-    "support.intro": "Besoin d’aide avec ViewOn Link ? Consultez les points ci-dessous ou contactez-nous.",
-    "support.s1.t": "Liste de connexion",
-    "support.s1.p": "Vérifiez que les deux appareils sont sur le même Wi‑Fi, autorisez la caméra, créez le QR sur l’appareil Camera puis scannez-le sur Viewer.",
-    "support.s2.t": "Le scan QR ne fonctionne pas",
-    "support.s2.p": "Vérifiez l’autorisation caméra, la luminosité, la mise au point et la distance. Créez un nouveau QR si l’ancien a expiré.",
-    "support.s3.t": "L’écran Viewer est lent ou flou",
-    "support.s3.p": "Essayez une qualité plus basse, rapprochez-vous du routeur Wi‑Fi ou fermez les apps lourdes en arrière-plan.",
-    "support.s4.t": "Mode loupe",
-    "support.s4.p": "Le mode loupe peut être utilisé sans connecter deux appareils. Il est utile pour les petits textes, numéros de pièces et petits objets.",
-    "support.s5.t": "E-mail de contact",
-    "support.s5.p": "E-mail : natchrai75@Gmail.com"
-  },
-  "ar": {
-    "meta.title.privacy": "ViewOn Link - سياسة الخصوصية",
-    "meta.title.terms": "ViewOn Link - شروط الاستخدام",
-    "meta.title.support": "ViewOn Link - الدعم",
-    "nav.home": "الرئيسية",
-    "nav.privacy": "سياسة الخصوصية",
-    "nav.terms": "شروط الاستخدام",
-    "nav.support": "الدعم",
-    "nav.contact": "اتصل بنا",
-    "common.back": "العودة إلى ViewOn Link",
-    "common.updated": "آخر تحديث: 25 يونيو 2026",
-    "footer.tagline": "مشاركة الكاميرا في الوقت الحقيقي",
-    "footer.top": "إلى الأعلى",
-    "privacy.title": "سياسة الخصوصية",
-    "privacy.intro": "تم تصميم ViewOn Link لربط جهازين عبر رمز QR حتى يمكن عرض كاميرا أحد الجهازين على جهاز آخر في الوقت الحقيقي. توضح هذه السياسة المعلومات المستخدمة وكيفية التعامل معها.",
-    "privacy.s1.t": "1. معلومات لا نطلبها",
-    "privacy.s1.p": "لا يتطلب ViewOn Link إنشاء حساب. لا نطلب اسمك أو بريدك الإلكتروني أو رقم هاتفك أو جهات الاتصال أو الموقع الدقيق لاستخدام ميزة اتصال الكاميرا الأساسية.",
-    "privacy.s2.t": "2. الكاميرا والصور والفيديوهات",
-    "privacy.s2.p": "يستخدم التطبيق إذن الكاميرا لعرض المعاينة، ومسح رموز QR، ووضع المكبّر، وإرسال عرض الكاميرا إلى الجهاز المقترن. يتم حفظ الصور أو الفيديوهات فقط عندما تختار الالتقاط أو التسجيل، ويتم حفظها على جهازك.",
-    "privacy.s3.t": "3. بيانات اتصال مؤقتة",
-    "privacy.s3.p": "لربط الأجهزة، قد يستخدم ViewOn Link بيانات إشارة مؤقتة مثل room IDs وoffers وanswers وnetwork candidates. تُستخدم هذه البيانات فقط لإنشاء الاتصال ومن المفترض حذفها عند انتهاء الاتصال.",
-    "privacy.s4.t": "4. نفس شبكة Wi‑Fi والاتصال المحلي",
-    "privacy.s4.p": "تم تصميم ViewOn Link للاستخدام عندما يكون الجهازان متصلين بنفس شبكة Wi‑Fi. قد يتحقق التطبيق من حالة الشبكة لإرشادك قبل الاتصال.",
-    "privacy.s5.t": "5. تفضيل لغة الموقع",
-    "privacy.s5.p": "قد يحفظ هذا الموقع اللغة التي تختارها في التخزين المحلي للمتصفح حتى يفتح بنفس اللغة في المرة القادمة.",
-    "privacy.s6.t": "6. خدمات خارجية",
-    "privacy.s6.p": "قد يستخدم التطبيق خدمات Firebase لإشارات الاتصال المؤقتة وإعدادات التحديث. قد تعالج هذه الخدمات بيانات تقنية ضرورية لتقديم الخدمة وتأمينها.",
-    "privacy.s7.t": "7. مشاركة البيانات وبيعها",
-    "privacy.s7.p": "لا نبيع معلوماتك الشخصية. ولا نشارك شاشة الكاميرا أو الصور أو الفيديوهات مع المعلنين.",
-    "privacy.s8.t": "8. التواصل",
-    "privacy.s8.p": "لأسئلة الخصوصية، راسلنا على natchrai75@Gmail.com.",
-    "terms.title": "شروط الاستخدام",
-    "terms.intro": "باستخدام ViewOn Link، فإنك توافق على هذه الشروط. إذا كنت لا توافق، يرجى عدم استخدام التطبيق.",
-    "terms.s1.t": "1. غرض التطبيق",
-    "terms.s1.p": "يساعد ViewOn Link على ربط جهازين عبر رمز QR وعرض كاميرا أحد الجهازين على جهاز آخر في الوقت الحقيقي.",
-    "terms.s2.t": "2. الاستخدام الآمن والقانوني",
-    "terms.s2.p": "يجب استخدام التطبيق بشكل قانوني واحترام خصوصية الآخرين. لا تستخدم ViewOn Link للمراقبة الخفية أو المضايقة أو التسجيل غير المصرح به أو أي نشاط غير قانوني.",
-    "terms.s3.t": "3. الأذونات والملفات المحفوظة",
-    "terms.s3.p": "يتطلب التطبيق إذن الكاميرا لمسح QR ومشاركة الكاميرا وميزات المكبّر. يتم حفظ الصور والفيديوهات فقط عندما تختار حفظها.",
-    "terms.s4.t": "4. الاختبار وتغييرات الخدمة",
-    "terms.s4.p": "أثناء الاختبار المغلق أو المفتوح، قد يتم تقييد بعض الميزات أو تغييرها أو إيقافها أو إزالتها لتحسين التطبيق.",
-    "terms.s5.t": "5. الميزات المجانية وميزات Pro المستقبلية",
-    "terms.s5.p": "قد يضيف التطبيق لاحقًا ميزات مجانية وميزات Pro أو عمليات شراء داخل التطبيق. سيتم توضيح أي ميزة مدفوعة قبل الشراء.",
-    "terms.s6.t": "6. إخلاء المسؤولية",
-    "terms.s6.p": "يتم توفير ViewOn Link كما هو. قد تؤثر حالة الشبكة وأداء الجهاز وتوافق الكاميرا وقيود نظام التشغيل على جودة الاتصال.",
-    "terms.s7.t": "7. التواصل",
-    "terms.s7.p": "للاستفسارات حول هذه الشروط، راسل natchrai75@Gmail.com.",
-    "support.title": "الدعم",
-    "support.intro": "هل تحتاج مساعدة في ViewOn Link؟ تحقق من العناصر التالية أو تواصل معنا.",
-    "support.s1.t": "قائمة فحص الاتصال",
-    "support.s1.p": "تأكد من أن الجهازين على نفس شبكة Wi‑Fi، واسمح بالكاميرا، ثم أنشئ رمز QR على جهاز Camera وامسحه على جهاز Viewer.",
-    "support.s2.t": "مسح QR لا يعمل",
-    "support.s2.p": "تحقق من إذن الكاميرا والسطوع والتركيز والمسافة من رمز QR. جرّب إنشاء رمز QR جديد إذا انتهت صلاحية الرمز القديم.",
-    "support.s3.t": "شاشة Viewer متأخرة أو غير واضحة",
-    "support.s3.p": "جرّب جودة أقل، اقترب من جهاز توجيه Wi‑Fi، أو أغلق التطبيقات الثقيلة في الخلفية.",
-    "support.s4.t": "وضع المكبّر",
-    "support.s4.p": "يمكن استخدام وضع المكبّر دون ربط جهازين. وهو مفيد للنصوص الصغيرة وأرقام القطع والأشياء الصغيرة.",
-    "support.s5.t": "بريد التواصل",
-    "support.s5.p": "البريد الإلكتروني: natchrai75@Gmail.com"
-  }
-};
-const SUPPORTED_LANGS = ["en","ar","de","es","fr","ja","ko"];
-const LANGUAGE_LABELS = {"en":"English","ar":"العربية","de":"Deutsch","es":"Español","fr":"Français","ja":"日本語","ko":"한국어"};
-function normalizeLang(lang){
-  if(!lang) return null;
-  const lower = String(lang).toLowerCase();
-  if(lower.startsWith("ko")) return "ko";
-  if(lower.startsWith("ja")) return "ja";
-  if(lower.startsWith("ar")) return "ar";
-  if(lower.startsWith("de")) return "de";
-  if(lower.startsWith("es")) return "es";
-  if(lower.startsWith("fr")) return "fr";
-  if(lower.startsWith("en")) return "en";
-  return null;
+const PAGE_KEY = "terms";
+const TITLES = {"en": "Terms of Use", "ko": "이용약관", "ja": "利用規約", "ar": "شروط الاستخدام", "de": "Nutzungsbedingungen", "es": "Términos de uso", "fr": "Conditions d’utilisation"};
+const INTROS = {"en": "By using ViewOn Link, you agree to these terms. If you do not agree, please do not use the app.", "ko": "ViewOn Link를 사용하면 본 약관에 동의한 것으로 봅니다. 동의하지 않는 경우 앱을 사용하지 마세요.", "ja": "ViewOn Linkを使用することで、本規約に同意したものとみなされます。同意しない場合は、アプリを使用しないでください。", "ar": "باستخدام ViewOn Link، فإنك توافق على هذه الشروط. إذا لم توافق، يرجى عدم استخدام التطبيق.", "de": "Durch die Nutzung von ViewOn Link stimmen Sie diesen Bedingungen zu. Wenn Sie nicht zustimmen, verwenden Sie die App bitte nicht.", "es": "Al usar ViewOn Link, aceptas estos términos. Si no estás de acuerdo, no uses la app.", "fr": "En utilisant ViewOn Link, vous acceptez ces conditions. Si vous n’êtes pas d’accord, veuillez ne pas utiliser l’application."};
+const SECTIONS = {"en": [["1. Purpose of the app", "ViewOn Link helps you connect two devices by QR code and view one device’s camera from another device in real time."], ["2. Safe and lawful use", "You must use the app lawfully and respect other people’s privacy. Do not use ViewOn Link for hidden surveillance, harassment, unauthorized recording, or any illegal activity."], ["3. Permissions and saved files", "The app requires camera permission for QR scanning, camera sharing, and magnifier features. Photos and videos are saved only when you choose to save them."], ["4. Open testing and service changes", "ViewOn Link is currently provided as a free testing/open test service. Based on testing results and user feedback, some features may be added, changed, or separated as Pro features in the future, and in-app purchases may be introduced. Any paid feature will be clearly shown before purchase, and payments will be processed through the official app market payment system."], ["5. Free use, future Pro features, and in-app purchases", "ViewOn Link is currently provided as a free testing/open test service. Based on testing results and user feedback, some features may be added, changed, or separated as Pro features in the future, and in-app purchases may be introduced. Any paid feature will be clearly shown before purchase, and payments will be processed through the official app market payment system."], ["6. Connection limitations", "Network condition, Wi‑Fi quality, device performance, camera compatibility, and operating system restrictions may affect connection quality, delay, recording, or display behavior."], ["7. Disclaimer", "ViewOn Link is provided as is to the extent permitted by applicable law. We do not guarantee that every device, network, or usage environment will work without interruption or error."], ["8. Contact", "For questions about these terms, contact natchrai75@Gmail.com."]], "ko": [["1. 앱의 목적", "ViewOn Link는 QR 코드로 두 기기를 연결해 한 기기의 카메라 화면을 다른 기기에서 실시간으로 확인할 수 있도록 도와주는 앱입니다."], ["2. 안전하고 합법적인 사용", "사용자는 앱을 합법적으로 사용하고 다른 사람의 사생활을 존중해야 합니다. 몰래 감시, 괴롭힘, 무단 녹화 또는 불법적인 용도로 사용할 수 없습니다."], ["3. 권한과 저장 파일", "앱은 QR 스캔, 카메라 공유, 돋보기 기능을 위해 카메라 권한이 필요합니다. 사진과 영상은 사용자가 저장을 선택한 경우에만 저장됩니다."], ["4. 오픈 테스트와 서비스 변경", "오픈 테스트 또는 비공개 테스트 기간에는 앱 개선을 위해 일부 기능이 제한, 변경, 중단 또는 제거될 수 있습니다. 테스트와 사용자 의견은 연결 품질, 사용성, 향후 기능 개선에 활용될 수 있습니다."], ["5. 무료 사용, 향후 Pro 기능 및 인앱결제", "ViewOn Link는 현재 무료 테스트/오픈 테스트 형태로 제공되고 있습니다. 향후 테스트 결과와 사용자 의견을 반영해 일부 기능이 추가, 변경되거나 Pro 기능으로 분리될 수 있으며, 인앱결제가 도입될 수 있습니다. 유료 기능은 구매 전 가격과 조건을 명확히 안내하며, 결제는 각 앱 마켓의 공식 결제 시스템을 통해 처리됩니다."], ["6. 연결 제한 사항", "네트워크 상태, Wi‑Fi 품질, 기기 성능, 카메라 호환성, 운영체제 제한에 따라 연결 품질, 지연, 녹화, 화면 표시 상태가 달라질 수 있습니다."], ["7. 면책", "ViewOn Link는 관련 법령이 허용하는 범위 내에서 현재 제공되는 상태로 제공됩니다. 모든 기기, 네트워크, 사용 환경에서 중단이나 오류 없이 동작하는 것을 보장하지 않습니다."], ["8. 문의", "약관 관련 문의는 natchrai75@Gmail.com 으로 연락해 주세요."]], "ja": [["1. アプリの目的", "ViewOn LinkはQRコードで2台の端末を接続し、一方の端末のカメラ映像をもう一方の端末でリアルタイムに確認できるよう支援します。"], ["2. 安全で合法的な利用", "アプリは合法的に使用し、他者のプライバシーを尊重してください。隠し監視、嫌がらせ、無断録画、違法行為には使用できません。"], ["3. 権限と保存ファイル", "QRスキャン、カメラ共有、拡大鏡機能のためにカメラ権限が必要です。写真と動画はユーザーが保存を選択した場合にのみ保存されます。"], ["4. オープンテストとサービス変更", "テスト期間中、アプリ改善のため一部機能が制限、変更、中断、削除される場合があります。"], ["5. 無料利用、今後のPro機能、アプリ内課金", "ViewOn Linkは現在、無料テスト／オープンテストとして提供されています。今後、テスト結果やユーザーのフィードバックを反映し、一部機能が追加・変更されたり、Pro機能として分離されたり、アプリ内課金が導入される場合があります。有料機能は購入前に価格と条件を明確に表示し、決済は各アプリマーケットの公式決済システムを通じて処理されます。"], ["6. 接続の制限", "ネットワーク状態、Wi‑Fi品質、端末性能、カメラ互換性、OS制限により接続品質や遅延、録画、表示が異なる場合があります。"], ["7. 免責", "ViewOn Linkは適用法で認められる範囲において現状有姿で提供されます。すべての環境で中断やエラーがないことを保証しません。"], ["8. お問い合わせ", "規約に関するお問い合わせ: natchrai75@Gmail.com"]], "ar": [["1. غرض التطبيق", "يساعد ViewOn Link على ربط جهازين عبر QR وعرض كاميرا أحد الجهازين على الجهاز الآخر في الوقت الفعلي."], ["2. الاستخدام الآمن والقانوني", "يجب استخدام التطبيق بشكل قانوني واحترام خصوصية الآخرين. لا تستخدمه للمراقبة الخفية أو المضايقة أو التسجيل غير المصرح به أو أي نشاط غير قانوني."], ["3. الصلاحيات والملفات المحفوظة", "يتطلب التطبيق صلاحية الكاميرا لمسح QR ومشاركة الكاميرا وميزات المكبّر. تُحفظ الصور والفيديو فقط عندما تختار حفظها."], ["4. الاختبار المفتوح وتغييرات الخدمة", "يُقدَّم ViewOn Link حاليًا كخدمة اختبار مجانية/اختبار مفتوح. وبناءً على نتائج الاختبار وملاحظات المستخدمين، قد تتم إضافة بعض الميزات أو تغييرها أو فصلها كميزات Pro في المستقبل، وقد يتم تقديم عمليات شراء داخل التطبيق. سيتم توضيح سعر وشروط أي ميزة مدفوعة قبل الشراء، وستتم معالجة المدفوعات من خلال نظام الدفع الرسمي لمتجر التطبيق."], ["5. الاستخدام المجاني وميزات Pro المستقبلية والمشتريات داخل التطبيق", "يُقدَّم ViewOn Link حاليًا كخدمة اختبار مجانية/اختبار مفتوح. وبناءً على نتائج الاختبار وملاحظات المستخدمين، قد تتم إضافة بعض الميزات أو تغييرها أو فصلها كميزات Pro في المستقبل، وقد يتم تقديم عمليات شراء داخل التطبيق. سيتم توضيح سعر وشروط أي ميزة مدفوعة قبل الشراء، وستتم معالجة المدفوعات من خلال نظام الدفع الرسمي لمتجر التطبيق."], ["6. قيود الاتصال", "قد تؤثر حالة الشبكة وجودة Wi‑Fi وأداء الجهاز وتوافق الكاميرا وقيود نظام التشغيل على جودة الاتصال والتأخير والتسجيل والعرض."], ["7. إخلاء المسؤولية", "يتم توفير ViewOn Link كما هو بالقدر الذي يسمح به القانون. لا نضمن عمله دون انقطاع أو أخطاء في كل البيئات."], ["8. التواصل", "للاستفسارات حول الشروط: natchrai75@Gmail.com"]], "de": [["1. Zweck der App", "ViewOn Link helps you connect two devices by QR code and view one device’s camera from another device in real time."], ["2. Sichere und rechtmäßige Nutzung", "You must use the app lawfully and respect other people’s privacy. Do not use ViewOn Link for hidden surveillance, harassment, unauthorized recording, or any illegal activity."], ["3. Berechtigungen und gespeicherte Dateien", "The app requires camera permission for QR scanning, camera sharing, and magnifier features. Photos and videos are saved only when you choose to save them."], ["4. Open Test und Dienständerungen", "ViewOn Link wird derzeit als kostenloser Test-/Open-Test-Dienst bereitgestellt. Auf Grundlage der Testergebnisse und des Nutzerfeedbacks können künftig einige Funktionen ergänzt, geändert oder als Pro-Funktionen getrennt werden; außerdem können In-App-Käufe eingeführt werden. Kostenpflichtige Funktionen werden vor dem Kauf klar mit Preis und Bedingungen angezeigt, und Zahlungen werden über das offizielle Zahlungssystem des jeweiligen App-Marktplatzes abgewickelt."], ["5. Kostenlose Nutzung, zukünftige Pro-Funktionen und In-App-Käufe", "ViewOn Link wird derzeit als kostenloser Test-/Open-Test-Dienst bereitgestellt. Auf Grundlage der Testergebnisse und des Nutzerfeedbacks können künftig einige Funktionen ergänzt, geändert oder als Pro-Funktionen getrennt werden; außerdem können In-App-Käufe eingeführt werden. Kostenpflichtige Funktionen werden vor dem Kauf klar mit Preis und Bedingungen angezeigt, und Zahlungen werden über das offizielle Zahlungssystem des jeweiligen App-Marktplatzes abgewickelt."], ["6. Verbindungsbeschränkungen", "Network condition, Wi‑Fi quality, device performance, camera compatibility, and operating system restrictions may affect connection quality, delay, recording, or display behavior."], ["7. Haftungsausschluss", "ViewOn Link is provided as is to the extent permitted by applicable law. We do not guarantee that every device, network, or usage environment will work without interruption or error."], ["8. Kontakt", "For questions about these terms, contact natchrai75@Gmail.com."]], "es": [["1. Propósito de la app", "ViewOn Link se ofrece actualmente como servicio gratuito de prueba/prueba abierta. Según los resultados de las pruebas y los comentarios de los usuarios, algunas funciones podrán añadirse, modificarse o separarse como funciones Pro en el futuro, y podrán introducirse compras dentro de la app. Cualquier función de pago mostrará claramente su precio y condiciones antes de la compra, y los pagos se procesarán mediante el sistema oficial de pago de cada tienda de apps."], ["2. Uso seguro y legal", "You must use the app lawfully and respect other people’s privacy. Do not use ViewOn Link for hidden surveillance, harassment, unauthorized recording, or any illegal activity."], ["3. Permisos y archivos guardados", "The app requires camera permission for QR scanning, camera sharing, and magnifier features. Photos and videos are saved only when you choose to save them."], ["4. Prueba abierta y cambios del servicio", "During open or closed testing, some features may be limited, changed, interrupted, or removed as we improve the app. Test feedback may be used to improve connection quality, usability, and future features."], ["5. Uso gratuito, futuras funciones Pro y compras dentro de la app", "ViewOn Link se ofrece actualmente como servicio gratuito de prueba/prueba abierta. Según los resultados de las pruebas y los comentarios de los usuarios, algunas funciones podrán añadirse, modificarse o separarse como funciones Pro en el futuro, y podrán introducirse compras dentro de la app. Cualquier función de pago mostrará claramente su precio y condiciones antes de la compra, y los pagos se procesarán mediante el sistema oficial de pago de cada tienda de apps."], ["6. Limitaciones de conexión", "Network condition, Wi‑Fi quality, device performance, camera compatibility, and operating system restrictions may affect connection quality, delay, recording, or display behavior."], ["7. Descargo de responsabilidad", "ViewOn Link is provided as is to the extent permitted by applicable law. We do not guarantee that every device, network, or usage environment will work without interruption or error."], ["8. Contacto", "For questions about these terms, contact natchrai75@Gmail.com."]], "fr": [["1. Objectif de l’application", "ViewOn Link helps you connect two devices by QR code and view one device’s camera from another device in real time."], ["2. Utilisation sûre et légale", "You must use the app lawfully and respect other people’s privacy. Do not use ViewOn Link for hidden surveillance, harassment, unauthorized recording, or any illegal activity."], ["3. Autorisations et fichiers enregistrés", "The app requires camera permission for QR scanning, camera sharing, and magnifier features. Photos and videos are saved only when you choose to save them."], ["4. Test ouvert et modifications du service", "During open or closed testing, some features may be limited, changed, interrupted, or removed as we improve the app. Test feedback may be used to improve connection quality, usability, and future features."], ["5. Utilisation gratuite, futures fonctionnalités Pro et achats intégrés", "ViewOn Link est actuellement proposé comme service gratuit de test/test ouvert. Selon les résultats des tests et les retours des utilisateurs, certaines fonctionnalités pourront être ajoutées, modifiées ou séparées en fonctionnalités Pro à l’avenir, et des achats intégrés pourront être introduits. Toute fonctionnalité payante affichera clairement son prix et ses conditions avant l’achat, et les paiements seront traités via le système de paiement officiel de chaque boutique d’applications."], ["6. Limites de connexion", "Network condition, Wi‑Fi quality, device performance, camera compatibility, and operating system restrictions may affect connection quality, delay, recording, or display behavior."], ["7. Clause de non-responsabilité", "ViewOn Link is provided as is to the extent permitted by applicable law. We do not guarantee that every device, network, or usage environment will work without interruption or error."], ["8. Contact", "For questions about these terms, contact natchrai75@Gmail.com."]]};
+const UPDATED = {"en": "Last updated: June 28, 2026", "ko": "최종 업데이트: 2026년 6월 28일", "ja": "最終更新日: 2026年6月28日", "ar": "آخر تحديث: 28 يونيو 2026", "de": "Zuletzt aktualisiert: 28. Juni 2026", "es": "Última actualización: 28 de junio de 2026", "fr": "Dernière mise à jour : 28 juin 2026"};
+const COMMON = {"en": {"home": "Home", "privacy": "Privacy Policy", "terms": "Terms of Use", "support": "Support", "contact": "Contact", "back": "Back to ViewOn Link", "tagline": "Real-time camera sharing by QR connection"}, "ko": {"home": "홈", "privacy": "개인정보처리방침", "terms": "이용약관", "support": "지원", "contact": "문의하기", "back": "ViewOn Link로 돌아가기", "tagline": "QR 연결 기반 실시간 카메라 공유"}, "ja": {"home": "ホーム", "privacy": "プライバシーポリシー", "terms": "利用規約", "support": "サポート", "contact": "お問い合わせ", "back": "ViewOn Linkに戻る", "tagline": "QR接続によるリアルタイムカメラ共有"}, "ar": {"home": "الرئيسية", "privacy": "سياسة الخصوصية", "terms": "شروط الاستخدام", "support": "الدعم", "contact": "تواصل", "back": "العودة إلى ViewOn Link", "tagline": "مشاركة الكاميرا في الوقت الفعلي عبر اتصال QR"}, "de": {"home": "Startseite", "privacy": "Datenschutzerklärung", "terms": "Nutzungsbedingungen", "support": "Support", "contact": "Kontakt", "back": "Zurück zu ViewOn Link", "tagline": "Echtzeit-Kamerafreigabe per QR-Verbindung"}, "es": {"home": "Inicio", "privacy": "Política de privacidad", "terms": "Términos de uso", "support": "Soporte", "contact": "Contacto", "back": "Volver a ViewOn Link", "tagline": "Uso compartido de cámara en tiempo real mediante QR"}, "fr": {"home": "Accueil", "privacy": "Politique de confidentialité", "terms": "Conditions d’utilisation", "support": "Assistance", "contact": "Contact", "back": "Retour à ViewOn Link", "tagline": "Partage de caméra en temps réel par connexion QR"}};
+const LANG_NAMES = {"en": "English", "ko": "한국어", "ja": "日本語", "ar": "العربية", "de": "Deutsch", "es": "Español", "fr": "Français"};
+const NOTICE = {"en": "ViewOn Link is currently provided as a free testing/open test service. Based on testing results and user feedback, some features may be added, changed, or separated as Pro features in the future, and in-app purchases may be introduced. Any paid feature will be clearly shown before purchase, and payments will be processed through the official app market payment system.", "ko": "ViewOn Link는 현재 무료 테스트/오픈 테스트 형태로 제공되고 있습니다. 향후 테스트 결과와 사용자 의견을 반영해 일부 기능이 추가, 변경되거나 Pro 기능으로 분리될 수 있으며, 인앱결제가 도입될 수 있습니다. 유료 기능은 구매 전 가격과 조건을 명확히 안내하며, 결제는 각 앱 마켓의 공식 결제 시스템을 통해 처리됩니다.", "ja": "ViewOn Linkは現在、無料テスト／オープンテストとして提供されています。今後、テスト結果やユーザーのフィードバックを反映し、一部機能が追加・変更されたり、Pro機能として分離されたり、アプリ内課金が導入される場合があります。有料機能は購入前に価格と条件を明確に表示し、決済は各アプリマーケットの公式決済システムを通じて処理されます。", "ar": "يُقدَّم ViewOn Link حاليًا كخدمة اختبار مجانية/اختبار مفتوح. وبناءً على نتائج الاختبار وملاحظات المستخدمين، قد تتم إضافة بعض الميزات أو تغييرها أو فصلها كميزات Pro في المستقبل، وقد يتم تقديم عمليات شراء داخل التطبيق. سيتم توضيح سعر وشروط أي ميزة مدفوعة قبل الشراء، وستتم معالجة المدفوعات من خلال نظام الدفع الرسمي لمتجر التطبيق.", "de": "ViewOn Link wird derzeit als kostenloser Test-/Open-Test-Dienst bereitgestellt. Auf Grundlage der Testergebnisse und des Nutzerfeedbacks können künftig einige Funktionen ergänzt, geändert oder als Pro-Funktionen getrennt werden; außerdem können In-App-Käufe eingeführt werden. Kostenpflichtige Funktionen werden vor dem Kauf klar mit Preis und Bedingungen angezeigt, und Zahlungen werden über das offizielle Zahlungssystem des jeweiligen App-Marktplatzes abgewickelt.", "es": "ViewOn Link se ofrece actualmente como servicio gratuito de prueba/prueba abierta. Según los resultados de las pruebas y los comentarios de los usuarios, algunas funciones podrán añadirse, modificarse o separarse como funciones Pro en el futuro, y podrán introducirse compras dentro de la app. Cualquier función de pago mostrará claramente su precio y condiciones antes de la compra, y los pagos se procesarán mediante el sistema oficial de pago de cada tienda de apps.", "fr": "ViewOn Link est actuellement proposé comme service gratuit de test/test ouvert. Selon les résultats des tests et les retours des utilisateurs, certaines fonctionnalités pourront être ajoutées, modifiées ou séparées en fonctionnalités Pro à l’avenir, et des achats intégrés pourront être introduits. Toute fonctionnalité payante affichera clairement son prix et ses conditions avant l’achat, et les paiements seront traités via le système de paiement officiel de chaque boutique d’applications."};
+const DEFAULT_LANG = "en";
+const RTL_LANGS = new Set(["ar"]);
+
+function getInitialLang() {
+  const saved = localStorage.getItem("viewon_language");
+  if (saved && TITLES[saved]) return saved;
+  const browser = (navigator.language || DEFAULT_LANG).slice(0, 2).toLowerCase();
+  return TITLES[browser] ? browser : DEFAULT_LANG;
 }
-function detectInitialLang(){
-  const saved = localStorage.getItem("viewon_link_site_lang");
-  if(SUPPORTED_LANGS.includes(saved)) return saved;
-  const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language, navigator.userLanguage, navigator.browserLanguage];
-  for(const lang of langs){ const n = normalizeLang(lang); if(n) return n; }
-  return "en";
+
+function setTextForCommon(lang) {
+  document.querySelectorAll("[data-common]").forEach((el) => {
+    const key = el.getAttribute("data-common");
+    if (COMMON[lang] && COMMON[lang][key]) el.textContent = COMMON[lang][key];
+  });
 }
-function applyLang(lang){
-  if(!SUPPORTED_LANGS.includes(lang)) lang = "en";
-  localStorage.setItem("viewon_link_site_lang", lang);
+
+function render(lang) {
   document.documentElement.lang = lang;
-  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  const dict = I18N[lang] || I18N.en;
-  document.title = dict["meta.title."+PAGE_TYPE] || "ViewOn Link";
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if(dict[key]) el.innerHTML = dict[key];
+  document.documentElement.dir = RTL_LANGS.has(lang) ? "rtl" : "ltr";
+  document.title = "ViewOn Link - " + TITLES[lang];
+  document.getElementById("pageTitle").textContent = TITLES[lang];
+  document.getElementById("pageIntro").textContent = INTROS[lang];
+  document.getElementById("updatedText").textContent = UPDATED[lang];
+  document.getElementById("noticeText").textContent = NOTICE[lang];
+
+  const content = document.getElementById("content");
+  content.innerHTML = "";
+  SECTIONS[lang].forEach(([heading, body]) => {
+    const section = document.createElement("section");
+    section.className = "policy-section";
+    const h2 = document.createElement("h2");
+    h2.textContent = heading;
+    const p = document.createElement("p");
+    p.textContent = body;
+    section.appendChild(h2);
+    section.appendChild(p);
+    content.appendChild(section);
   });
-  const current = document.getElementById("languageCurrent");
-  if(current) current.textContent = LANGUAGE_LABELS[lang] || "English";
-  document.querySelectorAll("[data-lang-option]").forEach(btn => {
-    const active = btn.getAttribute("data-lang-option") === lang;
-    btn.classList.toggle("is-active", active);
-    btn.setAttribute("aria-selected", active ? "true" : "false");
+
+  setTextForCommon(lang);
+  syncLanguageMenu(lang);
+  localStorage.setItem("viewon_language", lang);
+}
+
+const languageControl = document.getElementById("languageControl");
+const languageTrigger = document.getElementById("languageTrigger");
+const languageCurrent = document.getElementById("languageCurrent");
+const languageOptions = Array.from(document.querySelectorAll("[data-lang-option]"));
+
+function syncLanguageMenu(lang) {
+  if (languageCurrent) languageCurrent.textContent = LANG_NAMES[lang] || LANG_NAMES[DEFAULT_LANG];
+  languageOptions.forEach((option) => {
+    const isActive = option.getAttribute("data-lang-option") === lang;
+    option.classList.toggle("is-active", isActive);
+    option.setAttribute("aria-selected", isActive ? "true" : "false");
   });
 }
-const languageControl=document.getElementById("languageControl");
-const languageTrigger=document.getElementById("languageTrigger");
-const languageMenu=document.getElementById("languageMenu");
-languageTrigger?.addEventListener("click",()=>{
-  const opened=languageControl.classList.toggle("is-open");
-  languageTrigger.setAttribute("aria-expanded",opened?"true":"false");
-});
-document.querySelectorAll("[data-lang-option]").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    applyLang(btn.getAttribute("data-lang-option"));
-    languageControl.classList.remove("is-open");
-    languageTrigger.setAttribute("aria-expanded","false");
+
+function closeLanguageMenu() {
+  if (!languageControl) return;
+  languageControl.classList.remove("is-open");
+  if (languageTrigger) languageTrigger.setAttribute("aria-expanded", "false");
+}
+
+function openLanguageMenu() {
+  if (!languageControl) return;
+  languageControl.classList.add("is-open");
+  if (languageTrigger) languageTrigger.setAttribute("aria-expanded", "true");
+}
+
+if (languageTrigger) {
+  languageTrigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (languageControl.classList.contains("is-open")) closeLanguageMenu();
+    else openLanguageMenu();
+  });
+}
+
+languageOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    const lang = option.getAttribute("data-lang-option");
+    if (lang && TITLES[lang]) render(lang);
+    closeLanguageMenu();
   });
 });
-document.addEventListener("click",(e)=>{
-  if(languageControl && !languageControl.contains(e.target)){
-    languageControl.classList.remove("is-open");
-    languageTrigger?.setAttribute("aria-expanded","false");
-  }
+
+document.addEventListener("click", (event) => {
+  if (!languageControl || !languageControl.contains(event.target)) closeLanguageMenu();
 });
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}});
-},{threshold:.12});
-document.querySelectorAll(".reveal-up").forEach(el=>observer.observe(el));
-applyLang(detectInitialLang());
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeLanguageMenu();
+});
+
+const initialLang = getInitialLang();
+render(initialLang);
 </script>
 </body>
 </html>
