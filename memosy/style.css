@@ -884,3 +884,18 @@ body::after {
     white-space: normal;
   }
 }
+
+.closing img.store-badge-image {
+  width: auto;
+  height: 54px;
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .closing img.store-badge-image.is-large {
+    width: auto;
+    height: 48px;
+  }
+}

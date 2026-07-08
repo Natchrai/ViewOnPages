@@ -13,6 +13,68 @@
   <link rel="stylesheet" href="./style.css" />
 
   <style>
+
+    .top-button.store-badge-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      line-height: 0;
+    }
+
+    .store-badge-image {
+      display: block;
+      height: 40px;
+      width: auto;
+    }
+
+    @media (max-width: 640px) {
+      .store-badge-image {
+        height: 36px;
+      }
+    }
+
+
+    .primary-button.store-badge-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      line-height: 0;
+    }
+
+    .store-badge-image.is-large {
+      height: 54px;
+    }
+
+    @media (max-width: 640px) {
+      .store-badge-image.is-large {
+        height: 48px;
+      }
+    }
+
+
+    .closing img.store-badge-image {
+      width: auto;
+      height: 54px;
+      margin-bottom: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    @media (max-width: 640px) {
+      .closing img.store-badge-image.is-large {
+        width: auto;
+        height: 48px;
+      }
+    }
+
     .sequence-title.is-gather {
       width: 100%;
       text-align: center;
@@ -77,12 +139,17 @@
     </nav>
 
     <a
-      class="top-button"
+      class="top-button store-badge-link"
       href="https://play.google.com/store/apps/details?id=com.natchrai.memosy"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Memosy를 Google Play에서 다운로드"
     >
-      Google Play
+      <img
+        src="./assets/badge_google_play.png"
+        alt="Google Play에서 다운로드"
+        class="store-badge-image"
+      />
     </a>
   </header>
 
@@ -287,12 +354,17 @@
       <p>Memosy와 함께 기분 좋은 기록 습관을 시작해보세요.</p>
 
       <a
-        class="primary-button"
+        class="primary-button store-badge-link"
         href="https://play.google.com/store/apps/details?id=com.natchrai.memosy"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Memosy를 Google Play에서 다운로드"
       >
-        Google Play에서 받기
+        <img
+          src="./assets/badge_google_play.png"
+          alt="Google Play에서 다운로드"
+          class="store-badge-image is-large"
+        />
       </a>
     </section>
   </main>
