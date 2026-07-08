@@ -635,3 +635,40 @@ body::after {
     scroll-behavior: auto !important;
   }
 }
+
+.site-footer {
+  width: min(1040px, calc(100% - 40px));
+  margin: 34px auto 0;
+  padding: 0 0 34px;
+  text-align: center;
+}
+
+.footer-line {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 18px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(148, 163, 184, 0.45),
+    transparent
+  );
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(226, 232, 240, 0.62);
+  letter-spacing: 0.01em;
+}
+
+.site-footer a {
+  color: rgba(226, 232, 240, 0.78);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: underline;
+}
