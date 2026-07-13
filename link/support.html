@@ -186,10 +186,82 @@ section.policy-section:last-child{border-bottom:0}
 }
 .back-row{margin-top:34px}
 .back-row a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(66,223,255,.12);font-weight:900;color:white}
-.footer{padding:46px max(22px,calc((100vw - 1180px)/2));color:rgba(255,255,255,.58);display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.08);background:rgba(2,8,23,.52);backdrop-filter:blur(8px)}
-.footer strong{color:white}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.footer a{color:rgba(255,255,255,.70)}
+.footer{
+  padding:28px max(22px,calc((100vw - 1180px)/2));
+  color:rgba(255,255,255,.58);
+  display:grid;
+  grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr);
+  align-items:center;
+  gap:24px;
+  border-top:1px solid rgba(255,255,255,.08);
+  background:rgba(2,8,23,.72);
+  backdrop-filter:blur(12px);
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+  justify-self:start;
+  color:rgba(221,235,249,.72);
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:-.04em;
+  white-space:nowrap;
+}
+.footer-brand img{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 0 0 1px rgba(126,232,255,.42),0 0 20px rgba(66,223,255,.16);
+  flex:0 0 auto;
+}
+.footer-brand strong{color:#55dfff;font-weight:850}
+.footer-center{
+  text-align:center;
+  color:rgba(184,202,225,.72);
+  font-size:13px;
+  font-weight:650;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+.footer-right{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:14px;
+  min-width:0;
+  white-space:nowrap;
+}
+.footer-top-link{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+  font-weight:800;
+}
+.footer-copy{
+  color:rgba(255,255,255,.54);
+  font-size:13px;
+  font-weight:650;
+}
+.footer-links{
+  grid-column:1 / -1;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+  padding-top:18px;
+  margin-top:2px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.footer a{color:rgba(255,255,255,.70)}
+.footer a:hover{color:#fff}
+
 html[dir="rtl"] body{font-family:Arial,"Noto Sans Arabic","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
-html[dir="rtl"] .topbar,html[dir="rtl"] .nav,html[dir="rtl"] .brand,html[dir="rtl"] .footer{direction:rtl}
+html[dir="rtl"] .topbar,html[dir="rtl"] .nav,html[dir="rtl"] .brand,html[dir="rtl"] .footer,html[dir="rtl"] .footer-brand,html[dir="rtl"] .footer-right,html[dir="rtl"] .footer-links{direction:rtl}
 html[dir="rtl"] main,html[dir="rtl"] .policy-section{text-align:right}
 html[dir="rtl"] .page-label::before{background:linear-gradient(270deg,var(--blue),transparent)}
 html[dir="rtl"] .notice{padding:0 18px 0 0;border-left:0;border-right:3px solid rgba(125,247,212,.72)}
@@ -218,7 +290,17 @@ html[dir="rtl"] .language-option:hover{transform:translateX(-2px)}
   .policy-number{min-width:34px;margin-right:10px;font-size:16px}
   .policy-body h2{font-size:22px}
   .policy-body p{margin-left:44px;font-size:15.5px}
-  .footer{flex-direction:column;align-items:flex-start;padding:36px 18px}
+  .footer{
+    grid-template-columns:1fr;
+    justify-items:center;
+    text-align:center;
+    padding:30px 18px;
+    gap:16px;
+  }
+  .footer-brand{justify-content:center}
+  .footer-center{white-space:normal}
+  .footer-right{justify-content:center;flex-wrap:wrap}
+  .footer-links{grid-column:1;justify-content:center;padding-top:16px}
 }
 </style>
 </head>
@@ -262,14 +344,29 @@ html[dir="rtl"] .language-option:hover{transform:translateX(-2px)}
 </main>
 
 <footer class="footer">
-  <div><strong>ViewOn Link</strong><br><span data-common="tagline">Real-time camera sharing by QR connection</span></div>
-  <div class="footer-links">
-    <a href="#top">Top</a>
+  <a class="footer-brand" href="./index.html#top" aria-label="ViewOn Link home">
+    <img src="./assets/viewon-link-icon.png" alt="ViewOn Link icon">
+    <span>ViewOn <strong>Link</strong></span>
+  </a>
+
+  <div class="footer-center" data-common="footerSlogan">See what you couldn’t see before.</div>
+
+  <div class="footer-right">
+    <a class="footer-top-link" href="#top">
+      <span data-common="top">Back to top</span>
+      <span aria-hidden="true">↑</span>
+    </a>
+    <span class="footer-copy">© 2026 Natchrai</span>
+  </div>
+
+  <nav class="footer-links" aria-label="Footer menu">
+    <a href="./index.html#how" data-common="how">How</a>
+    <a href="./index.html#download" data-common="download">Download</a>
     <a href="./privacy.html" data-common="privacy">Privacy Policy</a>
     <a href="./terms.html" data-common="terms">Terms of Use</a>
     <a href="./support.html" data-common="support">Support</a>
     <a href="mailto:natchrai75@Gmail.com" data-common="contact">Contact</a>
-  </div>
+  </nav>
 </footer>
 
 <script>
@@ -278,7 +375,99 @@ const TITLES = {"en": "Support", "ko": "지원", "ja": "サポート", "ar": "ا
 const INTROS = {"en": "Need help with ViewOn Link? Check the items below or contact us.", "ko": "ViewOn Link 사용 중 도움이 필요하면 아래 내용을 확인하거나 문의해 주세요.", "ja": "ViewOn Linkの使用中にサポートが必要な場合は、以下の内容をご確認いただくか、お問い合わせください。", "ar": "إذا كنت بحاجة إلى مساعدة في استخدام ViewOn Link، تحقق من العناصر أدناه أو تواصل معنا.", "de": "Benötigen Sie Hilfe mit ViewOn Link? Lesen Sie die folgenden Hinweise oder kontaktieren Sie uns.", "es": "¿Necesitas ayuda con ViewOn Link? Revisa los puntos siguientes o contáctanos.", "fr": "Besoin d’aide avec ViewOn Link ? Consultez les éléments ci-dessous ou contactez-nous."};
 const SECTIONS = {"en": [["1. Connection checklist", "Make sure both devices are connected to the same Wi‑Fi, allow camera permission, create the QR code on the Camera device, then scan it on the Viewer device."], ["2. QR scan does not work", "Check camera permission, screen brightness, focus, and distance from the QR code. If the QR code has expired or the connection does not start, create a new QR code and try again."], ["3. Viewer screen is delayed or unclear", "After connection, ViewOn Link may need a short time to adjust image quality based on network speed and device performance. If the screen is delayed or unclear, try a lower quality setting, move closer to the Wi‑Fi router, or close heavy apps running in the background."], ["4. Magnifier mode", "Magnifier mode can be used without connecting two devices. It is useful for small text, part numbers, small objects, and close-up checking."], ["5. Open test and feedback", "ViewOn Link is currently provided as a free testing/open test service. Based on testing results and user feedback, some features may be added, changed, or separated as Pro features in the future, and in-app purchases may be introduced. Any paid feature will be clearly shown before purchase, and payments will be processed through the official app market payment system."], ["6. Contact email", "Email: natchrai75@Gmail.com"]], "ko": [["1. 연결 전 확인", "두 기기가 같은 Wi‑Fi에 연결되어 있는지 확인하고, 카메라 권한을 허용해 주세요. Camera 기기에서 QR 코드를 생성한 뒤 Viewer 기기에서 QR 코드를 스캔하면 연결할 수 있습니다."], ["2. QR 스캔이 되지 않는 경우", "카메라 권한, 화면 밝기, 초점, QR 코드와의 거리를 확인해 주세요. QR 코드가 만료되었거나 연결이 시작되지 않으면 새 QR 코드를 생성해 다시 시도해 주세요."], ["3. Viewer 화면이 느리거나 선명하지 않은 경우", "연결 후에는 네트워크 속도와 기기 성능을 고려해 화질을 조정하는 시간이 잠시 필요할 수 있습니다. 화면이 지연되거나 선명하지 않으면 낮은 화질을 선택하거나, Wi‑Fi 공유기 가까이에서 사용하거나, 백그라운드의 무거운 앱을 종료해 주세요."], ["4. 돋보기 모드", "돋보기 모드는 두 기기를 연결하지 않아도 사용할 수 있습니다. 작은 글씨, 부품 번호, 작은 물체, 가까운 거리 확인에 사용할 수 있습니다."], ["5. 오픈 테스트와 사용자 의견", "ViewOn Link는 현재 무료 테스트/오픈 테스트 형태로 제공되고 있습니다. 향후 테스트 결과와 사용자 의견을 반영해 일부 기능이 추가, 변경되거나 Pro 기능으로 분리될 수 있으며, 인앱결제가 도입될 수 있습니다. 유료 기능은 구매 전 가격과 조건을 명확히 안내하며, 결제는 각 앱 마켓의 공식 결제 시스템을 통해 처리됩니다."], ["6. 문의 이메일", "이메일: natchrai75@Gmail.com"]], "ja": [["1. 接続前の確認", "2台の端末が同じWi‑Fiに接続され、カメラ権限が許可されていることを確認してください。Camera端末でQRコードを作成し、Viewer端末でスキャンします。"], ["2. QRスキャンができない場合", "カメラ権限、画面の明るさ、焦点、QRコードとの距離を確認してください。接続できない場合は新しいQRコードを作成してください。"], ["3. Viewer画面が遅い・不鮮明な場合", "接続後、ネットワーク速度と端末性能に応じて画質調整に短い時間が必要な場合があります。低い画質設定やWi‑Fiルーター付近での利用を試してください。"], ["4. 拡大鏡モード", "拡大鏡モードは2台の端末を接続しなくても使用できます。小さな文字や部品番号、小物の確認に便利です。"], ["5. オープンテストとフィードバック", "ViewOn Linkは現在、無料テスト／オープンテストとして提供されています。今後、テスト結果やユーザーのフィードバックを反映し、一部機能が追加・変更されたり、Pro機能として分離されたり、アプリ内課金が導入される場合があります。有料機能は購入前に価格と条件を明確に表示し、決済は各アプリマーケットの公式決済システムを通じて処理されます。"], ["6. お問い合わせメール", "メール: natchrai75@Gmail.com"]], "ar": [["1. قائمة تحقق الاتصال", "تأكد من اتصال الجهازين بنفس Wi‑Fi والسماح بالكاميرا. أنشئ رمز QR على جهاز Camera ثم امسحه على جهاز Viewer."], ["2. إذا لم يعمل مسح QR", "تحقق من صلاحية الكاميرا وسطوع الشاشة والتركيز والمسافة. إذا لم يبدأ الاتصال، أنشئ رمز QR جديداً."], ["3. إذا كانت شاشة Viewer متأخرة أو غير واضحة", "بعد الاتصال قد يحتاج ViewOn Link وقتاً قصيراً لضبط جودة الصورة حسب سرعة الشبكة وأداء الجهاز. جرّب جودة أقل أو الاقتراب من جهاز التوجيه."], ["4. وضع المكبّر", "يمكن استخدام وضع المكبّر دون ربط جهازين، وهو مفيد للنصوص الصغيرة وأرقام القطع والأشياء الصغيرة."], ["5. الاختبار المفتوح والملاحظات", "يُقدَّم ViewOn Link حاليًا كخدمة اختبار مجانية/اختبار مفتوح. وبناءً على نتائج الاختبار وملاحظات المستخدمين، قد تتم إضافة بعض الميزات أو تغييرها أو فصلها كميزات Pro في المستقبل، وقد يتم تقديم عمليات شراء داخل التطبيق. سيتم توضيح سعر وشروط أي ميزة مدفوعة قبل الشراء، وستتم معالجة المدفوعات من خلال نظام الدفع الرسمي لمتجر التطبيق."], ["6. بريد التواصل", "البريد الإلكتروني: natchrai75@Gmail.com"]], "de": [["1. Verbindungs-Checkliste", "Make sure both devices are connected to the same Wi‑Fi, allow camera permission, create the QR code on the Camera device, then scan it on the Viewer device."], ["2. QR-Scan funktioniert nicht", "Check camera permission, screen brightness, focus, and distance from the QR code. If the QR code has expired or the connection does not start, create a new QR code and try again."], ["3. Viewer-Bild ist verzögert oder unscharf", "After connection, ViewOn Link may need a short time to adjust image quality based on network speed and device performance. If the screen is delayed or unclear, try a lower quality setting, move closer to the Wi‑Fi router, or close heavy apps running in the background."], ["4. Lupe-Modus", "Magnifier mode can be used without connecting two devices. It is useful for small text, part numbers, small objects, and close-up checking."], ["5. Open Test und Feedback", "ViewOn Link wird derzeit als kostenloser Test-/Open-Test-Dienst bereitgestellt. Auf Grundlage der Testergebnisse und des Nutzerfeedbacks können künftig einige Funktionen ergänzt, geändert oder als Pro-Funktionen getrennt werden; außerdem können In-App-Käufe eingeführt werden. Kostenpflichtige Funktionen werden vor dem Kauf klar mit Preis und Bedingungen angezeigt, und Zahlungen werden über das offizielle Zahlungssystem des jeweiligen App-Marktplatzes abgewickelt."], ["6. Kontakt-E-Mail", "Email: natchrai75@Gmail.com"]], "es": [["1. Lista de conexión", "Make sure both devices are connected to the same Wi‑Fi, allow camera permission, create the QR code on the Camera device, then scan it on the Viewer device."], ["2. El escaneo QR no funciona", "Check camera permission, screen brightness, focus, and distance from the QR code. If the QR code has expired or the connection does not start, create a new QR code and try again."], ["3. La pantalla Viewer se retrasa o no es clara", "After connection, ViewOn Link may need a short time to adjust image quality based on network speed and device performance. If the screen is delayed or unclear, try a lower quality setting, move closer to the Wi‑Fi router, or close heavy apps running in the background."], ["4. Modo lupa", "Magnifier mode can be used without connecting two devices. It is useful for small text, part numbers, small objects, and close-up checking."], ["5. Prueba abierta y comentarios", "ViewOn Link se ofrece actualmente como servicio gratuito de prueba/prueba abierta. Según los resultados de las pruebas y los comentarios de los usuarios, algunas funciones podrán añadirse, modificarse o separarse como funciones Pro en el futuro, y podrán introducirse compras dentro de la app. Cualquier función de pago mostrará claramente su precio y condiciones antes de la compra, y los pagos se procesarán mediante el sistema oficial de pago de cada tienda de apps."], ["6. Correo de contacto", "Email: natchrai75@Gmail.com"]], "fr": [["1. Liste de vérification de connexion", "Make sure both devices are connected to the same Wi‑Fi, allow camera permission, create the QR code on the Camera device, then scan it on the Viewer device."], ["2. Le scan QR ne fonctionne pas", "Check camera permission, screen brightness, focus, and distance from the QR code. If the QR code has expired or the connection does not start, create a new QR code and try again."], ["3. L’écran Viewer est retardé ou peu clair", "After connection, ViewOn Link may need a short time to adjust image quality based on network speed and device performance. If the screen is delayed or unclear, try a lower quality setting, move closer to the Wi‑Fi router, or close heavy apps running in the background."], ["4. Mode loupe", "Magnifier mode can be used without connecting two devices. It is useful for small text, part numbers, small objects, and close-up checking."], ["5. Test ouvert et retours utilisateur", "ViewOn Link est actuellement proposé comme service gratuit de test/test ouvert. Selon les résultats des tests et les retours des utilisateurs, certaines fonctionnalités pourront être ajoutées, modifiées ou séparées en fonctionnalités Pro à l’avenir, et des achats intégrés pourront être introduits. Toute fonctionnalité payante affichera clairement son prix et ses conditions avant l’achat, et les paiements seront traités via le système de paiement officiel de chaque boutique d’applications."], ["6. E-mail de contact", "Email: natchrai75@Gmail.com"]]};
 const UPDATED = {"en": "Last updated: June 28, 2026", "ko": "최종 업데이트: 2026년 6월 28일", "ja": "最終更新日: 2026年6月28日", "ar": "آخر تحديث: 28 يونيو 2026", "de": "Zuletzt aktualisiert: 28. Juni 2026", "es": "Última actualización: 28 de junio de 2026", "fr": "Dernière mise à jour : 28 juin 2026"};
-const COMMON = {"en": {"home": "Home", "privacy": "Privacy Policy", "terms": "Terms of Use", "support": "Support", "contact": "Contact", "back": "Back to ViewOn Link", "tagline": "Real-time camera sharing by QR connection"}, "ko": {"home": "홈", "privacy": "개인정보처리방침", "terms": "이용약관", "support": "지원", "contact": "문의하기", "back": "ViewOn Link로 돌아가기", "tagline": "QR 연결 기반 실시간 카메라 공유"}, "ja": {"home": "ホーム", "privacy": "プライバシーポリシー", "terms": "利用規約", "support": "サポート", "contact": "お問い合わせ", "back": "ViewOn Linkに戻る", "tagline": "QR接続によるリアルタイムカメラ共有"}, "ar": {"home": "الرئيسية", "privacy": "سياسة الخصوصية", "terms": "شروط الاستخدام", "support": "الدعم", "contact": "تواصل", "back": "العودة إلى ViewOn Link", "tagline": "مشاركة الكاميرا في الوقت الفعلي عبر اتصال QR"}, "de": {"home": "Startseite", "privacy": "Datenschutzerklärung", "terms": "Nutzungsbedingungen", "support": "Support", "contact": "Kontakt", "back": "Zurück zu ViewOn Link", "tagline": "Echtzeit-Kamerafreigabe per QR-Verbindung"}, "es": {"home": "Inicio", "privacy": "Política de privacidad", "terms": "Términos de uso", "support": "Soporte", "contact": "Contacto", "back": "Volver a ViewOn Link", "tagline": "Uso compartido de cámara en tiempo real mediante QR"}, "fr": {"home": "Accueil", "privacy": "Politique de confidentialité", "terms": "Conditions d’utilisation", "support": "Assistance", "contact": "Contact", "back": "Retour à ViewOn Link", "tagline": "Partage de caméra en temps réel par connexion QR"}};
+const COMMON = {
+  "en": {
+    "home": "Home",
+    "how": "How",
+    "download": "Download",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "support": "Support",
+    "contact": "Contact",
+    "back": "Back to ViewOn Link",
+    "tagline": "Real-time camera sharing by QR connection",
+    "footerSlogan": "See what you couldn’t see before.",
+    "top": "Back to top"
+  },
+  "ko": {
+    "home": "홈",
+    "how": "사용법",
+    "download": "다운로드",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "support": "지원 / 도움말",
+    "contact": "문의하기",
+    "back": "ViewOn Link로 돌아가기",
+    "tagline": "QR 연결 기반 실시간 카메라 공유",
+    "footerSlogan": "보지 못했던 것을 이제 확인하세요.",
+    "top": "맨 위로"
+  },
+  "ja": {
+    "home": "ホーム",
+    "how": "使い方",
+    "download": "ダウンロード",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "support": "サポート / ヘルプ",
+    "contact": "お問い合わせ",
+    "back": "ViewOn Linkに戻る",
+    "tagline": "QR接続によるリアルタイムカメラ共有",
+    "footerSlogan": "今まで見えなかったものを、見えるように。",
+    "top": "ページ上部へ"
+  },
+  "ar": {
+    "home": "الرئيسية",
+    "how": "طريقة الاستخدام",
+    "download": "تنزيل",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستخدام",
+    "support": "الدعم / المساعدة",
+    "contact": "تواصل معنا",
+    "back": "العودة إلى ViewOn Link",
+    "tagline": "مشاركة الكاميرا في الوقت الفعلي عبر اتصال QR",
+    "footerSlogan": "شاهد ما لم تتمكن من رؤيته من قبل.",
+    "top": "العودة إلى الأعلى"
+  },
+  "de": {
+    "home": "Startseite",
+    "how": "So geht’s",
+    "download": "Download",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "support": "Support / Hilfe",
+    "contact": "Kontakt",
+    "back": "Zurück zu ViewOn Link",
+    "tagline": "Echtzeit-Kamerafreigabe per QR-Verbindung",
+    "footerSlogan": "Sieh, was du vorher nicht sehen konntest.",
+    "top": "Nach oben"
+  },
+  "es": {
+    "home": "Inicio",
+    "how": "Cómo funciona",
+    "download": "Descargar",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de uso",
+    "support": "Soporte / Ayuda",
+    "contact": "Contacto",
+    "back": "Volver a ViewOn Link",
+    "tagline": "Uso compartido de cámara en tiempo real mediante QR",
+    "footerSlogan": "Mira lo que antes no podías ver.",
+    "top": "Volver arriba"
+  },
+  "fr": {
+    "home": "Accueil",
+    "how": "Mode d’emploi",
+    "download": "Télécharger",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d’utilisation",
+    "support": "Assistance / Aide",
+    "contact": "Contact",
+    "back": "Retour à ViewOn Link",
+    "tagline": "Partage de caméra en temps réel par connexion QR",
+    "footerSlogan": "Voyez ce que vous ne pouviez pas voir auparavant.",
+    "top": "Retour en haut"
+  }
+};
 const LANG_NAMES = {"en": "English", "ko": "한국어", "ja": "日本語", "ar": "العربية", "de": "Deutsch", "es": "Español", "fr": "Français"};
 const NOTICE = {"en": "ViewOn Link is currently provided as a free testing/open test service. Based on testing results and user feedback, some features may be added, changed, or separated as Pro features in the future, and in-app purchases may be introduced. Any paid feature will be clearly shown before purchase, and payments will be processed through the official app market payment system.", "ko": "ViewOn Link는 현재 무료 테스트/오픈 테스트 형태로 제공되고 있습니다. 향후 테스트 결과와 사용자 의견을 반영해 일부 기능이 추가, 변경되거나 Pro 기능으로 분리될 수 있으며, 인앱결제가 도입될 수 있습니다. 유료 기능은 구매 전 가격과 조건을 명확히 안내하며, 결제는 각 앱 마켓의 공식 결제 시스템을 통해 처리됩니다.", "ja": "ViewOn Linkは現在、無料テスト／オープンテストとして提供されています。今後、テスト結果やユーザーのフィードバックを反映し、一部機能が追加・変更されたり、Pro機能として分離されたり、アプリ内課金が導入される場合があります。有料機能は購入前に価格と条件を明確に表示し、決済は各アプリマーケットの公式決済システムを通じて処理されます。", "ar": "يُقدَّم ViewOn Link حاليًا كخدمة اختبار مجانية/اختبار مفتوح. وبناءً على نتائج الاختبار وملاحظات المستخدمين، قد تتم إضافة بعض الميزات أو تغييرها أو فصلها كميزات Pro في المستقبل، وقد يتم تقديم عمليات شراء داخل التطبيق. سيتم توضيح سعر وشروط أي ميزة مدفوعة قبل الشراء، وستتم معالجة المدفوعات من خلال نظام الدفع الرسمي لمتجر التطبيق.", "de": "ViewOn Link wird derzeit als kostenloser Test-/Open-Test-Dienst bereitgestellt. Auf Grundlage der Testergebnisse und des Nutzerfeedbacks können künftig einige Funktionen ergänzt, geändert oder als Pro-Funktionen getrennt werden; außerdem können In-App-Käufe eingeführt werden. Kostenpflichtige Funktionen werden vor dem Kauf klar mit Preis und Bedingungen angezeigt, und Zahlungen werden über das offizielle Zahlungssystem des jeweiligen App-Marktplatzes abgewickelt.", "es": "ViewOn Link se ofrece actualmente como servicio gratuito de prueba/prueba abierta. Según los resultados de las pruebas y los comentarios de los usuarios, algunas funciones podrán añadirse, modificarse o separarse como funciones Pro en el futuro, y podrán introducirse compras dentro de la app. Cualquier función de pago mostrará claramente su precio y condiciones antes de la compra, y los pagos se procesarán mediante el sistema oficial de pago de cada tienda de apps.", "fr": "ViewOn Link est actuellement proposé comme service gratuit de test/test ouvert. Selon les résultats des tests et les retours des utilisateurs, certaines fonctionnalités pourront être ajoutées, modifiées ou séparées en fonctionnalités Pro à l’avenir, et des achats intégrés pourront être introduits. Toute fonctionnalité payante affichera clairement son prix et ses conditions avant l’achat, et les paiements seront traités via le système de paiement officiel de chaque boutique d’applications."};
 const DEFAULT_LANG = "en";

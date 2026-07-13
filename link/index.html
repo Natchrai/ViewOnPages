@@ -104,14 +104,27 @@ html[dir="rtl"] .language-option:hover{transform:translateX(-2px)}
 html[dir="rtl"] .secure-list div{grid-template-columns:24px 1fr}
 
 
-.faq{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.faq-item h3{margin:0;font-size:19px;line-height:1.4;letter-spacing:-.04em}.faq-item p{margin:10px 0 0;color:var(--muted);line-height:1.7;font-weight:600;letter-spacing:-.03em}.footer{padding:46px max(22px,calc((100vw - 1180px)/2));color:rgba(255,255,255,.58);display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.08)}.footer strong{color:white}.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.faq{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.faq-item h3{margin:0;font-size:19px;line-height:1.4;letter-spacing:-.04em}.faq-item p{margin:10px 0 0;color:var(--muted);line-height:1.7;font-weight:600;letter-spacing:-.03em}
+.footer{min-height:110px;padding:18px max(22px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:1fr auto 1fr;grid-template-areas:"brand slogan right" "links links links";align-items:center;gap:14px 28px;color:rgba(201,218,237,.62);border-top:1px solid rgba(126,232,255,.12);background:linear-gradient(180deg,#031023 0%,#020b18 100%);font-size:13px;letter-spacing:.01em}
+.footer-brand{grid-area:brand;display:inline-flex;align-items:center;gap:12px;justify-self:start;color:rgba(221,235,249,.72);font-size:18px;letter-spacing:-.04em;white-space:nowrap}
+.footer-brand img{width:30px;height:30px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(126,232,255,.42),0 0 20px rgba(66,223,255,.16)}
+.footer-brand strong{color:#55dfff;font-weight:850}
+.footer-slogan{grid-area:slogan;justify-self:center;text-align:center;color:rgba(181,202,224,.58);font-size:12px;letter-spacing:.08em;white-space:nowrap}
+.footer-right{grid-area:right;justify-self:end;display:flex;align-items:center;gap:22px;white-space:nowrap}
+.footer-top{display:inline-flex;align-items:center;gap:7px;color:rgba(210,225,240,.72);transition:color .2s ease,transform .2s ease}
+.footer-top:hover{color:#fff;transform:translateY(-1px)}
+.footer-top-arrow{font-size:14px;line-height:1;color:rgba(126,232,255,.72)}
+.footer-copy{color:rgba(181,202,224,.56)}
+.footer-links{grid-area:links;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;padding-top:12px;border-top:1px solid rgba(126,232,255,.08)}
+.footer-links a{color:rgba(201,218,237,.64);font-size:12px;transition:color .2s ease,transform .2s ease}
+.footer-links a:hover{color:#fff;transform:translateY(-1px)}
 .reveal-up{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}.reveal-up.is-visible{opacity:1;transform:translateY(0)}
 
 @media (max-width:960px){
   .nav a:not(.mini-cta){display:none}.language-trigger{min-height:36px;padding-right:34px}.language-menu{width:180px}.hero{min-height:720px}.title{top:100px}.wrap{gap:36px;transform:scale(.9)}.intro-grid,.secure-panel,.download{grid-template-columns:1fr}.showcase,.features,.steps,.faq{grid-template-columns:1fr}.case-card,.case-card.tall{min-height:620px}.download{padding:24px}.qr-card{max-width:360px}.section{padding-top:86px;padding-bottom:86px}
 }
 @media (max-width:700px){
-  .topbar{padding:14px 18px}.brand span{font-size:15px}.hero{height:100svh;min-height:640px;align-items:center;justify-content:center}.bg{inset:-12%;background-size:auto 118%;filter:brightness(.48)}.title{top:92px;padding:0 22px;z-index:8}.title h1{font-size:44px}.title p{font-size:20px;margin-top:14px}.hero-bottom-copy{bottom:18px;width:min(350px,92vw);font-size:12px;line-height:1.55;padding:0 8px}.hero-actions{display:none}.btn{min-height:44px;padding:0 16px;font-size:14px}.wrap{position:absolute;inset:0;display:block;width:100%;height:100%;margin:0;transform:none;z-index:2}.phone{position:absolute;width:44vw;min-width:155px;max-width:205px;height:auto;aspect-ratio:.5;padding:8px;border-radius:32px;box-shadow:0 0 34px rgba(0,180,255,.34)}.screen{border-radius:24px}.left.phone{left:14vw;top:34vh;z-index:1;opacity:.92;transform:rotate(-8deg)}.right.phone{right:12vw;top:38vh;bottom:auto;z-index:3;transform:rotate(11deg)}.link{position:absolute;left:50%;top:49%;width:190px;height:190px;transform:translate(-50%,-50%) scale(.82);z-index:5}.link-core{width:132px;height:132px}.data-dot{animation:sendDotMobile 1.8s linear infinite}@keyframes sendDotMobile{from{transform:translate(-132px,-50%) scale(.5);opacity:0}18%{opacity:1}82%{opacity:1}to{transform:translate(132px,-50%) scale(1);opacity:0}}.wave{inset:-18px}.scroll-hint{bottom:76px}.section{padding:74px 18px}.section-title{text-align:left;margin-bottom:30px}.section-title h2,.intro-copy h2,.secure-copy h2,.download h2{letter-spacing:-.07em}.intro-panel{padding:20px;border-radius:24px}.intro-copy p,.secure-copy p,.download p{font-size:16px}.case-card,.case-card.tall{min-height:560px;border-radius:26px}.case-caption{padding:24px}.footer{flex-direction:column;align-items:flex-start;padding:36px 18px}.showcase{gap:18px}.topbar .mini-cta{padding:9px 12px;font-size:13px}
+  .topbar{padding:14px 18px}.brand span{font-size:15px}.hero{height:100svh;min-height:640px;align-items:center;justify-content:center}.bg{inset:-12%;background-size:auto 118%;filter:brightness(.48)}.title{top:92px;padding:0 22px;z-index:8}.title h1{font-size:44px}.title p{font-size:20px;margin-top:14px}.hero-bottom-copy{bottom:18px;width:min(350px,92vw);font-size:12px;line-height:1.55;padding:0 8px}.hero-actions{display:none}.btn{min-height:44px;padding:0 16px;font-size:14px}.wrap{position:absolute;inset:0;display:block;width:100%;height:100%;margin:0;transform:none;z-index:2}.phone{position:absolute;width:44vw;min-width:155px;max-width:205px;height:auto;aspect-ratio:.5;padding:8px;border-radius:32px;box-shadow:0 0 34px rgba(0,180,255,.34)}.screen{border-radius:24px}.left.phone{left:14vw;top:34vh;z-index:1;opacity:.92;transform:rotate(-8deg)}.right.phone{right:12vw;top:38vh;bottom:auto;z-index:3;transform:rotate(11deg)}.link{position:absolute;left:50%;top:49%;width:190px;height:190px;transform:translate(-50%,-50%) scale(.82);z-index:5}.link-core{width:132px;height:132px}.data-dot{animation:sendDotMobile 1.8s linear infinite}@keyframes sendDotMobile{from{transform:translate(-132px,-50%) scale(.5);opacity:0}18%{opacity:1}82%{opacity:1}to{transform:translate(132px,-50%) scale(1);opacity:0}}.wave{inset:-18px}.scroll-hint{bottom:76px}.section{padding:74px 18px}.section-title{text-align:left;margin-bottom:30px}.section-title h2,.intro-copy h2,.secure-copy h2,.download h2{letter-spacing:-.07em}.intro-panel{padding:20px;border-radius:24px}.intro-copy p,.secure-copy p,.download p{font-size:16px}.case-card,.case-card.tall{min-height:560px;border-radius:26px}.case-caption{padding:24px}.footer{grid-template-columns:1fr;grid-template-areas:"brand" "slogan" "links" "right";justify-items:center;gap:14px;padding:26px 18px;text-align:center}.footer-brand,.footer-slogan,.footer-right{justify-self:center}.footer-right{gap:16px;flex-wrap:wrap;justify-content:center}.footer-slogan{white-space:normal;line-height:1.5}.footer-links{gap:14px 18px;padding-top:14px}.showcase{gap:18px}.topbar .mini-cta{padding:9px 12px;font-size:13px}
 }
 @media (max-width:390px){.title h1{font-size:40px}.title p{font-size:19px}.phone{width:46vw;min-width:145px}.left.phone{left:12vw;top:34vh}.right.phone{right:10vw;top:38vh}.link{top:49%;transform:translate(-50%,-50%) scale(.76)}}
 @media (max-width:700px) and (max-height:720px){.left.phone{top:31vh}.right.phone{top:35vh}.link{top:46%}.title{top:78px}.hero-bottom-copy{bottom:12px;font-size:11px;line-height:1.45}.scroll-hint{bottom:64px}.hero-actions{display:none}}
@@ -322,8 +335,29 @@ html[dir="rtl"] .secure-list div{grid-template-columns:24px 1fr}
 </main>
 
 <footer class="footer">
-  <div><strong>ViewOn Link</strong><br><span data-i18n="footer.tagline">Real-time camera sharing</span></div>
-  <div class="footer-links"><a href="#top" data-i18n="footer.top">Back to top</a><a href="#how" data-i18n="nav.how">How</a><a href="#download" data-i18n="nav.download">Download</a><a href="./privacy.html" data-i18n="footer.privacy">Privacy Policy</a><a href="./terms.html" data-i18n="footer.terms">Terms of Use</a><a href="./support.html" data-i18n="footer.support">Support</a><a href="mailto:natchrai75@Gmail.com" data-i18n="footer.contact">Contact</a></div>
+  <a class="footer-brand" href="#top" aria-label="ViewOn Link 홈">
+    <img src="./assets/viewon-link-icon.webp" alt="ViewOn Link 아이콘">
+    <span>ViewOn <strong>Link</strong></span>
+  </a>
+
+  <div class="footer-slogan" data-i18n="footer.slogan">See what you couldn’t see before.</div>
+
+  <nav class="footer-links" aria-label="Footer links">
+    <a href="#how" data-i18n="nav.how">How</a>
+    <a href="#download" data-i18n="nav.download">Download</a>
+    <a href="./privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+    <a href="./terms.html" data-i18n="footer.terms">Terms of Use</a>
+    <a href="./support.html" data-i18n="footer.support">Support</a>
+    <a href="mailto:natchrai75@gmail.com" data-i18n="footer.contact">Contact</a>
+  </nav>
+
+  <div class="footer-right">
+    <a class="footer-top" href="#top">
+      <span data-i18n="footer.top">Back to top</span>
+      <span class="footer-top-arrow" aria-hidden="true">↑</span>
+    </a>
+    <span class="footer-copy">© 2026 Natchrai</span>
+  </div>
 </footer>
 
 
@@ -420,6 +454,7 @@ const I18N = {
     "faq5.a": "Yes. During the open period, all features are available for free. However, each connection is limited to 5 minutes. After a connection ends, you can scan the QR code again to reconnect.",
     "faq6.q": "What is the open period?",
     "faq6.a": "This open period is for checking feature stability, user needs, and improvement feedback. Until the Pro version is ready, all features are kept open, and feedback will be reflected as ViewOn Link improves toward the official version.",
+    "footer.slogan": "See what you couldn’t see before.",
     "footer.tagline": "Real-time camera sharing",
     "footer.top": "Back to top",
     "footer.privacy": "Privacy Policy",
@@ -518,6 +553,7 @@ const I18N = {
     "faq5.a": "네. 오픈 기간에는 모든 기능을 무료로 사용할 수 있습니다. 단, 1회 연결 시간은 5분으로 제한됩니다. 연결이 종료된 후에는 다시 QR 코드로 연결해 사용할 수 있습니다.",
     "faq6.q": "오픈 기간이란?",
     "faq6.a": "기능 안정성, 사용자 요구사항, 개선 의견을 확인하기 위한 기간입니다. Pro 버전이 준비되기 전까지 모든 기능을 열어두고, 피드백을 반영해 정식 버전으로 개선해 나갈 예정입니다.",
+    "footer.slogan": "보이지 않던 것을, 이제 확인하세요.",
     "footer.tagline": "실시간 카메라 공유",
     "footer.top": "맨 위로",
     "footer.privacy": "개인정보처리방침",
@@ -616,6 +652,7 @@ const I18N = {
     "faq5.a": "Ja. Während der offenen Phase können alle Funktionen kostenlos genutzt werden. Eine Verbindung ist jedoch auf 5 Minuten begrenzt. Nach dem Ende der Verbindung kannst du erneut per QR-Code verbinden.",
     "faq6.q": "Was ist die offene Phase?",
     "faq6.a": "Diese offene Phase dient dazu, Funktionsstabilität, Nutzeranforderungen und Verbesserungsvorschläge zu prüfen. Bis die Pro-Version bereit ist, bleiben alle Funktionen geöffnet, und Feedback wird in die Weiterentwicklung zur offiziellen Version einfließen.",
+    "footer.slogan": "Sieh, was du vorher nicht sehen konntest.",
     "footer.tagline": "Kamera in Echtzeit teilen",
     "footer.top": "Nach oben",
     "footer.privacy": "Datenschutzerklärung",
@@ -714,6 +751,7 @@ const I18N = {
     "faq5.a": "Sí. Durante el período abierto, todas las funciones se pueden usar gratis. Sin embargo, cada conexión está limitada a 5 minutos. Cuando la conexión termine, puedes volver a conectarte con el código QR.",
     "faq6.q": "¿Qué es el período abierto?",
     "faq6.a": "Este período abierto sirve para comprobar la estabilidad de las funciones, las necesidades de los usuarios y las sugerencias de mejora. Hasta que la versión Pro esté lista, todas las funciones permanecerán abiertas y el feedback se reflejará en la mejora hacia la versión oficial.",
+    "footer.slogan": "Mira lo que antes no podías ver.",
     "footer.tagline": "Cámara compartida en tiempo real",
     "footer.top": "Arriba",
     "footer.privacy": "Política de privacidad",
@@ -812,6 +850,7 @@ const I18N = {
     "faq5.a": "Oui. Pendant la période ouverte, toutes les fonctionnalités sont disponibles gratuitement. Cependant, chaque connexion est limitée à 5 minutes. Une fois la connexion terminée, vous pouvez vous reconnecter en scannant à nouveau le QR code.",
     "faq6.q": "Qu’est-ce que la période ouverte ?",
     "faq6.a": "Cette période ouverte est destinée à vérifier la stabilité des fonctionnalités, les besoins des utilisateurs et les avis d’amélioration. Jusqu’à ce que la version Pro soit prête, toutes les fonctionnalités restent ouvertes, et les retours seront pris en compte pour améliorer la version officielle.",
+    "footer.slogan": "Voyez ce que vous ne pouviez pas voir auparavant.",
     "footer.tagline": "Partage de caméra en temps réel",
     "footer.top": "Haut de page",
     "footer.privacy": "Politique de confidentialité",
@@ -910,6 +949,7 @@ const I18N = {
     "faq5.a": "はい。オープン期間中はすべての機能を無料で利用できます。ただし、1回の接続時間は5分に制限されます。接続が終了した後は、もう一度QRコードで接続して利用できます。",
     "faq6.q": "オープン期間とは？",
     "faq6.a": "機能の安定性、ユーザーの要望、改善意見を確認するための期間です。Proバージョンが準備されるまで、すべての機能を開放し、フィードバックを反映しながら正式版へ改善していく予定です。",
+    "footer.slogan": "これまで見えなかったものを、見えるように。",
     "footer.tagline": "リアルタイムカメラ共有",
     "footer.top": "トップへ",
     "footer.privacy": "プライバシーポリシー",
@@ -1008,6 +1048,7 @@ const I18N = {
     "faq5.a": "نعم. خلال فترة الإتاحة المفتوحة، يمكن استخدام جميع الميزات مجانًا. لكن مدة الاتصال الواحد محددة بخمس دقائق. بعد انتهاء الاتصال، يمكنك الاتصال مرة أخرى عبر رمز QR.",
     "faq6.q": "ما هي فترة الإتاحة المفتوحة؟",
     "faq6.a": "فترة الإتاحة المفتوحة مخصصة للتحقق من استقرار الميزات واحتياجات المستخدمين وملاحظات التحسين. إلى أن تصبح نسخة Pro جاهزة، ستظل جميع الميزات متاحة، وسنواصل تحسين النسخة الرسمية بناءً على الملاحظات.",
+    "footer.slogan": "شاهد ما لم يكن بإمكانك رؤيته من قبل.",
     "footer.tagline": "مشاركة الكاميرا في الوقت الفعلي",
     "footer.top": "إلى الأعلى",
     "footer.privacy": "سياسة الخصوصية",
