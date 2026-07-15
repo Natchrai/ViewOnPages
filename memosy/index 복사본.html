@@ -119,81 +119,6 @@
         animation: none;
       }
     }
-
-    .site-footer {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 32px;
-      min-height: 94px;
-      padding: 22px clamp(24px, 5vw, 72px);
-      color: rgba(225, 239, 250, 0.62);
-      background: radial-gradient(circle at 18% 0%, rgba(59, 235, 199, 0.08), transparent 34%), linear-gradient(180deg, rgba(4, 18, 39, 0.96), #020a18);
-      border-top: 1px solid rgba(83, 199, 255, 0.24);
-      box-shadow: inset 0 1px 0 rgba(122, 255, 223, 0.04);
-      font-size: 14px;
-    }
-
-    .footer-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      justify-self: start;
-      color: #f5fbff;
-      font-size: 19px;
-      font-weight: 850;
-      letter-spacing: -0.04em;
-    }
-
-    .footer-brand img {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      box-shadow: 0 0 20px rgba(78, 239, 207, 0.25);
-    }
-
-    .footer-brand strong {
-      color: transparent;
-      background: linear-gradient(90deg, #f6fbff 18%, #72ffe0 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-
-    .footer-message,
-    .footer-copyright {
-      margin: 0;
-      color: rgba(210, 229, 243, 0.58);
-      font-weight: 700;
-    }
-
-    .footer-message {
-      justify-self: center;
-      letter-spacing: -0.025em;
-      text-align: center;
-    }
-
-    .footer-copyright {
-      justify-self: end;
-      white-space: nowrap;
-    }
-
-    @media (max-width: 760px) {
-      .site-footer {
-        grid-template-columns: 1fr;
-        gap: 13px;
-        padding-top: 28px;
-        padding-bottom: 28px;
-        text-align: center;
-      }
-
-      .footer-brand,
-      .footer-message,
-      .footer-copyright {
-        justify-self: center;
-      }
-    }
   </style>
 
 </head>
@@ -201,7 +126,7 @@
 <body>
   <header class="top-bar">
     <a class="brand" href="./">
-      <img src="./assets/icon.webp" alt="Memosy icon" />
+      <img src="./assets/icon.png" alt="Memosy icon" />
       <span>Memosy</span>
     </a>
 
@@ -316,43 +241,8 @@
         </div>
       </div>
 
-      <div class="hero-image memosy-motion" aria-label="Quick Memo와 Todo를 연결하는 Memosy 애니메이션">
-        <div class="memosy-motion__grid" aria-hidden="true"></div>
-
-        <article class="memosy-motion__feature memosy-motion__quick">
-          <div class="memosy-motion__memo-icon" aria-hidden="true">
-            <i></i><i></i><i></i><i></i>
-            <span></span><span></span><span></span><span></span>
-          </div>
-          <h3>Quick<br />Memo</h3>
-        </article>
-
-        <div class="memosy-motion__energy" aria-hidden="true">
-          <svg viewBox="0 0 620 520" role="presentation">
-            <defs>
-              <filter id="memosy-motion-glow">
-                <feGaussianBlur stdDeviation="8" result="blur"></feGaussianBlur>
-                <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
-              </filter>
-              <linearGradient id="memosy-motion-bolt" x1="0" y1="0" x2="1" y2="1">
-                <stop stop-color="#efffff"></stop><stop offset=".42" stop-color="#65edff"></stop><stop offset="1" stop-color="#6effbe"></stop>
-              </linearGradient>
-            </defs>
-            <path class="memosy-motion__arc arc-1" d="M38 304 C145 240 212 286 302 184 S452 112 582 70"></path>
-            <path class="memosy-motion__arc arc-2" d="M34 344 C138 365 186 308 274 330 S448 260 590 292"></path>
-            <path class="memosy-motion__arc arc-3" d="M76 150 C184 208 238 140 314 212 S430 392 566 414"></path>
-            <path class="memosy-motion__bolt-shadow" d="M402 24 152 266l112 8-70 222 276-286-126-8z"></path>
-            <path class="memosy-motion__bolt" d="M402 24 152 266l112 8-70 222 276-286-126-8z"></path>
-          </svg>
-          <b class="spark-1"></b><b class="spark-2"></b><b class="spark-3"></b><b class="spark-4"></b>
-        </div>
-
-        <article class="memosy-motion__feature memosy-motion__todo">
-          <div class="memosy-motion__todo-icon" aria-hidden="true">
-            <span></span><span></span>
-          </div>
-          <h3>Todo</h3>
-        </article>
+      <div class="hero-image">
+        <img src="./assets/feature.png" alt="Memosy app preview" />
       </div>
     </section>
 
@@ -386,9 +276,9 @@
     </section>
 
     <section class="gallery">
-      <img src="./assets/quick.webp" alt="Quick Memo screen" />
-      <img src="./assets/memo.webp" alt="Memo screen" />
-      <img src="./assets/todo.webp" alt="Todo screen" />
+      <img src="./assets/quick.png" alt="Quick Memo screen" />
+      <img src="./assets/memo.png" alt="Memo screen" />
+      <img src="./assets/todo.png" alt="Todo screen" />
     </section>
 
     <section id="quick" class="split-section">
@@ -401,7 +291,7 @@
         </p>
       </div>
 
-      <img src="./assets/quick.webp" alt="Quick Memo" />
+      <img src="./assets/quick.png" alt="Quick Memo" />
     </section>
 
     <section id="memo" class="split-section reverse">
@@ -415,7 +305,7 @@
         </p>
       </div>
 
-      <img src="./assets/memo.webp" alt="Memo" />
+      <img src="./assets/memo.png" alt="Memo" />
     </section>
 
     <section id="todo" class="split-section">
@@ -428,7 +318,7 @@
         </p>
       </div>
 
-      <img src="./assets/todo.webp" alt="Todo" />
+      <img src="./assets/todo.png" alt="Todo" />
     </section>
 
     <section class="split-section reverse">
@@ -441,7 +331,7 @@
         </p>
       </div>
 
-      <img src="./assets/backup.webp" alt="Backup and restore" />
+      <img src="./assets/backup.png" alt="Backup and restore" />
     </section>
 
     <section class="privacy">
@@ -453,14 +343,16 @@
     </section>
 
     <section class="closing">
-      <img src="./assets/icon.webp" alt="Memosy icon" />
+      <img src="./assets/icon.png" alt="Memosy icon" />
 
       <h2>
-        빠르게 <strong>기록하고,</strong><br />
-        쉽게 <strong>정리하고,</strong><br />
-        편하게 <strong>관리하세요.</strong>
+        빠르게 기록하고,<br />
+        쉽게 정리하고,<br />
+        편하게 관리하세요.
       </h2>
-      <br />
+
+      <p>Memosy와 함께 기분 좋은 기록 습관을 시작해보세요.</p>
+
       <a
         class="primary-button store-badge-link"
         href="https://play.google.com/store/apps/details?id=com.natchrai.memosy"
@@ -476,17 +368,6 @@
       </a>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <a class="footer-brand" href="./" aria-label="Memosy 홈">
-      <img src="./assets/icon.webp" alt="" />
-      <strong>Memosy</strong>
-    </a>
-
-    <p class="footer-message">Memosy와 함께하는 기분 좋은 기록 습관</p>
-
-    <p class="footer-copyright">© 2026 Natchrai</p>
-  </footer>
 
   <script>
     window.addEventListener("scroll", function () {
