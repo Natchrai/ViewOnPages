@@ -1116,6 +1116,10 @@ function applyLanguage(lang) {
 
   updateLanguageDropdown(selected);
   localStorage.setItem("viewon_link_site_lang", selected);
+
+  if (typeof updateAppStoreLinkForLanguage === "function") {
+    updateAppStoreLinkForLanguage(selected);
+  }
 }
 
 const LANGUAGE_LABELS = {
@@ -1184,9 +1188,30 @@ const STORE_LINKS={
   google:'https://play.google.com/store/apps/details?id=com.natchrai.viewonlink',
   apple:'https://apps.apple.com/app/id6787559105'
 };
+const APP_STORE_COUNTRY_BY_LANG={
+  ko:'kr',
+  ja:'jp',
+  ar:'sa',
+  de:'de',
+  es:'es',
+  fr:'fr'
+};
 const STORE_NAMES={google:'Google Play',apple:'App Store'};
+function getStoreLink(store){
+  if(store!=="apple") return STORE_LINKS[store];
+  const country=APP_STORE_COUNTRY_BY_LANG[root.lang];
+  return country
+    ? 'https://apps.apple.com/'+country+'/app/id6787559105'
+    : STORE_LINKS.apple;
+}
+function updateAppStoreLinkForLanguage(lang){
+  const appStoreButton=document.getElementById('appStoreOpenButton');
+  if(appStoreButton) appStoreButton.href=getStoreLink('apple');
+  const selectedStore=document.querySelector('[data-store-select].is-selected');
+  if(selectedStore&&selectedStore.dataset.storeSelect==='apple') selectStore('apple');
+}
 function selectStore(store){
-  const url=STORE_LINKS[store];
+  const url=getStoreLink(store);
   const qrImage=document.getElementById('storeQrImage');
   const qrTitle=document.getElementById('storeQrTitle');
   if(!url||!qrImage||!qrTitle)return;
@@ -1203,6 +1228,7 @@ document.querySelectorAll('[data-store-select]').forEach(button=>{
   button.addEventListener('click',()=>selectStore(button.dataset.storeSelect));
 });
 selectStore('google');
+updateAppStoreLinkForLanguage(root.lang);
 const right=document.querySelector('.right');
 let ticking=false;
 let viewerShown=false;
