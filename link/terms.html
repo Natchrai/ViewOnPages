@@ -311,7 +311,7 @@ html[dir="rtl"] .language-option:hover{transform:translateX(-2px)}
         <button class="language-option" type="button" data-lang-option="ko" role="option"><span>한국어</span><span class="language-check">✓</span></button>
       </div>
     </div>
-    <a href="./index.html#download" class="mini-cta">Download</a>
+    <a href="./index.html#download" class="mini-cta" data-common="download">Download</a>
   </nav>
 </header>
 
@@ -456,7 +456,7 @@ const DEFAULT_LANG = "en";
 const RTL_LANGS = new Set(["ar"]);
 
 function getInitialLang() {
-  const saved = localStorage.getItem("viewon_language");
+  const saved = localStorage.getItem("viewon_link_site_lang");
   if (saved && TITLES[saved]) return saved;
   const browser = (navigator.language || DEFAULT_LANG).slice(0, 2).toLowerCase();
   return TITLES[browser] ? browser : DEFAULT_LANG;
@@ -494,7 +494,7 @@ function render(lang) {
 
   setTextForCommon(lang);
   syncLanguageMenu(lang);
-  localStorage.setItem("viewon_language", lang);
+  localStorage.setItem("viewon_link_site_lang", lang);
 }
 
 const languageControl = document.getElementById("languageControl");
