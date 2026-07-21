@@ -70,9 +70,15 @@
             스마트폰이 하나일때는 돋보기 기능을 사용하세요.
           </p>
 
-          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.natchrai.viewonlink" target="_blank" rel="noopener noreferrer" aria-label="ViewOn Link Google Play로 이동">
-            <img src="assets/badge-google-play.png" alt="Get it on Google Play" />
-          </a>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.natchrai.viewonlink" target="_blank" rel="noopener noreferrer" aria-label="ViewOn Link Google Play로 이동">
+              <img src="assets/badge-google-play.png" alt="Get it on Google Play" />
+            </a>
+
+            <a id="viewon-link-app-store" class="store-badge" href="https://apps.apple.com/us/app/viewon-link/id6787559105" target="_blank" rel="noopener noreferrer" aria-label="ViewOn Link App Store로 이동">
+              <img src="assets/app_store_badge.svg" alt="Download on the App Store" style="height: 56px; width: auto; display: block;" />
+            </a>
+          </div>
         </div>
       </article>
 
@@ -124,8 +130,14 @@
         <a href="mailto:Natchrai75@Gmail.com">Natchrai75@Gmail.com</a>
       </p>
     </footer>
-    
-
   </main>
+
+  <script>
+    const appStoreLink = document.getElementById('viewon-link-app-store');
+
+    if (navigator.language && navigator.language.toLowerCase().startsWith('ko')) {
+      appStoreLink.href = 'https://apps.apple.com/kr/app/viewon-link/id6787559105';
+    }
+  </script>
 </body>
 </html>
