@@ -74,7 +74,7 @@
     }
     new ResizeObserver(resize).observe(host);
 
-    new GLTFLoader().load('./man_head.glb', (gltf) => {
+    new GLTFLoader().load('./models/man_head.glb', (gltf) => {
       const model = gltf.scene;
       scene.add(model);
       const box = new THREE.Box3().setFromObject(model);
