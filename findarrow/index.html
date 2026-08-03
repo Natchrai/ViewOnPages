@@ -213,7 +213,26 @@
     .section-title{text-align:center;margin-bottom:46px}
     .section-title small{display:block;color:#1c85e9;font-weight:900;letter-spacing:.12em;margin-bottom:12px}
     .section-title h2{margin:0;font-size:clamp(34px,4vw,52px);letter-spacing:-.045em}
-    .feature-message{padding:82px 0}.feature-message .section-title{margin-bottom:0}
+    .feature-message{padding:68px 0 34px}.feature-message .section-title{margin-bottom:0}
+    .sky-text{
+      display:inline-block;
+      color:transparent;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 116'%3E%3Cpath d='M10 7 80 66 54 70 71 106 55 113 39 78 20 99Z' fill='%23030b16' stroke='%23030b16' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E"),
+        linear-gradient(100deg,#0675e8 0%,#50bdff 32%,#0c8df1 58%,#78d6ff 79%,#086fdb 100%);
+      background-repeat:no-repeat,repeat;
+      background-size:68px 86px,220% 100%;
+      background-position:-12% 54%,0 50%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 10px 22px rgba(18,126,224,.16));
+      animation:skyTextDrift 7.5s linear infinite;
+    }
+    @keyframes skyTextDrift{
+      0%{background-position:-12% 54%,0 50%}
+      100%{background-position:112% 54%,220% 50%}
+    }
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .card{
       padding:34px 28px;border-radius:24px;background:rgba(255,255,255,.83);
@@ -262,7 +281,7 @@
     .lang-btn.active{background:#1688f5;color:#fff;box-shadow:0 6px 16px rgba(0,115,255,.3)}
     .header-actions{display:flex;align-items:center;gap:12px}
 
-    .usage-showcase{background:#eef6ff;color:var(--ink);padding:98px 0;border-top:1px solid rgba(40,132,214,.08)}
+    .usage-showcase{background:#eef6ff;color:var(--ink);padding:38px 0 98px;border-top:0}
     .showcase-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:68px;align-items:center}
     .showcase-copy small{display:block;color:#1680e8;font-weight:900;letter-spacing:.12em;margin-bottom:12px}
     .showcase-copy h2{margin:0 0 20px;font-size:clamp(34px,4vw,52px);line-height:1.12;letter-spacing:-.05em}
@@ -284,13 +303,15 @@
     .app-titlebar img{width:15px;height:15px}.app-close{margin-left:auto;font-size:19px;line-height:1}
     .app-body{padding:36px 28px 22px;position:relative;overflow:hidden}
     .app-body::before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-55px;top:-75px;background:#e1eaff}.app-body::after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;left:-55px;bottom:-75px;background:#e1eaff}
-    .app-head{position:relative;z-index:1;display:flex;align-items:center;gap:14px;margin-bottom:19px}
+    .app-head{position:relative;z-index:1;display:flex;align-items:center;gap:14px;margin-bottom:20px}
     .app-head img{width:45px;height:45px}.app-head h3{margin:0;font-size:27px;letter-spacing:-.04em}.app-sub{font-size:12px;color:#8da2c3;margin-top:2px}
-    .status-pill{margin-left:auto;border-radius:18px;background:#edf4ff;color:#2870e8;padding:9px 14px;font-size:12px;font-weight:800}.status-pill::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#2d72ed;margin-right:6px}
-    .app-features{position:relative;z-index:1;display:grid;gap:13px;padding-bottom:20px;border-bottom:1px solid #e7ebf2;font-size:15px;color:#375071}
-    .app-feature::before{content:"✓";color:#2675ee;font-weight:900;margin-right:12px}
-    .app-auto{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:24px 0 18px;color:#263c5c}
-    .toggle{width:50px;height:29px;border-radius:20px;background:#2d6bec;padding:3px}.toggle::after{content:"";display:block;width:23px;height:23px;border-radius:50%;background:#fff;margin-left:auto;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+    .app-settings{position:relative;z-index:1;border-top:1px solid #e4eaf2;border-bottom:1px solid #e4eaf2}
+    .app-setting{min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #e4eaf2;color:#375071;font-size:13px}
+    .app-setting:last-child{border-bottom:0}
+    .app-feature{display:flex;align-items:center;line-height:1.45}
+    .app-feature::before{content:"✓";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#2d72ed;color:#fff;font-size:12px;font-weight:900;margin-right:10px}
+    .toggle{flex:0 0 auto;width:46px;height:27px;border-radius:20px;background:#2d6bec;padding:3px}.toggle::after{content:"";display:block;width:21px;height:21px;border-radius:50%;background:#fff;margin-left:auto;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+    .toggle.off{background:#d5deeb}.toggle.off::after{margin-left:0}
     .app-main-btn{position:relative;z-index:1;border-radius:17px;background:#2d66e9;color:white;text-align:center;padding:23px;font-size:24px;font-weight:900;box-shadow:0 7px 12px rgba(32,92,221,.24)}
     .app-foot{position:relative;z-index:1;text-align:center;color:#8ba0bf;font-size:10px;padding-top:30px}.app-foot b{color:#1d67ee}
 
@@ -298,16 +319,16 @@
       .navlinks{display:none}.showcase-grid{grid-template-columns:1fr;gap:38px}.hero{padding-top:120px}.hero-inner{grid-template-columns:1fr;gap:24px}.visual{height:480px}.copy{text-align:center}.lead{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.cards,.steps{grid-template-columns:1fr}.steps::before{display:none}.download-strip-inner{align-items:flex-start;flex-direction:column}.footer-inner{grid-template-columns:1fr;text-align:center;padding:22px 0}.footer-brand,.footer-right{justify-content:center}.footer-slogan{order:2}.footer-right{order:3}
     }
     @media (max-width:560px){
-      .topbar{height:68px}.nav{width:min(100% - 24px,1180px)}.brand{font-size:18px}.brand img{width:36px;height:36px}.header-download{display:none}.header-actions{gap:7px}.header-download{padding:10px 12px;font-size:12px}.hero-inner,.wrap,.download-strip-inner,.footer-inner{width:calc(100% - 28px)}.visual{height:420px}.orbit{width:330px}.satellite{width:420px;height:320px;margin-left:-210px;margin-top:-160px}.cursor{width:74px;height:88px;transform-origin:50% 170px}.cards{gap:16px}.section-light{padding:74px 0}.footer-right{gap:18px;flex-wrap:wrap}
+      .topbar{height:68px}.nav{width:min(100% - 24px,1180px)}.brand{font-size:18px}.brand img{width:36px;height:36px}.header-download{display:none}.header-actions{gap:7px}.header-download{padding:10px 12px;font-size:12px}.hero-inner,.wrap,.download-strip-inner,.footer-inner{width:calc(100% - 28px)}.visual{height:420px}.orbit{width:330px}.satellite{width:420px;height:320px;margin-left:-210px;margin-top:-160px}.cursor{width:74px;height:88px;transform-origin:50% 170px}.cards{gap:16px}.section-light{padding:74px 0}.feature-message{padding:54px 0 24px}.usage-showcase{padding-top:28px}.footer-right{gap:18px;flex-wrap:wrap}
     }
-    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.satellite,.satellite .cursor,.windows-3d{animation:none!important}}
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.satellite,.satellite .cursor,.windows-3d,.sky-text{animation:none!important}}
   </style>
 </head>
 <body id="top">
   <header class="topbar">
     <nav class="nav" aria-label="주요 메뉴">
       <a class="brand" href="#top"><img src="./assets/findarrow-icon-window-on.png" alt="FindArrow"><span>FindArrow</span></a>
-      <div class="navlinks"><a href="#features" data-i18n="navFeatures">기능</a><a href="#usage" data-i18n="navUsage">사용 안내</a><a href="#download" data-i18n="navDownload">다운로드</a></div>
+      <div class="navlinks"><a href="#usage" data-i18n="navGuide">기능 안내</a><a href="#download" data-i18n="navDownload">다운로드</a></div>
       <div class="header-actions">
         <div class="lang-switch" aria-label="Language"><button class="lang-btn active" data-lang="ko">한</button><button class="lang-btn" data-lang="en">EN</button></div>
         <a class="header-download" href="./FindArrow-Setup.exe" download><span class="winmark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="windowsDownload">Windows용 다운로드</span></a>
@@ -344,7 +365,7 @@
     <section class="section-light feature-message" id="features">
       <div class="wrap">
         <header class="section-title">
-          <h2 data-i18n="featureTitle">마우스 포인터를 찾는 데 들이는 시간을 줄이세요.</h2>
+          <h2 class="sky-text" data-i18n="featureTitle">마우스 포인터를 찾는 데 들이는 시간을 줄이세요.</h2>
         </header>
       </div>
     </section>
@@ -359,17 +380,17 @@
           <div class="tray-guide">
             <div class="guide-row"><div class="guide-mouse">L</div><div><strong data-i18n="leftTitle">아이콘 왼쪽 클릭</strong><span data-i18n="leftBody">FindArrow 기능을 실행하거나 잠시 중단합니다. 상태가 켜짐과 꺼짐으로 즉시 바뀝니다.</span></div></div>
             <div class="guide-row"><div class="guide-mouse">R</div><div><strong data-i18n="rightTitle">아이콘 오른쪽 클릭</strong><span data-i18n="rightBody">종료 메뉴를 열어 FindArrow를 완전히 종료할 수 있습니다.</span></div></div>
+            <div class="guide-row"><div class="guide-mouse">↻</div><div><strong data-i18n="startupTitle">Windows 시작 시 자동 실행</strong><span data-i18n="startupBody">옵션을 켜면 Windows에 로그인할 때 FindArrow가 자동으로 실행되어 바로 사용할 수 있습니다.</span></div></div>
           </div>
         </div>
         <div class="program-stage">
           <div class="app-window">
             <div class="app-titlebar"><img src="./assets/findarrow-icon-window-on.png" alt=""><span>FindArrow</span><span class="app-close">×</span></div>
             <div class="app-body">
-              <div class="app-head"><img src="./assets/findarrow-icon-window-on.png" alt=""><div><h3>FindArrow</h3><div class="app-sub" data-i18n="appSubtitle">마우스 포인터 유틸리티</div></div><div class="status-pill" data-i18n="on">켜짐</div></div>
-              <div class="app-features"><div class="app-feature" data-i18n="appF1">마우스를 빠르게 흔들면 포인터를 크게 표시합니다.</div><div class="app-feature" data-i18n="appF2">Ctrl 키를 두 번 빠르게 누르면 포인터를 크게 표시합니다.</div></div>
-              <div class="app-auto"><span data-i18n="autoStart">Windows 시작 시 자동 실행</span><span class="toggle"></span></div>
+              <div class="app-head"><img src="./assets/findarrow-icon-window-on.png" alt=""><div><h3>FindArrow</h3><div class="app-sub" data-i18n="appSubtitle">마우스 포인터 유틸리티</div></div></div>
+              <div class="app-settings"><div class="app-setting"><div class="app-feature" data-i18n="appF1">마우스를 빠르게 흔들면 포인터를 크게 표시합니다.</div><span class="toggle"></span></div><div class="app-setting"><div class="app-feature" data-i18n="appF2">Ctrl 키를 두 번 빠르게 누르면 포인터를 크게 표시합니다.</div><span class="toggle"></span></div><div class="app-setting"><div class="app-feature" data-i18n="autoStart">Windows 시작 시 자동 실행</div><span class="toggle off"></span></div></div>
               <div class="app-main-btn" data-i18n="turnOff">FindArrow 끄기</div>
-              <div class="app-foot">FindArrow v1.0.0 · Made by Natchrai · <b>ViewOn.app ↗</b></div>
+              <div class="app-foot">FindArrow v1.0.0 · Made by Natchrai · <b>ViewOn.app ↗</b> · <b>FindArrow ↗</b></div>
             </div>
           </div>
           <div class="tray-scene" aria-label="FindArrow tray preview">
@@ -464,7 +485,7 @@
 
     const translations = {
       ko: {
-        navFeatures:'기능', navUsage:'사용 안내', navDownload:'다운로드', windowsDownload:'Windows용 다운로드',
+        navGuide:'기능 안내', navDownload:'다운로드', windowsDownload:'Windows용 다운로드',
         eyebrow:'WINDOWS POINTER UTILITY', heroTitle1:'작은 화살표도,', heroTitle2:'바로 찾게.',
         heroBody:'화면에서 마우스 포인터를 놓쳤을 때, 더 쉽고 더 빠르게 다시 찾을 수 있도록 도와주는 Windows 유틸리티입니다.',
         downloadExe:'FindArrow-Setup.exe 다운로드', windowsOnly:'Windows 전용 설치 파일', filename:'파일명: FindArrow-Setup.exe',
@@ -472,12 +493,12 @@
         f2Title:'빠른 확인', f2Body:'화면 어디에 있든 포인터 위치를 직관적으로 파악할 수 있습니다.', f3Title:'간단한 설치', f3Body:'FindArrow-Setup.exe를 내려받아 설치하면 바로 사용할 수 있습니다.',
         trayTitle:'트레이에서 간단하게<br>실행하고 종료하세요.', trayBody:'FindArrow는 작업 표시줄의 시스템 트레이에서 현재 상태를 바로 확인할 수 있습니다. 프로그램 창을 열지 않아도 빠르게 제어할 수 있습니다.',
         leftTitle:'아이콘 왼쪽 클릭', leftBody:'FindArrow 기능을 실행하거나 잠시 중단합니다. 상태가 켜짐과 꺼짐으로 즉시 바뀝니다.',
-        rightTitle:'아이콘 오른쪽 클릭', rightBody:'종료 메뉴를 열어 FindArrow를 완전히 종료할 수 있습니다.', trayTooltip:'FindArrow · 켜짐', clock:'오전 8:16',
+        rightTitle:'아이콘 오른쪽 클릭', rightBody:'종료 메뉴를 열어 FindArrow를 완전히 종료할 수 있습니다.', startupTitle:'Windows 시작 시 자동 실행', startupBody:'옵션을 켜면 Windows에 로그인할 때 FindArrow가 자동으로 실행되어 바로 사용할 수 있습니다.', trayTooltip:'FindArrow · 켜짐', clock:'오전 8:16',
         appSubtitle:'마우스 포인터 유틸리티', on:'켜짐', appF1:'마우스를 빠르게 흔들면 포인터를 크게 표시합니다.', appF2:'Ctrl 키를 두 번 빠르게 누르면 포인터를 크게 표시합니다.', autoStart:'Windows 시작 시 자동 실행', turnOff:'FindArrow 끄기',
         ctaTitle:'지금 바로 FindArrow를 시작해 보세요.', ctaBody:'Windows에서 바로 설치하고, 마우스 포인터를 더 빠르고 쉽게 찾으세요.', footerSlogan:'작은 화살표도, 바로 찾게.', toTop:'맨 위로 ↑'
       },
       en: {
-        navFeatures:'Features', navUsage:'How it works', navDownload:'Download', windowsDownload:'Download for Windows',
+        navGuide:'Features & guide', navDownload:'Download', windowsDownload:'Download for Windows',
         eyebrow:'WINDOWS POINTER UTILITY', heroTitle1:'Find even a', heroTitle2:'tiny pointer.',
         heroBody:'When you lose sight of the mouse pointer, FindArrow helps you locate it again quickly and easily on Windows.',
         downloadExe:'Download FindArrow-Setup.exe', windowsOnly:'Installer for Windows', filename:'File: FindArrow-Setup.exe',
@@ -485,7 +506,7 @@
         f2Title:'Instant visibility', f2Body:'See where the pointer is anywhere on the screen at a glance.', f3Title:'Simple setup', f3Body:'Download FindArrow-Setup.exe, install it, and start using it right away.',
         trayTitle:'Run and close it<br>right from the tray.', trayBody:'Check FindArrow’s current status in the Windows system tray and control it without opening the main window.',
         leftTitle:'Left-click the icon', leftBody:'Turn FindArrow on or pause it. The tray status changes immediately between On and Off.',
-        rightTitle:'Right-click the icon', rightBody:'Open the menu and choose Exit to close FindArrow completely.', trayTooltip:'FindArrow · On', clock:'8:16 AM',
+        rightTitle:'Right-click the icon', rightBody:'Open the menu and choose Exit to close FindArrow completely.', startupTitle:'Run when Windows starts', startupBody:'Turn this option on to start FindArrow automatically when you sign in to Windows.', trayTooltip:'FindArrow · On', clock:'8:16 AM',
         appSubtitle:'Mouse pointer utility', on:'On', appF1:'Shake the mouse quickly to enlarge the pointer.', appF2:'Press Ctrl twice quickly to enlarge the pointer.', autoStart:'Run automatically when Windows starts', turnOff:'Turn off FindArrow',
         ctaTitle:'Start using FindArrow today.', ctaBody:'Install it on Windows and find your mouse pointer faster and more easily.', footerSlogan:'Find even a tiny pointer.', toTop:'Back to top ↑'
       }
