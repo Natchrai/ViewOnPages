@@ -4,14 +4,111 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ViewOn | Natchrai Apps</title>
-  <meta name="description" content="개인 개발자 Natchrai가 만드는 ViewOn 앱 시리즈. ViewOn Link와 Memosy를 소개합니다." />
+  <meta name="description" content="개인 개발자 Natchrai가 만드는 ViewOn 앱 시리즈. ViewOn Link, FindArrow, Memosy를 소개합니다." />
   <meta property="og:title" content="ViewOn | Natchrai Apps" />
-  <meta property="og:description" content="Crafting Utility for Your Daily Life — ViewOn Link and Memosy." />
+  <meta property="og:description" content="Crafting Utility for Your Daily Life — ViewOn Link, FindArrow and Memosy." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* FindArrow Windows 다운로드 배지 */
+    .windows-download-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      width: 190px;
+      height: 56px;
+      padding: 0 17px;
+      border: 1.5px solid rgba(255, 255, 255, .72);
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+      transition:
+        transform .2s ease,
+        background-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .windows-download-badge:hover {
+      transform: translateY(-2px);
+      background: #1b1b1b;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, .24);
+    }
+
+    .windows-download-badge:focus-visible {
+      outline: 3px solid rgba(53, 151, 255, .48);
+      outline-offset: 3px;
+    }
+
+    .windows-logo {
+      flex: 0 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 10px);
+      gap: 2px;
+      transform: skewY(-5deg);
+    }
+
+    .windows-logo i {
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+    }
+
+    .windows-badge-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .windows-badge-text small {
+      margin: 0 0 4px;
+      font-family: Inter, "Noto Sans KR", sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .01em;
+      opacity: .78;
+    }
+
+    .windows-badge-text strong {
+      font-family: Inter, "Noto Sans KR", sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+
+    @media (max-width: 480px) {
+      .windows-download-badge {
+        width: 174px;
+        height: 52px;
+        gap: 9px;
+        padding: 0 14px;
+      }
+
+      .windows-logo {
+        grid-template-columns: repeat(2, 9px);
+      }
+
+      .windows-logo i {
+        width: 9px;
+        height: 9px;
+      }
+
+      .windows-badge-text strong {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="page">
@@ -61,13 +158,13 @@
               <p class="app-kicker">Live camera sharing</p>
               <h2>ViewOn Link</h2>
             </div>
-            <a href="https://www.viewon.app/link/"><span class="chip" >Camera Relay</span></a>
+            <a href="https://www.viewon.app/link/"><span class="chip">Camera Relay</span></a>
           </div>
 
           <p>
             한 기기의 카메라 화면을 다른 기기에서 실시간으로 확인할 수 있는 연결 앱입니다.
             QR로 빠르게 연결하고, 같은 Wi-Fi 환경에서 필요한 순간 보조 화면처럼 사용할 수 있습니다.
-            스마트폰이 하나일때는 돋보기 기능을 사용하세요.
+            스마트폰이 하나일 때는 돋보기 기능을 사용하세요.
           </p>
 
           <div style="display: flex; gap: 10px; align-items: center;">
@@ -79,6 +176,52 @@
               <img src="assets/app_store_badge.svg" alt="Download on the App Store" style="height: 56px; width: auto; display: block;" />
             </a>
           </div>
+        </div>
+      </article>
+
+      <article class="app-card app-card-blue magic-border-beam">
+        <a
+          class="app-icon blue-glow app-icon-link icon-beam"
+          href="https://www.viewon.app/findarrow/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="FindArrow 소개 페이지 새창으로 열기"
+        >
+          <img src="./assets/findarrow-icon-window-on.png" alt="FindArrow app icon" />
+        </a>
+
+        <div class="app-body">
+          <div class="app-title-row">
+            <div>
+              <p class="app-kicker">Windows pointer utility</p>
+              <h2>FindArrow</h2>
+            </div>
+            <a href="https://www.viewon.app/findarrow/" target="_blank" rel="noopener noreferrer">
+              <span class="chip">Cursor Finder</span>
+            </a>
+          </div>
+
+          <p>
+            화면에서 마우스 포인터를 놓쳤을 때 빠르게 다시 찾도록 도와주는 Windows 유틸리티입니다.
+            마우스를 빠르게 흔들거나 Ctrl 키를 두 번 빠르게 누르면 포인터를 크게 표시하며,
+            Windows 시작 시 자동 실행하도록 설정할 수 있습니다.
+          </p>
+
+          <a
+            class="windows-download-badge"
+            href="https://www.viewon.app/findarrow/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="FindArrow Windows용 다운로드 페이지로 이동"
+          >
+            <span class="windows-logo" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </span>
+            <span class="windows-badge-text">
+              <small>Windows용</small>
+              <strong>다운로드</strong>
+            </span>
+          </a>
         </div>
       </article>
 
@@ -99,7 +242,7 @@
               <p class="app-kicker">Quick notes & todos</p>
               <h2>Memosy</h2>
             </div>
-            <a href="https://www.viewon.app/memosy/" target="_blank" rel="noopener noreferrer" >
+            <a href="https://www.viewon.app/memosy/" target="_blank" rel="noopener noreferrer">
               <span class="chip">Memo & Todo</span>
             </a>
           </div>
