@@ -672,3 +672,16 @@ body::after {
   color: rgba(255, 255, 255, 0.95);
   text-decoration: underline;
 }
+
+.hero-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 1;
+}
+
+.tagline-break {
+  flex-basis: 100%;
+  width: 0;
+  height: 0;
+}

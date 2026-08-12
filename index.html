@@ -125,6 +125,35 @@
         font-size: 17px;
       }
     }
+
+    /* More樂 브랜드명 가로축 플립 */
+    .brand-flip {
+      display: inline-block;
+      min-width: 5.6em;
+      text-align: center;
+      white-space: nowrap;
+      transform: rotateX(0deg);
+      transform-origin: 50% 50%;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: transform .42s cubic-bezier(.55, 0, .2, 1);
+      will-change: transform;
+    }
+
+    .brand-flip.is-flipping-out {
+      transform: rotateX(90deg);
+    }
+
+    .brand-flip.is-flip-reset {
+      transform: rotateX(-90deg);
+      transition: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .brand-flip {
+        transition: none;
+      }
+    }
   </style>
 </head>
 
@@ -141,12 +170,14 @@
       </a>
     </header>
 
-    <section class="hero" aria-label="ViewOn introduction">
+    <section class="hero" aria-label="More樂 introduction">
       <div class="hero-inner">
-        <h1 class="viewon-hero-title" aria-label="ViewOn">
-          <span class="title-glow title-word" aria-hidden="true">
-            <span class="title-piece">View</span><span class="title-piece drop-o">O</span><span class="title-piece">n</span>
-          </span>
+        <h1 class="viewon-hero-title">
+          <span
+            id="brand-flip"
+            class="title-glow title-word brand-flip"
+            aria-live="polite"
+          >모어 락</span>
         </h1>
 
         <div class="hero-divider" aria-hidden="true"></div>
@@ -154,6 +185,8 @@
         <p class="hero-tagline">
           <span>Crafting</span>
           <span class="gradient-word">Utility</span>
+          <span>and</span>
+          <span class="gradient-word">Delight</span>
           <span>for Your</span>
           <span class="life-word">Daily Life</span>
         </p>
@@ -370,6 +403,30 @@
     ) {
       appStoreLink.href =
         "https://apps.apple.com/kr/app/viewon-link/id6787559105";
+    }
+
+    const brandFlip = document.getElementById("brand-flip");
+    const brandNames = ["모어 락", "모락~ 모락~", "More 樂"];
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let brandIndex = 0;
+
+    if (brandFlip && !reduceMotion) {
+      window.setInterval(() => {
+        brandFlip.classList.add("is-flipping-out");
+
+        window.setTimeout(() => {
+          brandIndex = (brandIndex + 1) % brandNames.length;
+          brandFlip.textContent = brandNames[brandIndex];
+          brandFlip.classList.remove("is-flipping-out");
+          brandFlip.classList.add("is-flip-reset");
+
+          void brandFlip.offsetWidth;
+
+          requestAnimationFrame(() => {
+            brandFlip.classList.remove("is-flip-reset");
+          });
+        }, 420);
+      }, 2600);
     }
   </script>
 </body>
